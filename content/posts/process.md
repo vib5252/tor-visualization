@@ -1,6 +1,10 @@
+---
+title: "Process"
+date: 2025-08-03
+---
+
 The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for "trust" scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.
 
----
 ### Unsupervised Process:
 
 Dimensionality Reduction:
@@ -16,7 +20,6 @@ Clustering:
 Latent Pattern Extraction:
 - RBM (Restricted Boltzmann Machine): A generative neural network used to uncover hidden co-activation patterns (learns which features tend to activate together) in Tor relay features. These help capture latent behavioral motifs, such as patterns of bandwidth, flags, and uptime, which are not visible through clustering alone.
 
----
 
 #### Tag Inference (In Progress)
 The above process is used to derive meaningful behavioral labels.
