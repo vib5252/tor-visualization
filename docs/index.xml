@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anomaly Detection and Trust Projection in TOR on TOR Visualization</title>
-    <link>http://localhost:1313/tor-visualization/</link>
+    <link>https://vib5252.github.io/tor-visualization/</link>
     <description>Recent content in Anomaly Detection and Trust Projection in TOR on TOR Visualization</description>
     <generator>Hugo -- gohugo.io</generator>
       <language>en-us</language>
-      <lastBuildDate>Sun, 03 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tor-visualization/index.xml" rel="self" type="application/rss+xml" />
+      <lastBuildDate>Sun, 03 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
