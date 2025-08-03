@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Tor Project"
 theme = "hugo-dusk"
 publishDir = "docs"
+relativeURLs = true
+canonifyURLs = true
 
 [params]
   github = "vib5252"
