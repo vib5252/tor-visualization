@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Tor Project</title>
+    <title>Tags on TOR Project</title>
     <link>https://vib5252.github.io/tor-visualization/tags/</link>
-    <description>Recent content in Tags on Tor Project</description>
+    <description>Recent content in Tags on TOR Project</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://vib5252.github.io/tor-visualization/tags/index.xml" rel="self" type="application/rss+xml" />

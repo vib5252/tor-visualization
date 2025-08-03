@@ -1,6 +1,6 @@
 baseURL = "https://vib5252.github.io/tor-visualization/"
 languageCode = "en-us"
-title = "Tor Project"
+title = "TOR Project"
 theme = "hugo-dusk"
 publishDir = "docs"
 relativeURLs = true
