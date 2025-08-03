@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tor-visualization/</loc>
+    <loc>https://vib5252.github.io/tor-visualization/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tor-visualization/categories/</loc>
+    <loc>https://vib5252.github.io/tor-visualization/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tor-visualization/tags/</loc>
+    <loc>https://vib5252.github.io/tor-visualization/tags/</loc>
   </url>
 </urlset>
