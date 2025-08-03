@@ -1,16 +1,26 @@
 baseURL = "https://vib5252.github.io/tor-visualization/"
 languageCode = "en-us"
 title = "TOR Project"
-theme = "hugo-dusk"
+theme = "PaperMod"
 publishDir = "docs"
 relativeURLs = true
 canonifyURLs = true
 
 [params]
-  github = "vib5252"
-  paginate = 5
+  author = "Vaibhav Chhabra"
   description = "Interactive visualization of Tor relays using unsupervised learning and trust scoring"
+  ShowReadingTime = true
+  defaultTheme = "dark"
 
-  [params.author]
-    name = "Vaibhav Chhabra"
-    bio = "Threat Researcher | AI/ML Enthusiast"
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 2

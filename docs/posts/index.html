@@ -1,161 +1,209 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en" dir="auto">
 
-<head>
-<meta charset="utf-8" />
-<meta name="author" content="Vaibhav Chhabra" />
+<head><script src="/tor-visualization/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=tor-visualization/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Posts | TOR Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - TOR Project">
+<meta name="author" content="Vaibhav Chhabra">
+<link rel="canonical" href="http://localhost:1313/tor-visualization/posts/">
+<link crossorigin="anonymous" href="../tor-visualization/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/tor-visualization/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/tor-visualization/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/tor-visualization/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/tor-visualization/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/tor-visualization/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tor-visualization/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tor-visualization/posts/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<meta name="description" content="" />
-
-<meta name="keywords" content="" />
-
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.148.2">
-
-<link rel="canonical" href="https://vib5252.github.io/tor-visualization/posts/">
-
-
-  <meta property="og:url" content="https://vib5252.github.io/tor-visualization/posts/">
-  <meta property="og:site_name" content="TOR Project">
-  <meta property="og:title" content="Posts">
-  <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
-
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Posts">
-  <meta name="twitter:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
-
-
-
-
-  <meta itemprop="name" content="Posts">
-  <meta itemprop="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
-  <meta itemprop="datePublished" content="2025-08-03T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-08-03T00:00:00+00:00">
-
-<link rel="stylesheet" href="../css/layout.css" />
-
-
-<link rel="stylesheet" href="../css/default-dark.css" />
-
-
-
-
-<title>
-
-
-     Posts 
-
-</title>
-
+    </style>
+</noscript>
 </head>
 
+<body class="list dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
 
-<body>
-<div class="main">
-<header>
+</script>
 
-<div class="header-bar">
-
-  <nav>
-    <div class="siteTitle">
-      <a href="https://vib5252.github.io/tor-visualization/">TOR Project</a>
-    </div> 
-
-    
-    
-
-  </nav>
-
-</div>
-
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/tor-visualization/" accesskey="h" title="TOR Project (Alt + H)">TOR Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
 </header>
 
-
-<h2 class="content-list-title">
-    <a href="https://vib5252.github.io/tor-visualization/posts/" class="linktopost">Posts</a>
-</h2>
-
-<div class="content-list">
-
-  
-  <div class="content-item">
-
-    <a href="https://vib5252.github.io/tor-visualization/posts/visualization/">
-      <div class="post-list"> <h3 class="title"> Visualization </h3>
-      <div class="date"> 2025-08-03 </div>
-
-      </div>
-    </a>
-    
-</div>
-
-  
-  <div class="content-item">
-
-    <a href="https://vib5252.github.io/tor-visualization/posts/process/">
-      <div class="post-list"> <h3 class="title"> Process </h3>
-      <div class="date"> 2025-08-03 </div>
-
-      </div>
-    </a>
-    
-</div>
-
-  
-  <div class="content-item">
-
-    <a href="https://vib5252.github.io/tor-visualization/posts/intro/">
-      <div class="post-list"> <h3 class="title"> Intro </h3>
-      <div class="date"> 2025-08-03 </div>
-
-      </div>
-    </a>
-    
-</div>
-
-  
-
-
-
-  <footer>
-
-  <div class="social-links-footer">
-
-  
-
-  
-  <a href="https://github.com/vib5252" target="_blank"><div class="social-link">GitHub</div></a>
-  
-
-  
-
-  
-
-  
-
-  
-
-  <div class="social-link">
-  <a href="../posts/index.xml">RSS</a>
-  
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Intro
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.
+More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as “The Weak Law of Large Numbers,” still blow my mind how this abstract form converges.
+</p>
   </div>
+  <footer class="entry-footer"><span title='2025-08-03 00:00:00 +0000 UTC'>August 3, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Vaibhav Chhabra</footer>
+  <a class="entry-link" aria-label="post link to Intro" href="http://localhost:1313/tor-visualization/posts/intro/"></a>
+</article>
 
-</div>
-
-
-  <div class="copyright">  </div>
-
-  <div class="poweredby">
-    Powered by <a href="https://gohugo.io/">Hugo</a>.
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Process
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for “trust” scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.
+Unsupervised Process: Dimensionality Reduction:
+Linear PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise. Non-Linear t-SNE (t-distributed Stochastic Neighbor Embedding): Preserves local structure, meaning points close in high-dimensional space stay close in 2D. Lacks global relationship. UMAP (Uniform Manifold Approximation and Projection): Preserves local and some global structure, making it well-suited for highlighting latent topology. Clustering:
+...</p>
   </div>
+  <footer class="entry-footer"><span title='2025-08-03 00:00:00 +0000 UTC'>August 3, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Vaibhav Chhabra</footer>
+  <a class="entry-link" aria-label="post link to Process" href="http://localhost:1313/tor-visualization/posts/process/"></a>
+</article>
 
-  </footer>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Visualization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Snapshot (8-3-2025) View Map
+A world map showing Tor relays positioned by geographic coordinates and colored by key behavioral features (such as role flags or bandwidth categories).
+This visualization helps connect physical relay distribution to behavioral roles, revealing geographic concentrations of specific types (e.g., Guard-heavy zones or Exit-dense regions). Useful for spotting regional relay patterns.
+View RBM Plot
+A 2D UMAP embedding of Tor relays, colored by RBM energy values representing the model’s confidence or reconstruction error for each relay.
+Higher energy scores may indicate anomalous or rare behaviors, while lower scores align with well-modeled, typical relays. This plot highlights latent behavioral outliers, useful for surfacing unknown roles or transitions not captured by flags alone.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-03 00:00:00 +0000 UTC'>August 3, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Vaibhav Chhabra</footer>
+  <a class="entry-link" aria-label="post link to Visualization" href="http://localhost:1313/tor-visualization/posts/visualization/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/tor-visualization/">TOR Project</a></span> · 
 
-</div> 
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
-</html>
 
+</html>

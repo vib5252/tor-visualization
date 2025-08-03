@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/intro/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/intro/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/process/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/process/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/</loc>
+    <loc>http://localhost:1313/tor-visualization/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/visualization/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/visualization/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/categories/</loc>
+    <loc>http://localhost:1313/tor-visualization/categories/</loc>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/</loc>
   </url>
 </urlset>
