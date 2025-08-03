@@ -6,20 +6,21 @@
     <description>Recent content on TOR Project</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 03 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vib5252.github.io/tor-visualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>Intro</title>
       <link>https://vib5252.github.io/tor-visualization/posts/intro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 Aug 2025 00:00:00 +0000</pubDate>
       <guid>https://vib5252.github.io/tor-visualization/posts/intro/</guid>
-      <description>&lt;h4 id=&#34;intro&#34;&gt;Intro&lt;/h4&gt;&#xA;&lt;p&gt;This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &amp;ldquo;The Weak Law of Large Numbers,&amp;rdquo; still blow my mind how this abstract form converges.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.&lt;/p&gt;&#xA;&lt;p&gt;More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &amp;ldquo;The Weak Law of Large Numbers,&amp;rdquo; still blow my mind how this abstract form converges.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>https://vib5252.github.io/tor-visualization/posts/process/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vib5252.github.io/tor-visualization/posts/process/</guid>
-      <description>&lt;p&gt;The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &amp;ldquo;trust&amp;rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.&lt;/p&gt;&#xA;&lt;h4 id=&#34;unsupervised-process&#34;&gt;Unsupervised Process:&lt;/h4&gt;&#xA;&lt;p&gt;Dimensionality Reduction:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Linear&#xA;&lt;ul&gt;&#xA;&lt;li&gt;PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Non-Linear&#xA;&lt;ul&gt;&#xA;&lt;li&gt;t-SNE (t-distributed Stochastic Neighbor Embedding): Preserves local structure, meaning points close in high-dimensional space stay close in 2D. Lacks global relationship.&lt;/li&gt;&#xA;&lt;li&gt;UMAP (Uniform Manifold Approximation and Projection): Preserves local and some global structure, making it well-suited for highlighting latent topology.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Clustering:&lt;/p&gt;</description>
+      <description>&lt;p&gt;The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &amp;ldquo;trust&amp;rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;unsupervised-process&#34;&gt;Unsupervised Process:&lt;/h3&gt;&#xA;&lt;p&gt;Dimensionality Reduction:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Linear&#xA;&lt;ul&gt;&#xA;&lt;li&gt;PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Non-Linear&#xA;&lt;ul&gt;&#xA;&lt;li&gt;t-SNE (t-distributed Stochastic Neighbor Embedding): Preserves local structure, meaning points close in high-dimensional space stay close in 2D. Lacks global relationship.&lt;/li&gt;&#xA;&lt;li&gt;UMAP (Uniform Manifold Approximation and Projection): Preserves local and some global structure, making it well-suited for highlighting latent topology.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Clustering:&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

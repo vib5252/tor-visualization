@@ -83,7 +83,8 @@ Linear PCA (Principal Component Analysis): Projects high-dimensional data onto a
 <article class="post">
     <h1 class="title">  </h1>
     <div class="content"> <p>The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p>
-<h4 id="unsupervised-process">Unsupervised Process:</h4>
+<hr>
+<h3 id="unsupervised-process">Unsupervised Process:</h3>
 <p>Dimensionality Reduction:</p>
 <ul>
 <li>Linear
@@ -106,6 +107,7 @@ Linear PCA (Principal Component Analysis): Projects high-dimensional data onto a
 <ul>
 <li>RBM (Restricted Boltzmann Machine): A generative neural network used to uncover hidden co-activation patterns (learns which features tend to activate together) in Tor relay features. These help capture latent behavioral motifs, such as patterns of bandwidth, flags, and uptime, which are not visible through clustering alone.</li>
 </ul>
+<hr>
 <h4 id="tag-inference-in-progress">Tag Inference (In Progress)</h4>
 <p>The above process is used to derive meaningful behavioral labels.</p>
 <h4 id="linear-classifier-in-progress">Linear Classifier (In Progress)</h4>
