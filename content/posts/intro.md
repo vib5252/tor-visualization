@@ -36,6 +36,6 @@ Once we have meaningful behavioral labels, we can train on those labels to creat
 
 ### Geographic Relay Plot
 
-[View Geo Map](/plots/Tor_Relays_Clustered_Geographically_map_09212025.html)  
+[View Geo Map](/plots/Tor_Relays_Clustered_Geographically_map_08212025.html)  
 A world map showing Tor relays positioned by geographic coordinates and colored by key behavioral features (such as role flags or bandwidth categories).  
 This visualization helps connect physical relay distribution to behavioral roles, revealing geographic concentrations of specific types (e.g., Guard-heavy zones or Exit-dense regions). Useful for spotting regional relay patterns.
