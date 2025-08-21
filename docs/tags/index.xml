@@ -2,9 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on TOR Visualization</title>
-    <link>https://vib5252.github.io/tor-visualization/tags/</link>
+    <link>http://localhost:1313/tor-visualization/tags/</link>
     <description>Recent content in Tags on TOR Visualization</description>
-    <generator>Hugo -- gohugo.io</generator>
-      <language>en-us</language><atom:link href="https://vib5252.github.io/tor-visualization/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tor-visualization/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pipeline</title>
+      <link>http://localhost:1313/tor-visualization/tags/pipeline/</link>
+      <pubDate>Sun, 03 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tor-visualization/tags/pipeline/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

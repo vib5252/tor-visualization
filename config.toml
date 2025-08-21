@@ -1,17 +1,22 @@
 baseURL = "https://vib5252.github.io/tor-visualization/"
 languageCode = "en-us"
 title = "TOR Visualization"
-theme = "hugo-xterm"
+theme = "mostafa-hugo-theme"
 publishDir = "docs"
 relativeURLs = true
 canonifyURLs = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/mirmousaviii/mostafa-hugo-theme"
+
 
 [params]
   author = "Vaibhav Chhabra"
   description = "Interactive visualization of Tor relays using unsupervised learning and trust scoring"
   showMenu = false
   contentTypeName = "index"
-  mainSections = ["."]
+  mainSections = ["posts"]
   showReadingTime = false
   showDate = false
   enableSearch = false

@@ -1,141 +1,463 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-	<meta name="generator" content="Hugo 0.148.2">
-<title>TOR Visualization</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.
-More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.
-The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.
-" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="https://vib5252.github.io/tor-visualization/" />
-<meta property="og:locale" content="en" />
-<meta property="og:title" content="TOR Visualization" />
-<meta property="og:description" content="This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.
-More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.
-The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.
-" />
-  <meta property="og:type" content="website" />
-<meta property="og:url" content="https://vib5252.github.io/tor-visualization/" />
-<meta property="og:site_name" content="TOR Visualization" />
-<meta property="og:image" content="" />
-<meta property="og:image:width" content="2048" />
-<meta property="og:image:height" content="1024" />
-<link rel="shortcut icon" href="" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Roboto+Slab:wght@300;400;500&family=Ubuntu+Mono:ital@0;1&display=swap"
-  rel="stylesheet"
-/>
-<link href="./" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
-<link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/styles.8823cf9ff9f4a0a8b9abc618182e4c23b78c56a848f9fdca41b9a6c4a2fe5c3b.css" integrity="sha256-iCPPn/n0oKi5q8YYGC5MI7eMVqhI&#43;f3KQbmmxKL&#43;XDs=" />
+
+
+  
+<html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
+
+<head prefix="og: http://ogp.me/ns#"><script src="/tor-visualization/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=tor-visualization/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="siteBaseUrl" content="http://localhost:1313/tor-visualization/">
+    <meta name="author" content="Vaibhav Chhabra">
+    <meta name="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta name="keywords" content="">
+    <meta name="generator" content="Hugo 0.145.0">
+    <title>
+        
+           
+               TOR Visualization
+           
+        
+    </title>
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+
+    <meta property="og:url" content="http://localhost:1313/tor-visualization/">
+  <meta property="og:site_name" content="TOR Visualization">
+  <meta property="og:title" content="TOR Visualization">
+  <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="TOR Visualization">
+
+    
+
+
+    
+    <link href="http://localhost:1313/tor-visualization/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
+    <link href="http://localhost:1313/tor-visualization/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
+    
+
+    
+    <link rel="canonical" href="http://localhost:1313/tor-visualization/">
+    
+
+    
+
+
+
+    <link rel="stylesheet" href="http://localhost:1313/tor-visualization/theme.css" media="screen">
+
+
+
+
+
+    
+    
+
+    
 </head>
 
-  <body>
-    <div class="theme-container">
-      <div class="container">
-        <header class="site-header">
-<nav class="navbar">
-  <div class="navbar__first">
-    <ul class="navbar__list borders">
-      
-      
-    </ul>
-  </div>
-  <div class="navbar__separator"></div>
-</nav>
-</header>
-        <main class="site-main">
-  <article class="post">
-    <header class="post-header">
-        <h1>Anomaly Detection and Trust Projection in TOR</h1></header>
+<body class="mostafa-hugo-theme ">
+    
 
-    <div class="post-content">
+    <header>
+    <a id="back-to-top-button">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title">
+                <a href="http://localhost:1313/tor-visualization/">
+                    TOR Visualization
+                </a>
+            </h1>
+            
+        </div>
+
+        <nav>
+            <ul>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="navigation">
+
+    
+    
+    <div class="pages menu-wrapper">
+        <ul>
+            
+            
+            <li  class="active menu-toggle">
+                <a href="./">Home</a>
+            </li>
+            
+            <li >
+                <a href="./posts/">Posts</a>
+            </li>
+            
+            <li >
+                <a href="./tags/">Tags</a>
+            </li>
+            
+            
+        </ul>
+    </div>
+    
+
+
+
+    
+    
+
+</div>
+
+
+
+
+    <div class="main container">
+        
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="http://localhost:1313/tor-visualization/posts/pca/">
+            Principal Component Analysis
+        </a>
+    </h1>
+
+   
+
+    
+        <p>PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.</p>
+<p>Here is the PCA analysis of some important features:</p>
+<p><a href="./plots/PCA_HSDir_PCA1_PCA2_09212025.html">HSDir: Hidden Service Directory</a>
+When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services.
+The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.</p>
+
+
+        
+            <a href="http://localhost:1313/tor-visualization/posts/pca/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/pca/">
+            <i class="fa fa-tag"></i> Pca
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="http://localhost:1313/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-08-21</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="http://localhost:1313/tor-visualization/posts/intro/">
+            Anomaly Detection and Trust Projection in TOR
+        </a>
+    </h1>
+
+   
+
+    
         <p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.</p>
 <p>More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.</p>
-<p>The TOR public API gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p>
+<p>The <a href="https://onionoo.torproject.org/details">TOR public API</a> gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p>
 
-<h3 id="unsupervised-process">
-  Unsupervised Process:
-  <a href="#unsupervised-process" class="hanchor" ariaLabel="Anchor"></a>
-</h3>
-<p>Dimensionality Reduction:</p>
-<ul>
-<li>Linear
-<ul>
-<li>PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.</li>
-</ul>
-</li>
-<li>Non-Linear
-<ul>
-<li>t-SNE (t-distributed Stochastic Neighbor Embedding): Preserves local structure, meaning points close in high-dimensional space stay close in 2D. Lacks global relationship.</li>
-<li>UMAP (Uniform Manifold Approximation and Projection): Preserves local and some global structure, making it well-suited for highlighting latent topology.</li>
-</ul>
-</li>
-</ul>
-<p>Clustering:</p>
-<ul>
-<li>HDBSCAN (Hierarchical Density-Based Spatial Clustering of Applications with Noise): Groups data based on density, not distance. Works well on embedded spaces (t-SNE/UMAP outputs).</li>
-</ul>
-<p>Latent Pattern Extraction:</p>
-<ul>
-<li>RBM (Restricted Boltzmann Machine): A generative neural network used to uncover hidden co-activation patterns (learns which features tend to activate together) in Tor relay features. These help capture latent behavioral motifs, such as patterns of bandwidth, flags, and uptime, which are not visible through clustering alone.</li>
-</ul>
 
-<h3 id="tag-inference-in-progress">
-  Tag Inference (In Progress)
-  <a href="#tag-inference-in-progress" class="hanchor" ariaLabel="Anchor"></a>
-</h3>
-<p>The above process is used to derive meaningful behavioral labels.</p>
+        
+            <a href="http://localhost:1313/tor-visualization/posts/intro/" class="more">
+                Continue reading
+                
+            </a>
+        
 
-<h3 id="linear-classifier-in-progress">
-  Linear Classifier (In Progress)
-  <a href="#linear-classifier-in-progress" class="hanchor" ariaLabel="Anchor"></a>
-</h3>
-<p>Once we have meaningful behavioral labels, we can train on those labels to create a decision hyperplane that can project trust/anomaly scores onto any relay.</p>
-<hr>
+    
 
-<h3 id="plots">
-  Plots
-  <a href="#plots" class="hanchor" ariaLabel="Anchor"></a>
-</h3>
-<p><a href="./plots/Tor_Relays_Clustered_Geographically_by_Features_map.html">View Geo Map</a><br>
-A world map showing Tor relays positioned by geographic coordinates and colored by key behavioral features (such as role flags or bandwidth categories).<br>
-This visualization helps connect physical relay distribution to behavioral roles, revealing geographic concentrations of specific types (e.g., Guard-heavy zones or Exit-dense regions). Useful for spotting regional relay patterns.</p>
-<p><a href="./plots/RBM_Anomaly_Energy_Overlay_UMAP.html">View RBM Plot</a><br>
-A 2D UMAP embedding of Tor relays, colored by RBM energy values representing the model&rsquo;s confidence or reconstruction error for each relay.<br>
-Higher energy scores may indicate anomalous or rare behaviors, while lower scores align with well-modeled, typical relays. This plot highlights latent behavioral outliers, useful for surfacing unknown roles or transitions not captured by flags alone.</p>
-<p><a href="./plots/hdbscan_cluster_on_UMAP1_vs_UMAP2.html">View Cluster Plot</a><br>
-Tor relays embedded via UMAP and clustered using HDBSCAN, a density-based algorithm that assigns relays to organic clusters without needing a fixed number of groups. Each cluster reflects a natural grouping of behavioral similarity across metrics like uptime, flags, bandwidth, and role history. Relays labeled as noise are considered outliers or difficult to cluster, often worthy of further analysis or tagging.</p>
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/pipeline/">
+            <i class="fa fa-tag"></i> Pipeline
+        </a>
+        
+        
+    </div>
+    
 
-      <div class="post-entries">
+
+    
+
 </div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="http://localhost:1313/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-08-03</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+
+    
+    <div class="paginator">
+        
+
+        
+    </div>
+
+
 
     </div>
 
-    <footer class="post-footer"></footer>
-  </article>
-        </main>
-        <footer class="site-footer">
-<p class="buildinfo">
-  <time datetime="2025-08-03 18:20:45 CDT">Site built on: 2025-08-03 18:20:45 CDT</time>
-</p>
-<div class="copyright">
-  <p></p>
-  <nav class="navbar">
-    <ul class="navbar__list">
-      <li><a href="https://vib5252.github.io/tor-visualization/posts/index.xml">RSS</a></li>
-      <li><a href="https://vib5252.github.io/tor-visualization/sitemap.xml">Sitemap</a></li>
-    </ul>
-  </nav>
-</div>
-<p class="themeinfo">Powered by <a href="https://gohugo.io">Hugo</a>, using theme <a href="https://manid2.github.io/hugo-xterm/">Hugo Xterm</a>.</p>
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+            <ul>
+                
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/pca/">Principal Component Analysis</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/intro/">Anomaly Detection and Trust Projection in TOR</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        
+
+        <div class="right">
+            
+
+
+
+            
+            <div class="archive">
+                
+            </div>
+            
+        </div>
+    </div>
 </footer>
-      </div>
-    </div><script type="text/javascript" src="./tor-visualization/bundle.min.js"></script>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="http://localhost:1313/tor-visualization/">
+                &copy;
+                
+                2024 - 2025
+                
+                by TOR Visualization
+            </a>
+            -
+            <a href="http://localhost:1313/tor-visualization/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"
+                target="_blank">Powered by Mostafa-Hugo-Theme</a>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script src="http://localhost:1313/tor-visualization/theme.js"></script>
+
+
+
+
+
+    
+
+    
 </body>
+
 </html>

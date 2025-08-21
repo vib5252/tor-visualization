@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on TOR Visualization</title>
+    <link>http://localhost:1313/tor-visualization/posts/</link>
+    <description>Recent content in Posts on TOR Visualization</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tor-visualization/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Principal Component Analysis</title>
+      <link>http://localhost:1313/tor-visualization/posts/pca/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tor-visualization/posts/pca/</guid>
+      <description>&lt;p&gt;PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/p&gt;&#xA;&lt;p&gt;Here is the PCA analysis of some important features:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;../plots/PCA_HSDir_PCA1_PCA2_09212025.html&#34;&gt;HSDir: Hidden Service Directory&lt;/a&gt;&#xA;When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services.&#xA;The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Anomaly Detection and Trust Projection in TOR</title>
+      <link>http://localhost:1313/tor-visualization/posts/intro/</link>
+      <pubDate>Sun, 03 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tor-visualization/posts/intro/</guid>
+      <description>&lt;p&gt;This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.&lt;/p&gt;&#xA;&lt;p&gt;More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &amp;ldquo;The Weak Law of Large Numbers,&amp;rdquo; still blow my mind how this abstract form converges.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://onionoo.torproject.org/details&#34;&gt;TOR public API&lt;/a&gt; gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &amp;ldquo;trust&amp;rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
