@@ -24,3 +24,4 @@ canonifyURLs = true
   metaTextColor = "#a8d56eff"               # Lighter meta
   footerBackgroundColor = "#191d23"       # Footer
   footerHeadlineColor = "#a8d56eff"     # prominent text (sometimes not used for copyright)
+  
