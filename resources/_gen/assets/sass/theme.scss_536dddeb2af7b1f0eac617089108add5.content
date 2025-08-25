@@ -1705,7 +1705,7 @@ corresponds to the arrow we want to display */
   display: block;
   padding: 2em;
   background-color: #191A19;
-  color: #FF8D00;
+  color: #c7e97dff;
   font-size: 0.9em;
   font-style: italic;
   text-align: center; }
@@ -1733,14 +1733,14 @@ corresponds to the arrow we want to display */
 .mostafa-hugo-theme {
   background-color: #191A19;
   font-family: "Open Sans", sans-serif;
-  color: #7a7a7a;
+  color: #adadadff;
   font-size: 1.6em; }
   .mostafa-hugo-theme a {
     color: inherit;
     text-decoration: none;
     transition: all 0.2s ease-in-out; }
     .mostafa-hugo-theme a:hover {
-      color: #FF8D00; }
+      color: #c7e97dff; }
     .mostafa-hugo-theme a:focus {
       outline: none; }
   .mostafa-hugo-theme .highlight {
@@ -1821,7 +1821,7 @@ corresponds to the arrow we want to display */
     z-index: 1000; }
   .mostafa-hugo-theme #back-to-top-button:hover {
     cursor: pointer;
-    background-color: #ffffff; }
+    background-color: #c7e97dff; }
   .mostafa-hugo-theme #back-to-top-button.show {
     opacity: 1;
     visibility: visible; }
@@ -1833,9 +1833,9 @@ corresponds to the arrow we want to display */
     border-bottom: 1px solid #000000;
     box-shadow: 0 1px 0 #2c2c2c; }
     .mostafa-hugo-theme header a {
-      color: #FF8D00; }
+      color: #c7e97dff; }
       .mostafa-hugo-theme header a:hover {
-        color: #ffffff; }
+        color: #c7e97dff; }
     .mostafa-hugo-theme header .container {
       display: flex;
       flex-direction: row;
@@ -1942,7 +1942,7 @@ corresponds to the arrow we want to display */
   .mostafa-hugo-theme article {
     border-radius: 4px;
     overflow: hidden;
-    background-color: #343434;
+    background-color: #212733;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     width: 800px; }
     .mostafa-hugo-theme article .featured-image {
@@ -1958,10 +1958,10 @@ corresponds to the arrow we want to display */
         margin-bottom: 0.25em; }
         .mostafa-hugo-theme article .content h1 a {
           font-style: normal;
-          color: #ffffff;
+          color: #c7e97dff;
           display: block; }
           .mostafa-hugo-theme article .content h1 a:hover {
-            color: #FF8D00;
+            color: #c7e97dff;
             text-decoration: none; }
       .mostafa-hugo-theme article .content h2 {
         font-size: 1.6em; }
@@ -1975,7 +1975,7 @@ corresponds to the arrow we want to display */
         font-size: 1.2em;
         font-weight: bold; }
       .mostafa-hugo-theme article .content strong {
-        color: #a0a0a0; }
+        color: lightgray; }
       .mostafa-hugo-theme article .content li {
         line-height: 120%; }
       .mostafa-hugo-theme article .content .meta {
@@ -1984,14 +1984,14 @@ corresponds to the arrow we want to display */
         letter-spacing: 1px;
         margin-bottom: 2rem;
         font-size: 0.825em;
-        color: #999999;
+        color: #a8d56eff;
         padding-bottom: 2.5%;
         border-bottom: 1px solid #eeeeee; }
         .mostafa-hugo-theme article .content .meta a {
           color: inherit;
           font-style: normal; }
           .mostafa-hugo-theme article .content .meta a:hover {
-            color: #ffffff;
+            color: #c7e97dff;
             text-decoration: underline; }
         .mostafa-hugo-theme article .content .meta span:before {
           content: " / ";
@@ -2003,7 +2003,7 @@ corresponds to the arrow we want to display */
           content: ", "; }
       .mostafa-hugo-theme article .content a {
         font-style: normal;
-        color: #ffffff; }
+        color: #c7e97dff; }
         .mostafa-hugo-theme article .content a:hover {
           text-decoration: underline; }
       .mostafa-hugo-theme article .content a.more {
@@ -2013,7 +2013,7 @@ corresponds to the arrow we want to display */
         text-decoration: none;
         font-style: normal; }
         .mostafa-hugo-theme article .content a.more:hover {
-          color: #FF8D00; }
+          color: #c7e97dff; }
       .mostafa-hugo-theme article .content .readingTime {
         display: inline-block;
         font-size: 0.8em;
@@ -2036,11 +2036,11 @@ corresponds to the arrow we want to display */
           left: 0;
           display: inline-block;
           transition: left 0.3s ease-in-out;
-          color: #ffffff;
+          color: #c7e97dff;
           font-family: "Open Sans", sans-serif;
           font-style: normal; }
           .mostafa-hugo-theme article .content .archive-list ul a span {
-            color: #999999; }
+            color: #a8d56eff; }
           .mostafa-hugo-theme article .content .archive-list ul a:hover {
             left: 10px;
             color: #191A19;
@@ -2078,13 +2078,13 @@ corresponds to the arrow we want to display */
             font-size: 95%; }
         .mostafa-hugo-theme article .content #TableOfContents li {
           display: inherit;
-          color: #7a7a7a; }
+          color: #adadadff; }
           .mostafa-hugo-theme article .content #TableOfContents li a {
             color: inherit;
             text-align: left;
             padding: 0; }
             .mostafa-hugo-theme article .content #TableOfContents li a:hover {
-              color: #ffffff;
+              color: #c7e97dff;
               background-color: transparent; }
       .mostafa-hugo-theme article .content .tags .link {
         display: inline-block;
@@ -2096,7 +2096,7 @@ corresponds to the arrow we want to display */
         text-decoration: none;
         margin-right: 5px; }
         .mostafa-hugo-theme article .content .tags .link:hover {
-          color: #FF8D00;
+          color: #c7e97dff;
           border-color: #7a7a7a; }
       .mostafa-hugo-theme article .content .author {
         margin-top: 10px; }
@@ -2109,7 +2109,7 @@ corresponds to the arrow we want to display */
           padding: 2px 5px;
           text-decoration: none; }
           .mostafa-hugo-theme article .content .author .link:hover {
-            color: #FF8D00;
+            color: #c7e97dff;
             border-color: #7a7a7a; }
     .mostafa-hugo-theme article .footer {
       display: flex;
@@ -2140,7 +2140,7 @@ corresponds to the arrow we want to display */
           margin-left: 0.75em; }
           .mostafa-hugo-theme article .footer .tags .links a:not(:last-child):after {
             content: ", ";
-            color: #7a7a7a !important; }
+            color: #adadadff !important; }
       .mostafa-hugo-theme article .footer .languages {
         display: flex;
         align-items: center;
@@ -2155,7 +2155,7 @@ corresponds to the arrow we want to display */
           letter-spacing: 0.1em; }
           .mostafa-hugo-theme article .footer .languages .links a:not(:last-child):after {
             content: " | ";
-            color: #7a7a7a !important; }
+            color: #adadadff !important; }
     .mostafa-hugo-theme article .footnotes {
       font-size: 0.9em; }
       .mostafa-hugo-theme article .footnotes ol {
@@ -2276,10 +2276,10 @@ corresponds to the arrow we want to display */
       padding: 0.8em 1.4em;
       text-decoration: none;
       font-weight: bold;
-      background-color: #343434;
+      background-color: #212733;
       color: #fff; }
       .mostafa-hugo-theme .paginator a:hover {
-        color: #FF8D00;
+        color: #c7e97dff;
         transition: all 0.3s ease-in-out; }
       .mostafa-hugo-theme .paginator a.older {
         margin-right: auto; }
@@ -2288,7 +2288,7 @@ corresponds to the arrow we want to display */
   .mostafa-hugo-theme footer {
     border-bottom: 1px double #000000;
     box-shadow: 1px 1px 0 #2c2c2c;
-    background-color: #191A19; }
+    background-color: #191d23; }
     .mostafa-hugo-theme footer .container {
       padding: 4rem 0;
       display: flex;
@@ -2300,7 +2300,7 @@ corresponds to the arrow we want to display */
         display: none; }
       .mostafa-hugo-theme footer .container strong {
         text-transform: uppercase;
-        color: #ffffff;
+        color: #c7e97dff;
         padding-bottom: 0.75em; }
       .mostafa-hugo-theme footer .container ul {
         list-style: none;
@@ -2326,7 +2326,7 @@ corresponds to the arrow we want to display */
           color: #444;
           text-decoration: none; }
           .mostafa-hugo-theme footer .container .right .external-profiles a:hover {
-            color: #ffffff; }
+            color: #c7e97dff; }
         .mostafa-hugo-theme footer .container .right .external-profiles .fa-facebook-adblock-proof:before {
           content: "\f09a"; }
         .mostafa-hugo-theme footer .container .right .external-profiles .fa-twitter-adblock-proof:before {
@@ -2341,15 +2341,15 @@ corresponds to the arrow we want to display */
         margin-bottom: 2em; }
         .mostafa-hugo-theme footer .container .right .languages a {
           text-transform: uppercase;
-          color: #ffffff;
+          color: #c7e97dff;
           letter-spacing: 0.1em; }
           .mostafa-hugo-theme footer .container .right .languages a.active {
             font-weight: bold; }
           .mostafa-hugo-theme footer .container .right .languages a:hover {
-            color: #7a7a7a; }
+            color: #adadadff; }
           .mostafa-hugo-theme footer .container .right .languages a:not(:last-child):after {
             content: " | ";
-            color: #7a7a7a !important; }
+            color: #adadadff !important; }
       .mostafa-hugo-theme footer .container .right .archive {
         width: 100%;
         margin-left: 0; }
@@ -2361,7 +2361,7 @@ corresponds to the arrow we want to display */
     padding: 4rem 0;
     font-size: 0.8em; }
     .mostafa-hugo-theme .credits .container a {
-      color: #FF8D00; }
+      color: #c7e97dff; }
       .mostafa-hugo-theme .credits .container a:hover {
         color: #ffffff; }
     .mostafa-hugo-theme .credits .container:after {
