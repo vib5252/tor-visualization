@@ -6,11 +6,6 @@ publishDir = "docs"
 relativeURLs = true
 canonifyURLs = true
 
-[module]
-  [[module.imports]]
-    path = "github.com/mirmousaviii/mostafa-hugo-theme"
-
-
 [params]
   author = "Vaibhav Chhabra"
   description = "Interactive visualization of Tor relays using unsupervised learning and trust scoring"
