@@ -3,6 +3,7 @@ title: "Principal Component Analysis"
 date: 2025-08-21
 draft: false
 tags: ["pca"]
+excludefromindex: true
 ---
 PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.
 
