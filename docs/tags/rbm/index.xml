@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cluster on TOR Visualization</title>
-    <link>http://localhost:1313/tor-visualization/tags/cluster/</link>
-    <description>Recent content in Cluster on TOR Visualization</description>
+    <title>Rbm on TOR Visualization</title>
+    <link>http://localhost:1313/tor-visualization/tags/rbm/</link>
+    <description>Recent content in Rbm on TOR Visualization</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tor-visualization/tags/cluster/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tor-visualization/tags/rbm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cluster Characterization</title>
       <link>http://localhost:1313/tor-visualization/posts/which_cluster/</link>

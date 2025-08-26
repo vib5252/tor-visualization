@@ -2,7 +2,7 @@
 title: "Anomaly Detection and Trust Projection in TOR"
 date: 2025-08-03
 draft: false
-tags: ["pipeline"]
+tags: ["pipeline", "rbm", "hdbscan"]
 ---
 
 This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.

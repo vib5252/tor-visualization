@@ -36,10 +36,10 @@ To do this, we use a two-step process:
 
 - Only clusters with an RBM value far enough from the most familiar cluster (above an RBM delta threshold) are selected.
 
-In short:
-Clusters are flagged if they have both an extreme combination of feature deviations (high selection score) and are considered unfamiliar by the neural network (high RBM delta). These clusters, and their top features, become the focus for our next stage, training a classifier to recognize or investigate these patterns further.
-
 ---
+
+In short:
+Clusters are flagged if they have both an extreme combination (↑↑ or ↓↓) of feature (z-scores) deviations (high selection score) and are considered unfamiliar by the neural network (high RBM delta). These clusters, and their top features, become the focus for our next stage, training a classifier to recognize or investigate these patterns further.
 
 *08-25-2025, 9:29pm*, Cluster Information
 ```python
