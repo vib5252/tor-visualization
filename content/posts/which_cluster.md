@@ -4,7 +4,7 @@ date: 2025-08-25
 tags: ["cluster","zscore"]
 math: true
 ---
-##### Z-Score
+##### **Z-Score**
 A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.
 
 We use this on our top 3 feature combos:
@@ -13,6 +13,13 @@ We use this on our top 3 feature combos:
 
 A low RBM value means that it is familiar to the neural net. It has seen it while training
 A high RBM means the neural network is not familiar with this pattern.
+
+```python
+zscore = (cluster_mean - global_mean) / global_std
+```
+
+A z-score is measured in standard deviations (std) and convey information about how far in std are we from the global mean.
+
 
 ---
 
@@ -32,11 +39,6 @@ This selection score highlights clusters where multiple features are unusually h
 
 The top three features are z-score values. Positive z-score means the feature is higher than average present in the cluster where as a negative z-score means the feature is lower than average in the cluster.
 
-Also, its important to remember that a z-score is measured in standard deviations (std) and convey information about how far in std are we from the global mean.
-
-```python
-zscore = (cluster_mean - global_mean) / global_std
-```
 
 **cluster_mean - global_mean** is a measure of how much the cluster's mean deviates from the typical global mean.
 **global_std** is the measure of how much the feature naturally varies globally.
