@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zscore on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/zscore/</link><description>Recent content in Zscore on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/zscore/index.xml" rel="self" type="application/rss+xml"/><item><title>Cluster Characterization</title><link>https://vib5252.github.io/tor-visualization/posts/which_cluster/</link><pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/which_cluster/</guid><description>&lt;h5 id="z-score">Z-Score&lt;/h5>
+&lt;p>A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.&lt;/p>
+&lt;p>We use this on our top 3 feature combos:&lt;/p>
+&lt;ul>
+&lt;li>A positive ↑ z-score means the feature has higher than average in the cluster.&lt;/li>
+&lt;li>A negative ↓ z-score means the feature is lower than average in the cluster.&lt;/li>
+&lt;/ul>
+&lt;p>A low RBM value means that it is familiar to the neural net. It has seen it while training
+A high RBM means the neural network is not familiar with this pattern.&lt;/p></description></item></channel></rss>
