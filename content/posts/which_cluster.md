@@ -16,7 +16,7 @@ A high RBM means the neural network is not familiar with this pattern.
 
 ---
 
-#### Threshold Algorithm for RBM and Z-score
+#### **Threshold Algorithm for RBM and Z-score**
 
 From our cluster characterization we want to select clusters that stand out and use those top features as an input for training our classifier.
 
@@ -24,17 +24,33 @@ To do this, we use a two-step process:
 
 ##### Selection Score (Feature Outlierness):
 
-- For each cluster, I look at the three features with the most extreme Z-scores (how many standard deviations away from the global mean).
+```python 
+selection_score = (zscore_max - zscore_min) + zscore_mid
+```
 
-- I then calculate the spread between the most positive and most negative Z-scores, then add the third Z-score (the one that is neither max nor min, keeping its sign).
+This selection score highlights clusters where multiple features are unusually high or low, or show strong contrast. We only consider clusters with a selection score above a chosen threshold.
 
-- This selection score highlights clusters where multiple features are unusually high or low, or show strong contrast. We only consider clusters with a selection score above a chosen threshold.
+The top three features are z-score values. Positive z-score means the feature is higher than average present in the cluster where as a negative z-score means the feature is lower than average in the cluster.
+
+Also, its important to remember that a z-score is measured in standard deviations (std) and convey information about how far in std are we from the global mean.
+
+```python
+zscore = (cluster_mean - global_mean) / global_std
+```
+
+`cluster_mean - global_mean` is a measure of how much the cluster's mean deviates from the typical `global mean`.
+`global_std` is the measure of how much the feature naturally varies globally.
+
 
 ##### RBM Familiarity Filter:
 
-- RBM We compute the average RBM energy for each cluster, representing how familiar or routine the neural network thinks this pattern is.
+```python
+RBM_delta = RBM_avg(cluster) - RBM_min
 
-- Only clusters with an RBM value far enough from the most familiar cluster (above an RBM delta threshold) are selected.
+```
+RBM We compute the average RBM energy (RBM_avg) for each cluster, representing how familiar or routine the neural network thinks this pattern is. Only clusters with an RBM value far enough from the most familiar cluster (above an RBM delta threshold) are selected.
+
+Note: The RBM energy directly measures how well the hidden layer “explains” (reconstructs) the visible/input data.
 
 ---
 
