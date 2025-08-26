@@ -1,19 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pca on TOR Visualization</title>
-    <link>http://localhost:1313/tor-visualization/tags/pca/</link>
-    <description>Recent content in Pca on TOR Visualization</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tor-visualization/tags/pca/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Principal Component Analysis</title>
-      <link>http://localhost:1313/tor-visualization/posts/pca/</link>
-      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tor-visualization/posts/pca/</guid>
-      <description>&lt;p&gt;PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/p&gt;&#xA;&lt;p&gt;Here is the PCA analysis of some important features:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;../../plots/PCA_HSDir_PCA1_PCA2_08212025.html&#34;&gt;HSDir: Hidden Service Directory&lt;/a&gt;&#xA;When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services.&#xA;The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pca on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/pca/</link><description>Recent content in Pca on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/pca/index.xml" rel="self" type="application/rss+xml"/><item><title>Principal Component Analysis</title><link>https://vib5252.github.io/tor-visualization/posts/pca/</link><pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/pca/</guid><description>&lt;p>PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/p>
+&lt;p>Here is the PCA analysis of some important features:&lt;/p>
+&lt;p>&lt;a href="../../plots/PCA_HSDir_PCA1_PCA2_08212025.html">HSDir: Hidden Service Directory&lt;/a>
+When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services.
+The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.&lt;/p></description></item></channel></rss>
