@@ -38,8 +38,8 @@ Also, its important to remember that a z-score is measured in standard deviation
 zscore = (cluster_mean - global_mean) / global_std
 ```
 
-`cluster_mean - global_mean` is a measure of how much the cluster's mean deviates from the typical `global mean`.
-`global_std` is the measure of how much the feature naturally varies globally.
+**cluster_mean - global_mean** is a measure of how much the cluster's mean deviates from the typical global mean.
+**global_std** is the measure of how much the feature naturally varies globally.
 
 
 ##### RBM Familiarity Filter:
