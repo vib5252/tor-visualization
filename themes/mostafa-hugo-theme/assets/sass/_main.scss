@@ -46,6 +46,34 @@
         //    }
         //}
     }
+    pre, code, .highlight {
+    background: #151a1e !important;
+    color: rgb(85, 140, 2) !important;
+    border-radius: 6px;
+    padding: 0.7em 1em;
+    border: none !important;
+    font-family: "Fira Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.91em !important;   // or 0.9em, adjust as you like
+    }
+
+    .copy-to-clipboard, .code-copy, .copy-btn {
+    display: none !important;
+    }
+
+    /* Hide common copy button selectors */
+    .copy-to-clipboard,
+    .code-copy,
+    .copy-btn,
+    .btn-copy,
+    .code-toolbar button,
+    .code-toolbar .toolbar-item {
+    display: none !important;
+    }
+
+    .code-toolbar {
+    padding-top: 0 !important;
+    }
+
 }
 
 

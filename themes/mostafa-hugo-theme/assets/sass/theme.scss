@@ -55,3 +55,4 @@ $footer-headline-color: {{ .Param "" | default "$highlight-color" }};
 
 // Base theme styling
 @import 'mostafa-hugo-theme';
+@import 'main';

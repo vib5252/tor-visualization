@@ -1929,7 +1929,8 @@ corresponds to the arrow we want to display */
     min-height: 50vh;
     border-bottom: 1px solid #000000;
     box-shadow: 0 1px 0 #2c2c2c;
-    width: 100%; }
+    width: 100%;
+    /* Hide common copy button selectors */ }
     .mostafa-hugo-theme .main .article-wrapper {
       display: flex;
       justify-content: center;
@@ -1939,6 +1940,25 @@ corresponds to the arrow we want to display */
       position: relative; }
       .mostafa-hugo-theme .main .article-wrapper.single {
         padding-bottom: 2.5em; }
+    .mostafa-hugo-theme .main pre, .mostafa-hugo-theme .main code, .mostafa-hugo-theme .main .highlight {
+      background: #151a1e !important;
+      color: #558c02 !important;
+      border-radius: 6px;
+      padding: 0.7em 1em;
+      border: none !important;
+      font-family: "Fira Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+      font-size: 0.91em !important; }
+    .mostafa-hugo-theme .main .copy-to-clipboard, .mostafa-hugo-theme .main .code-copy, .mostafa-hugo-theme .main .copy-btn {
+      display: none !important; }
+    .mostafa-hugo-theme .main .copy-to-clipboard,
+    .mostafa-hugo-theme .main .code-copy,
+    .mostafa-hugo-theme .main .copy-btn,
+    .mostafa-hugo-theme .main .btn-copy,
+    .mostafa-hugo-theme .main .code-toolbar button,
+    .mostafa-hugo-theme .main .code-toolbar .toolbar-item {
+      display: none !important; }
+    .mostafa-hugo-theme .main .code-toolbar {
+      padding-top: 0 !important; }
   .mostafa-hugo-theme article {
     border-radius: 4px;
     overflow: hidden;
@@ -2471,5 +2491,39 @@ corresponds to the arrow we want to display */
         font-size: 2.5rem;
         line-height: 150%;
         margin: 2rem auto; } }
+.main {
+  min-height: 50vh;
+  border-bottom: 1px solid #000000;
+  box-shadow: 0 1px 0 #2c2c2c;
+  width: 100%;
+  /* Hide common copy button selectors */ }
+  .main .article-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 40px;
+    min-height: 90px;
+    position: relative; }
+    .main .article-wrapper.single {
+      padding-bottom: 2.5em; }
+  .main pre, .main code, .main .highlight {
+    background: #151a1e !important;
+    color: #558c02 !important;
+    border-radius: 6px;
+    padding: 0.7em 1em;
+    border: none !important;
+    font-family: "Fira Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.91em !important; }
+  .main .copy-to-clipboard, .main .code-copy, .main .copy-btn {
+    display: none !important; }
+  .main .copy-to-clipboard,
+  .main .code-copy,
+  .main .copy-btn,
+  .main .btn-copy,
+  .main .code-toolbar button,
+  .main .code-toolbar .toolbar-item {
+    display: none !important; }
+  .main .code-toolbar {
+    padding-top: 0 !important; }
 
 /*# sourceMappingURL=theme.css.map */
