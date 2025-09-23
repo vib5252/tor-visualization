@@ -1,5 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/posts/</link><description>Recent content in Posts on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 23 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Goal</title><link>https://vib5252.github.io/tor-visualization/posts/goal/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/goal/</guid><description>&lt;p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.&lt;/p>
-&lt;p>Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.&lt;/p></description></item><item><title>Feature Drift</title><link>https://vib5252.github.io/tor-visualization/posts/drift/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/drift/</guid><description>&lt;p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/posts/</link><description>Recent content in Posts on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 23 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Goal</title><link>https://vib5252.github.io/tor-visualization/posts/goal/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/goal/</guid><description>&lt;pre tabindex="0">&lt;code class="language-code" data-lang="code"> Raw Tor Relay Features
+ (flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)
+ │
+ ▼
+ ┌────────────────┐
+ │ Preprocessing │
+ │ standardize, │
+ │ clip outliers │
+ └────────────────┘
+ │
+ ▼
+ ┌───────────────────────────────────────────────────────────────┐
+ │ STAGE A — Backbone Geometry │
+ │ Contractive + Denoising Autoencoder (C/D-AE) │ ← Intuition 7
+ │ - Encoder: x → z_base (16–32 dims) │
+ │ - Loss: L_rec = Σ w_j (x_j - x̂_j)^2 + λ_c ‖∂z/∂x‖² │
+ └───────────────────────────────────────────────────────────────┘
+ │
+ ▼
+ z_base (stable latent)
+ │
+ ┌─────────────────┴─────────────────┐
+ │ │
+ ▼ ▼
+ HDBSCAN on z_base UMAP(z_base)
+ (clustering space) (one global 2D map)
+ │ │
+ ▼ ▼
+ Cluster snapshots &amp;amp; drift Drift arrows on map
+ (centroid, size, density, (visualization only)
+ role flips, top-3 features)
+ │
+ ▼
+ ┌───────────────────────────────────────────────────────────────┐
+ │ STAGE B — Interpretable Bundles (side head) │
+ │ Sparse / Winner-Take-All Autoencoder Head │
+ │ - Share the same encoder (or a small adapter) │
+ │ - Get z_sparse (few active units) │
+ │ - Loss: α·L_rec_sparse + β·‖z_sparse‖₁ / k-sparse mask │
+ │ Use: z_sparse to map attention-weighted bundles &amp;amp; “twist” │
+ │ (Do NOT use for clustering; clustering stays on z_base) │
+ └───────────────────────────────────────────────────────────────┘
+ │
+ ▼
+ Bundle fibers (from z_sparse) with attention weights (Intuition 3+6)
+ - Explain why drift arrows bend
+ - Detect bundle “twist” (orientation change over time)
+ │
+ ▼
+ ┌───────────────────────────────────────────────────────────────┐
+ │ STAGE C — Probabilistic Terrain │
+ │ Variational Autoencoder (VAE) head (Intuition 9) │
+ │ - Turn decoder into μ, logσ²; KL warm-up (β-anneal/free bits)│
+ │ - ELBO/NLL per sample → cluster-level terrain depth │
+ │ Option: keep RBM as reference chronometer (Intuition 8) │
+ │ for ΔF comparisons (disagreements = insight) │
+ └───────────────────────────────────────────────────────────────┘
+ │
+ ▼
+ Terrain overlays &amp;amp; metrics:
+ - VAE NLL/ELBO (primary terrain)
+ - (Optional) RBM ΔF (reference)
+ - Composite drift report: speed/angle, ΔNLL, bundle twist
+&lt;/code>&lt;/pre>&lt;hr>
+&lt;p>&lt;strong>Legend of Acronyms Used in the Flowchart&lt;/strong>&lt;/p></description></item><item><title>Feature Drift</title><link>https://vib5252.github.io/tor-visualization/posts/drift/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/drift/</guid><description>&lt;p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.&lt;/p>
 &lt;p>Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.&lt;/p></description></item><item><title>Cluster Characterization</title><link>https://vib5252.github.io/tor-visualization/posts/which_cluster/</link><pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/which_cluster/</guid><description>&lt;h5 id="z-score">&lt;strong>Z-Score&lt;/strong>&lt;/h5>
 &lt;p>A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.&lt;/p>
 &lt;p>We use this on our top 3 feature combos:&lt;/p>
