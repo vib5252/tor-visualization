@@ -36,7 +36,7 @@ math: true
                  ▼                                   ▼
         Cluster snapshots & drift            Drift arrows on map
         (centroid, size, density,            (visualization only)
-         role flips, top-3 features)
+         role flips, weighted features)
                                    │
                                    ▼
      ┌───────────────────────────────────────────────────────────────┐
