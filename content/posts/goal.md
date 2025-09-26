@@ -77,8 +77,7 @@ This chart captures the current state of the system as it grows more nuanced and
 </pre>
 </div>
 
----
-## Legend of Acronyms Used in the Flowchart
+### Legend of Acronyms Used in the Flowchart
 ---
 
 - **AE** &rarr; *Autoencoder*: a neural network that compresses input into a latent representation and reconstructs it back.

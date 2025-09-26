@@ -68,8 +68,7 @@ Terrain overlays &amp; metrics:
 - Composite drift report: speed/angle, ΔNLL, bundle twist
 &lt;/pre>
 &lt;/div>
-&lt;hr>
-&lt;h2 id="legend-of-acronyms-used-in-the-flowchart">Legend of Acronyms Used in the Flowchart&lt;/h2>
+&lt;h3 id="legend-of-acronyms-used-in-the-flowchart">Legend of Acronyms Used in the Flowchart&lt;/h3>
 &lt;hr>
 &lt;ul>
 &lt;li>

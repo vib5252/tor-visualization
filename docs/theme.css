@@ -1937,7 +1937,8 @@ corresponds to the arrow we want to display */
       flex-direction: row;
       padding-top: 40px;
       min-height: 90px;
-      position: relative; }
+      position: relative;
+      width: 100%; }
       .mostafa-hugo-theme .main .article-wrapper.single {
         padding-bottom: 2.5em; }
     .mostafa-hugo-theme .main pre, .mostafa-hugo-theme .main code, .mostafa-hugo-theme .main .highlight {
@@ -2503,7 +2504,8 @@ corresponds to the arrow we want to display */
     flex-direction: row;
     padding-top: 40px;
     min-height: 90px;
-    position: relative; }
+    position: relative;
+    width: 100%; }
     .main .article-wrapper.single {
       padding-bottom: 2.5em; }
   .main pre, .main code, .main .highlight {
