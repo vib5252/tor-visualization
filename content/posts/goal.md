@@ -11,7 +11,6 @@ This chart captures the current state of the system as it grows more nuanced and
 
 <div style="overflow-x:auto;">
 <pre>
-```code
                   Raw Tor Relay Features
       (flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)
                                    │
@@ -75,31 +74,33 @@ This chart captures the current state of the system as it grows more nuanced and
      - VAE NLL/ELBO (primary terrain)
      - (Optional) RBM ΔF (reference)
      - Composite drift report: speed/angle, ΔNLL, bundle twist
-
-```
 </pre>
 </div>
 
 ---
-**Legend of Acronyms Used in the Flowchart**
+## Legend of Acronyms Used in the Flowchart
+---
 
-AE → Autoencoder: a neural network that compresses input into a latent representation and reconstructs it back.
+- **AE** &rarr; *Autoencoder*: a neural network that compresses input into a latent representation and reconstructs it back.
 
-C/D-AE → Contractive / Denoising Autoencoder:
-  - Contractive AE: adds a penalty so the latent space changes smoothly with respect to input.
-  - Denoising AE: trains to reconstruct clean input from noisy versions, improving robustness.
-  - Sparse / WTA-AE → Sparse or Winner-Take-All Autoencoder: enforces that only a small number of latent neurons activate, creating interpretable bundle features.
+- **C/D-AE** &rarr; *Contractive / Denoising Autoencoder*:
+    - **Contractive AE**: adds a penalty so the latent space changes smoothly with respect to input.
+    - **Denoising AE**: trains to reconstruct clean input from noisy versions, improving robustness.
 
-VAE → Variational Autoencoder: extends AE by encoding inputs into a probability distribution, enabling sampling and likelihood estimation (ELBO / NLL).
+- **Sparse / WTA-AE** &rarr; *Sparse or Winner-Take-All Autoencoder*: enforces that only a small number of latent neurons activate, creating interpretable bundle features.
 
-RBM → Restricted Boltzmann Machine: an energy-based model that assigns a free-energy score to data, used here as an optional plausibility reference.
+- **VAE** &rarr; *Variational Autoencoder*: extends AE by encoding inputs into a probability distribution, enabling sampling and likelihood estimation (**ELBO**, **NLL**).
 
-ELBO → Evidence Lower Bound: the objective function used to train VAEs; balances reconstruction accuracy and regularization.
+- **RBM** &rarr; *Restricted Boltzmann Machine*: energy-based model that assigns a free-energy score to data, used as an optional plausibility reference.
 
-NLL → Negative Log-Likelihood: a scalar measure of how surprising data is under a model; lower = more plausible.
+- **ELBO** &rarr; *Evidence Lower Bound*: objective function used to train VAEs; balances reconstruction accuracy and regularization.
 
-HDBSCAN → Hierarchical Density-Based Spatial Clustering of Applications with Noise: clustering algorithm that groups dense areas of latent space while marking sparse points as noise.
+- **NLL** &rarr; *Negative Log-Likelihood*: how surprising data is under a model; lower = more plausible.
 
-UMAP → Uniform Manifold Approximation and Projection: nonlinear dimensionality reduction algorithm, mostly for 2D visualization of high-dimensional data.
+- **HDBSCAN** &rarr; *Hierarchical Density-Based Spatial Clustering of Applications with Noise*: clusters dense areas of latent space, marks sparse points as noise.
 
-KL divergence → Kullback–Leibler divergence: a measure of difference between two probability distributions; used in VAEs to keep latent codes close to a prior.
+- **UMAP** &rarr; *Uniform Manifold Approximation and Projection*: nonlinear dimensionality reduction, for 2D visualization of high-dimensional data.
+
+- **KL divergence** &rarr; *Kullback–Leibler divergence*: measure of difference between two probability distributions; used in VAEs to keep latent codes close to a prior.
+
+
