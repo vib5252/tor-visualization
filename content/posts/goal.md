@@ -5,6 +5,12 @@ tags: ["goal"]
 math: true
 ---
 
+The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
+Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling.
+This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.
+
+<div style="overflow-x:auto;">
+<pre>
 ```code
                   Raw Tor Relay Features
       (flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)
@@ -71,6 +77,9 @@ math: true
      - Composite drift report: speed/angle, ΔNLL, bundle twist
 
 ```
+</pre>
+</div>
+
 ---
 **Legend of Acronyms Used in the Flowchart**
 

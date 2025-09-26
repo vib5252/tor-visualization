@@ -25,3 +25,7 @@ canonifyURLs = true
   footerBackgroundColor = "#191d23"       # Footer
   footerHeadlineColor = "#a8d56eff"     # prominent text (sometimes not used for copyright)
   
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
