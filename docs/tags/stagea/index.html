@@ -15,16 +15,16 @@
     <title>
         
            
-               Hdbscan &vert; TOR Visualization
+               StageA &vert; TOR Visualization
            
         
     </title>
-    <meta itemprop="name" content="Hdbscan">
-    <meta itemprop="description" content="Hdbscan - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta itemprop="name" content="StageA">
+    <meta itemprop="description" content="StageA - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
 
-    <meta property="og:url" content="http://localhost:1313/tor-visualization/tags/hdbscan/">
+    <meta property="og:url" content="http://localhost:1313/tor-visualization/tags/stagea/">
   <meta property="og:site_name" content="TOR Visualization">
-  <meta property="og:title" content="Hdbscan">
+  <meta property="og:title" content="StageA">
   <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
@@ -35,12 +35,12 @@
 
 
     
-    <link href="http://localhost:1313/tor-visualization/tags/hdbscan/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
-    <link href="http://localhost:1313/tor-visualization/tags/hdbscan/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
+    <link href="http://localhost:1313/tor-visualization/tags/stagea/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
+    <link href="http://localhost:1313/tor-visualization/tags/stagea/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
     
 
     
-    <link rel="canonical" href="http://localhost:1313/tor-visualization/tags/hdbscan/">
+    <link rel="canonical" href="http://localhost:1313/tor-visualization/tags/stagea/">
     
 
     
@@ -150,21 +150,21 @@
 
     <div class="content">
     <h1 class="article-title">
-        <a href="http://localhost:1313/tor-visualization/posts/intro/">
-            Anomaly Detection and Trust Projection in TOR
+        <a href="http://localhost:1313/tor-visualization/posts/stagea/">
+            Stage A — Backbone Geometry
         </a>
     </h1>
 
    
 
     
-        <p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.</p>
-<p>More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.</p>
-<p>The <a href="https://onionoo.torproject.org/details">TOR public API</a> gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p>
+        <p>In this stage, raw Tor relay features are processed by a contractive + denoising autoencoder (C/D-AE) to produce a robust latent representation of the network’s state.</p>
+<p>The autoencoder learns to compress the input into a lower-dimensional space (z_base) while resisting overfitting and smoothing out noise. This geometric “backbone” becomes the foundation for downstream clustering (HDBSCAN), visualization (UMAP), and all subsequent anomaly and drift analysis.</p>
+<p>The training objective balances accurate reconstruction with penalties that encourage smoothness (contractive) and robustness to noise (denoising):</p>
 
 
         
-            <a href="http://localhost:1313/tor-visualization/posts/intro/" class="more">
+            <a href="http://localhost:1313/tor-visualization/posts/stagea/" class="more">
                 Continue reading
                 
             </a>
@@ -177,22 +177,8 @@
         
         
         
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/pipeline/">
-            <i class="fa fa-tag"></i> Pipeline
-        </a>
-        
-        
-        
-        
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/rbm/">
-            <i class="fa fa-tag"></i> Rbm
-        </a>
-        
-        
-        
-        
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/hdbscan/">
-            <i class="fa fa-tag"></i> Hdbscan
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/stagea/">
+            <i class="fa fa-tag"></i> StageA
         </a>
         
         
@@ -232,22 +218,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     <div class="date">
         
             <i class="fa fa-calendar-days"></i>
             
             <span class="text moment">
-                2025-08-03</span>
+                2025-09-28</span>
             
         
     </div>
@@ -339,7 +315,7 @@
                 by TOR Visualization
             </a>
             -
-            <a href="http://localhost:1313/tor-visualization/tags/hdbscan/index.xml">RSS</a>
+            <a href="http://localhost:1313/tor-visualization/tags/stagea/index.xml">RSS</a>
         </div>
         <div class="author">
             <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"

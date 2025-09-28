@@ -1,75 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Goal on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/goal/</link><description>Recent content in Goal on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 23 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/goal/index.xml" rel="self" type="application/rss+xml"/><item><title>Goal</title><link>https://vib5252.github.io/tor-visualization/posts/goal/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/goal/</guid><description>&lt;p>The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
-Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling.
-This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.&lt;/p>
-&lt;div style="overflow-x:auto;">
-&lt;pre>
- Raw Tor Relay Features
- (flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)
- │
- ▼
- ┌────────────────┐
- │ Preprocessing │
- │ standardize, │
- │ clip outliers │
- └────────────────┘
- │
- ▼
- ┌───────────────────────────────────────────────────────────────┐
- │ STAGE A — Backbone Geometry │
- │ Contractive + Denoising Autoencoder (C/D-AE) │ ← Intuition 7
- │ - Encoder: x → z_base (16–32 dims) │
- │ - Loss: L_rec = Σ w_j (x_j - x̂_j)^2 + λ_c ‖∂z/∂x‖² │
- └───────────────────────────────────────────────────────────────┘
- │
- ▼
- z_base (stable latent)
- │
- ┌─────────────────┴─────────────────┐
- │ │
- ▼ ▼
- HDBSCAN on z_base UMAP(z_base)
- (clustering space) (one global 2D map)
- │ │
- ▼ ▼
- Cluster snapshots &amp; drift Drift arrows on map
- (centroid, size, density, (visualization only)
- role flips, weighted features)
- │
- ▼
- ┌───────────────────────────────────────────────────────────────┐
- │ STAGE B — Interpretable Bundles (side head) │
- │ Sparse / Winner-Take-All Autoencoder Head │
- │ - Share the same encoder (or a small adapter) │
- │ - Get z_sparse (few active units) │
- │ - Loss: α·L_rec_sparse + β·‖z_sparse‖₁ / k-sparse mask │
- │ Use: z_sparse to map attention-weighted bundles &amp; “twist” │
- │ (Do NOT use for clustering; clustering stays on z_base) │
- └───────────────────────────────────────────────────────────────┘
- │
- ▼
- Bundle fibers (from z_sparse) with attention weights (Intuition 3+6)
- - Explain why drift arrows bend
- - Detect bundle “twist” (orientation change over time)
- │
- ▼
- ┌───────────────────────────────────────────────────────────────┐
- │ STAGE C — Probabilistic Terrain │
- │ Variational Autoencoder (VAE) head (Intuition 9) │
- │ - Turn decoder into μ, logσ²; KL warm-up (β-anneal/free bits)│
- │ - ELBO/NLL per sample → cluster-level terrain depth │
- │ Option: keep RBM as reference chronometer (Intuition 8) │
- │ for ΔF comparisons (disagreements = insight) │
- └───────────────────────────────────────────────────────────────┘
- │
- ▼
- Terrain overlays &amp; metrics:
- - VAE NLL/ELBO (primary terrain)
- - (Optional) RBM ΔF (reference)
- - Composite drift report: speed/angle, ΔNLL, bundle twist
-&lt;/pre>
-&lt;/div>
-&lt;h3 id="legend-of-acronyms-used-in-the-flowchart">Legend of Acronyms Used in the Flowchart&lt;/h3>
-&lt;hr>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>AE&lt;/strong> → &lt;em>Autoencoder&lt;/em>: a neural network that compresses input into a latent representation and reconstructs it back.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Goal on TOR Visualization</title>
+    <link>http://localhost:1313/tor-visualization/tags/goal/</link>
+    <description>Recent content in Goal on TOR Visualization</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tor-visualization/tags/goal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goal</title>
+      <link>http://localhost:1313/tor-visualization/posts/goal/</link>
+      <pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tor-visualization/posts/goal/</guid>
+      <description>&lt;p&gt;The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.&#xA;Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling.&#xA;This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.&lt;/p&gt;&#xA;&lt;div style=&#34;overflow-x:auto;&#34;&gt;&#xA;&lt;pre&gt;&#xA;                  Raw Tor Relay Features&#xA;      (flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)&#xA;                                   │&#xA;                                   ▼&#xA;                          ┌────────────────┐&#xA;                          │ Preprocessing  │&#xA;                          │ standardize,   │&#xA;                          │ clip outliers  │&#xA;                          └────────────────┘&#xA;                                   │&#xA;                                   ▼&#xA;     ┌───────────────────────────────────────────────────────────────┐&#xA;     │                STAGE A — Backbone Geometry                    │&#xA;     │        Contractive + Denoising Autoencoder (C/D-AE)           │  ← Intuition 7&#xA;     │  - Encoder: x → z_base (16–32 dims)                           │&#xA;     │  - Loss: L_rec = Σ w_j (x_j - x̂_j)^2  +  λ_c ‖∂z/∂x‖²         │&#xA;     └───────────────────────────────────────────────────────────────┘&#xA;                                   │&#xA;                                   ▼&#xA;                          z_base  (stable latent)&#xA;                                   │&#xA;                 ┌─────────────────┴─────────────────┐&#xA;                 │                                   │&#xA;                 ▼                                   ▼&#xA;          HDBSCAN on z_base                     UMAP(z_base)&#xA;          (clustering space)                    (one global 2D map)&#xA;                 │                                   │&#xA;                 ▼                                   ▼&#xA;        Cluster snapshots &amp; drift            Drift arrows on map&#xA;        (centroid, size, density,            (visualization only)&#xA;         role flips, weighted features)&#xA;                                   │&#xA;                                   ▼&#xA;     ┌───────────────────────────────────────────────────────────────┐&#xA;     │        STAGE B — Interpretable Bundles (side head)            │&#xA;     │       Sparse / Winner-Take-All Autoencoder Head               │&#xA;     │  - Share the same encoder (or a small adapter)                │&#xA;     │  - Get z_sparse (few active units)                            │&#xA;     │  - Loss: α·L_rec_sparse  +  β·‖z_sparse‖₁ / k-sparse mask     │&#xA;     │  Use: z_sparse to map attention-weighted bundles &amp; “twist”    │&#xA;     │  (Do NOT use for clustering; clustering stays on z_base)      │&#xA;     └───────────────────────────────────────────────────────────────┘&#xA;                                   │&#xA;                                   ▼&#xA;     Bundle fibers (from z_sparse) with attention weights (Intuition 3+6)&#xA;     - Explain why drift arrows bend&#xA;     - Detect bundle “twist” (orientation change over time)&#xA;                                   │&#xA;                                   ▼&#xA;     ┌───────────────────────────────────────────────────────────────┐&#xA;     │            STAGE C — Probabilistic Terrain                    │&#xA;     │       Variational Autoencoder (VAE) head (Intuition 9)        │&#xA;     │  - Turn decoder into μ, logσ²; KL warm-up (β-anneal/free bits)│&#xA;     │  - ELBO/NLL per sample → cluster-level terrain depth          │&#xA;     │  Option: keep RBM as reference chronometer (Intuition 8)      │&#xA;     │          for ΔF comparisons (disagreements = insight)         │&#xA;     └───────────────────────────────────────────────────────────────┘&#xA;                                   │&#xA;                                   ▼&#xA;     Terrain overlays &amp; metrics:&#xA;     - VAE NLL/ELBO (primary terrain)&#xA;     - (Optional) RBM ΔF (reference)&#xA;     - Composite drift report: speed/angle, ΔNLL, bundle twist&#xA;&lt;/pre&gt;&#xA;&lt;/div&gt;&#xA;&lt;h3 id=&#34;legend-of-acronyms-used-in-the-flowchart&#34;&gt;Legend of Acronyms Used in the Flowchart&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;AE&lt;/strong&gt; → &lt;em&gt;Autoencoder&lt;/em&gt;: a neural network that compresses input into a latent representation and reconstructs it back.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

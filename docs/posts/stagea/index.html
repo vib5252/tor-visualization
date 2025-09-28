@@ -15,19 +15,25 @@
     <title>
         
            
-               Hdbscan &vert; TOR Visualization
+               Stage A — Backbone Geometry &vert; TOR Visualization
            
         
     </title>
-    <meta itemprop="name" content="Hdbscan">
-    <meta itemprop="description" content="Hdbscan - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta itemprop="name" content="Stage A — Backbone Geometry">
+    <meta itemprop="description" content="Stage A — Backbone Geometry - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
 
-    <meta property="og:url" content="http://localhost:1313/tor-visualization/tags/hdbscan/">
+    <meta property="og:url" content="http://localhost:1313/tor-visualization/posts/stagea/">
   <meta property="og:site_name" content="TOR Visualization">
-  <meta property="og:title" content="Hdbscan">
-  <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+  <meta property="og:title" content="Stage A — Backbone Geometry">
+  <meta property="og:description" content="In this stage, raw Tor relay features are processed by a contractive &#43; denoising autoencoder (C/D-AE) to produce a robust latent representation of the network’s state.
+The autoencoder learns to compress the input into a lower-dimensional space ($z_\mathrm{base}$) while resisting overfitting and smoothing out noise. This geometric “backbone” becomes the foundation for downstream clustering (HDBSCAN), visualization (UMAP), and all subsequent anomaly and drift analysis.
+Sensitivity and the Jacobian Matrix Unlike a plain autoencoder, a contractive autoencoder doesn’t just reconstruct the input—it also learns to control the sensitivity of its latent space to small changes in the input features.">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-28T00:00:00+00:00">
+    <meta property="article:tag" content="StageA">
 
     <meta property="og:site_name" content="TOR Visualization">
 
@@ -35,12 +41,9 @@
 
 
     
-    <link href="http://localhost:1313/tor-visualization/tags/hdbscan/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
-    <link href="http://localhost:1313/tor-visualization/tags/hdbscan/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
-    
 
     
-    <link rel="canonical" href="http://localhost:1313/tor-visualization/tags/hdbscan/">
+    <link rel="canonical" href="http://localhost:1313/tor-visualization/posts/stagea/">
     
 
     
@@ -137,11 +140,9 @@
 
     <div class="main container">
         
-    
-    
-        <div class="article-wrapper u-cf">
+    <div class="article-wrapper u-cf single">
+        
             
-                
 
 
 
@@ -150,25 +151,45 @@
 
     <div class="content">
     <h1 class="article-title">
-        <a href="http://localhost:1313/tor-visualization/posts/intro/">
-            Anomaly Detection and Trust Projection in TOR
+        <a href="http://localhost:1313/tor-visualization/posts/stagea/">
+            Stage A — Backbone Geometry
         </a>
     </h1>
 
    
 
     
-        <p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.</p>
-<p>More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.</p>
-<p>The <a href="https://onionoo.torproject.org/details">TOR public API</a> gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p>
-
-
         
-            <a href="http://localhost:1313/tor-visualization/posts/intro/" class="more">
-                Continue reading
-                
-            </a>
-        
+
+        <p>In this stage, raw Tor relay features are processed by a contractive + denoising autoencoder (C/D-AE) to produce a robust latent representation of the network’s state.</p>
+<p>The autoencoder learns to compress the input into a lower-dimensional space ($z_\mathrm{base}$) while resisting overfitting and smoothing out noise. This geometric “backbone” becomes the foundation for downstream clustering (HDBSCAN), visualization (UMAP), and all subsequent anomaly and drift analysis.</p>
+<hr>
+<h3 id="sensitivity-and-the-jacobian-matrix"><strong>Sensitivity and the Jacobian Matrix</strong></h3>
+<p>Unlike a plain autoencoder, a <strong>contractive autoencoder</strong> doesn’t just reconstruct the input—it also learns to <strong>control the sensitivity</strong> of its latent space to small changes in the input features.</p>
+<p>The <strong>loss function</strong> combines two terms:</p>
+<ul>
+<li><strong>Reconstruction error</strong>: Measures how well the autoencoder can recover the original input from the compressed latent space.</li>
+<li><strong>Contractive penalty</strong>: Involves the <strong>Jacobian matrix</strong> of the encoder and directly penalizes excessive sensitivity.</li>
+</ul>
+<p>The training objective is:</p>
+<p>$$
+\mathcal{L}_{rec} = \sum_j w_j (x_j - \hat{x}_j)^2 + \lambda_c \left| \frac{\partial z}{\partial x} \right|^2
+$$
+Here:</p>
+<ul>
+<li>$x_j$ — the $j$‑th input feature value</li>
+<li>$\hat{x}_j$ — the reconstructed value of feature $j$ (output from the autoencoder)</li>
+<li>$w_j$ — weighting factor for feature $j$ in the reconstruction loss (to emphasize or de-emphasize certain features)</li>
+<li>$\lambda_c$ — hyperparameter controlling the strength of the contractive penalty (how much we penalize sensitivity)</li>
+<li>$z$ — the latent (encoded) representation learned by the autoencoder</li>
+<li>$\frac{\partial z}{\partial x}$ — the <strong>Jacobian matrix</strong> of the encoder; describes how each element of the latent code $z$ changes in response to small changes in each input $x$</li>
+<li>$\left| \cdot \right|^2$ — squared Frobenius norm (sum of the squares of all elements in the Jacobian), used to penalize sensitivity</li>
+</ul>
+<hr>
+<p>The <strong>Jacobian matrix</strong> quantifies how much each dimension of the latent space $z$ changes as you vary each input $x$. By penalizing its squared norm, we discourage mappings where small input changes cause big jumps in the latent space.
+<strong>This shrinks the sensitivity of the latent space</strong>, making it stable and robust to minor fluctuations in Tor relay data.</p>
+<p>The autoencoder learns a latent geometry that’s not only a compressed version of the input, but also <strong>insensitive to minor variations</strong>. This is critical for stable downstream clustering and drift detection, ensuring meaningful, reliable groupings.</p>
+<p>The output $z_\mathrm{base}$ serves as the “map” for unsupervised discovery of meaningful clusters and changes in network behavior.</p>
 
     
 
@@ -177,22 +198,8 @@
         
         
         
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/pipeline/">
-            <i class="fa fa-tag"></i> Pipeline
-        </a>
-        
-        
-        
-        
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/rbm/">
-            <i class="fa fa-tag"></i> Rbm
-        </a>
-        
-        
-        
-        
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/hdbscan/">
-            <i class="fa fa-tag"></i> Hdbscan
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/stagea/">
+            <i class="fa fa-tag"></i> StageA
         </a>
         
         
@@ -232,22 +239,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     <div class="date">
         
             <i class="fa fa-calendar-days"></i>
             
             <span class="text moment">
-                2025-08-03</span>
+                2025-09-28</span>
             
         
     </div>
@@ -258,18 +255,8 @@
 
 </article>
 
-            
-        </div>
-    
-
-    
-    <div class="paginator">
-        
-
         
     </div>
-
-
 
     </div>
 
@@ -338,8 +325,7 @@
                 
                 by TOR Visualization
             </a>
-            -
-            <a href="http://localhost:1313/tor-visualization/tags/hdbscan/index.xml">RSS</a>
+            
         </div>
         <div class="author">
             <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"
