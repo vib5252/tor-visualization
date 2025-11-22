@@ -11,95 +11,75 @@ This chart captures the current state of the system as it grows more nuanced and
 
 <div style="overflow-x:auto;">
 <pre>
-                  Raw Tor Relay Features
-      (flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)
+                  Raw Tor Relay Signals
+     (flags, bandwidth, uptime, geo, roles, policy, etc.)
                                    │
                                    ▼
                           ┌────────────────┐
                           │ Preprocessing  │
-                          │ standardize,   │
-                          │ clip outliers  │
+                          │ clean, align,  │
+                          │ normalize      │
                           └────────────────┘
                                    │
                                    ▼
-     ┌───────────────────────────────────────────────────────────────┐
-     │                STAGE A — Backbone Geometry                    │
-     │        Contractive + Denoising Autoencoder (C/D-AE)           │  ← Intuition 7
-     │  - Encoder: x → z_base (16–32 dims)                           │
-     │  - Loss: L_rec = Σ w_j (x_j - x̂_j)^2  +  λ_c ‖∂z/∂x‖²         │
-     └───────────────────────────────────────────────────────────────┘
+                    ┌──────────────────────────┐
+                    │ Representation Learning  │
+                    │ latent structure of      │
+                    │ relays & behavior        │
+                    └──────────────────────────┘
                                    │
                                    ▼
-                          z_base  (stable latent)
-                                   │
-                 ┌─────────────────┴─────────────────┐
-                 │                                   │
-                 ▼                                   ▼
-          HDBSCAN on z_base                     UMAP(z_base)
-          (clustering space)                    (one global 2D map)
-                 │                                   │
-                 ▼                                   ▼
-        Cluster snapshots & drift            Drift arrows on map
-        (centroid, size, density,            (visualization only)
-         role flips, weighted features)
+                    ┌──────────────────────────┐
+                    │ Topology Mapping         │
+                    │ manifold / neighborhood  │
+                    │ structure                │
+                    └──────────────────────────┘
                                    │
                                    ▼
-     ┌───────────────────────────────────────────────────────────────┐
-     │        STAGE B — Interpretable Bundles (side head)            │
-     │       Sparse / Winner-Take-All Autoencoder Head               │
-     │  - Share the same encoder (or a small adapter)                │
-     │  - Get z_sparse (few active units)                            │
-     │  - Loss: α·L_rec_sparse  +  β·‖z_sparse‖₁ / k-sparse mask     │
-     │  Use: z_sparse to map attention-weighted bundles & “twist”    │
-     │  (Do NOT use for clustering; clustering stays on z_base)      │
-     └───────────────────────────────────────────────────────────────┘
+                    ┌──────────────────────────┐
+                    │ Behavioral Clustering    │
+                    │ groups of similar relays │
+                    └──────────────────────────┘
                                    │
                                    ▼
-     Bundle fibers (from z_sparse) with attention weights (Intuition 3+6)
-     - Explain why drift arrows bend
-     - Detect bundle “twist” (orientation change over time)
+                    ┌──────────────────────────┐
+                    │ Temporal Dynamics        │
+                    │ motion, shape-change,    │
+                    │ stability over time      │
+                    └──────────────────────────┘
                                    │
                                    ▼
-     ┌───────────────────────────────────────────────────────────────┐
-     │            STAGE C — Probabilistic Terrain                    │
-     │       Variational Autoencoder (VAE) head (Intuition 9)        │
-     │  - Turn decoder into μ, logσ²; KL warm-up (β-anneal/free bits)│
-     │  - ELBO/NLL per sample → cluster-level terrain depth          │
-     │  Option: keep RBM as reference chronometer (Intuition 8)      │
-     │          for ΔF comparisons (disagreements = insight)         │
-     └───────────────────────────────────────────────────────────────┘
+                    ┌──────────────────────────┐
+                    │ Stability & Drift        │
+                    │ Indicators               │
+                    │ interpretable signals    │
+                    └──────────────────────────┘
                                    │
                                    ▼
-     Terrain overlays & metrics:
-     - VAE NLL/ELBO (primary terrain)
-     - (Optional) RBM ΔF (reference)
-     - Composite drift report: speed/angle, ΔNLL, bundle twist
+                    ┌──────────────────────────┐
+                    │ Visualization Layer      │
+                    │ maps, trajectories,      │
+                    │ ecosystem views          │
+                    └──────────────────────────┘
 </pre>
 </div>
 
-### Legend of Acronyms Used in the Flowchart
+
+#### Legend / Concepts
 ---
 
-- **AE** &rarr; *Autoencoder*: a neural network that compresses input into a latent representation and reconstructs it back.
+- **Preprocessing** – Cleaning and aligning public Tor relay data so it can be compared fairly across time.
 
-- **C/D-AE** &rarr; *Contractive / Denoising Autoencoder*:
-    - **Contractive AE**: adds a penalty so the latent space changes smoothly with respect to input.
-    - **Denoising AE**: trains to reconstruct clean input from noisy versions, improving robustness.
+- **Representation Learning** – Learning compact, expressive descriptions of relays and their behavior from many raw signals, instead of relying on any single metric.
 
-- **Sparse / WTA-AE** &rarr; *Sparse or Winner-Take-All Autoencoder*: enforces that only a small number of latent neurons activate, creating interpretable bundle features.
+- **Topology Mapping** – Revealing the geometric structure of the ecosystem: which relays are neighbors, which regions of behavior space exist, and how they relate.
 
-- **VAE** &rarr; *Variational Autoencoder*: extends AE by encoding inputs into a probability distribution, enabling sampling and likelihood estimation (**ELBO**, **NLL**).
+- **Behavioral Clustering** – Grouping relays that behave similarly, so we can talk about “families” or “roles” rather than isolated points.
 
-- **RBM** &rarr; *Restricted Boltzmann Machine*: energy-based model that assigns a free-energy score to data, used as an optional plausibility reference.
+- **Temporal Dynamics** – Tracking how these groups move, split, merge, or change shape over days, giving a sense of motion in the network.
 
-- **ELBO** &rarr; *Evidence Lower Bound*: objective function used to train VAEs; balances reconstruction accuracy and regularization.
+- **Stability & Drift Indicators** – Summarizing where the ecosystem is stable and where it is restless or evolving, using interpretable signals rather than black-box scores.
 
-- **NLL** &rarr; *Negative Log-Likelihood*: how surprising data is under a model; lower = more plausible.
-
-- **HDBSCAN** &rarr; *Hierarchical Density-Based Spatial Clustering of Applications with Noise*: clusters dense areas of latent space, marks sparse points as noise.
-
-- **UMAP** &rarr; *Uniform Manifold Approximation and Projection*: nonlinear dimensionality reduction, for 2D visualization of high-dimensional data.
-
-- **KL divergence** &rarr; *Kullback–Leibler divergence*: measure of difference between two probability distributions; used in VAEs to keep latent codes close to a prior.
+- **Visualization Layer** – Turning all of this into interactive maps, trajectories, and timelines that make the network’s evolution visible to humans.
 
 

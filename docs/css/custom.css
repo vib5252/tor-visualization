@@ -1,0 +1,18 @@
+/* Try to hide the copy button normally */
+button.copy-button,
+button.copy-button.tooltip,
+button.copy-button.tooltipstered {
+    display: none !important;
+}
+
+/* If the theme injects it with JS, force-hide it */
+.copy-button {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Remove extra bottom spacing for ASCII diagrams */
+div[style*="overflow-x:auto;"] pre {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}

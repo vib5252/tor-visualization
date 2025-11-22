@@ -1,94 +1,144 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/</link><description>Recent content on TOR Visualization</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/index.xml" rel="self" type="application/rss+xml"/><item><title>Stage A — Backbone Geometry</title><link>https://vib5252.github.io/tor-visualization/posts/stagea/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/stagea/</guid><description>&lt;p>In this stage, raw Tor relay features are processed by a contractive + denoising autoencoder (C/D-AE) to produce a robust latent representation of the network’s state.&lt;/p>
-&lt;p>The autoencoder learns to compress the input into a lower-dimensional space ($z_\mathrm{base}$) while resisting overfitting and smoothing out noise. This geometric “backbone” becomes the foundation for downstream clustering (HDBSCAN), visualization (UMAP), and all subsequent anomaly and drift analysis.&lt;/p>
-&lt;hr>
-&lt;h3 id="sensitivity-and-the-jacobian-matrix">&lt;strong>Sensitivity and the Jacobian Matrix&lt;/strong>&lt;/h3>
-&lt;p>Unlike a plain autoencoder, a &lt;strong>contractive autoencoder&lt;/strong> doesn’t just reconstruct the input—it also learns to &lt;strong>control the sensitivity&lt;/strong> of its latent space to small changes in the input features.&lt;/p></description></item><item><title>Goal</title><link>https://vib5252.github.io/tor-visualization/posts/goal/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/goal/</guid><description>&lt;p>The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TOR Visualization</title>
+    <link>http://localhost:1313/tor-visualization/</link>
+    <description>Recent content on TOR Visualization</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Nov 2025 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="http://localhost:1313/tor-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Geometry of Change</title>
+      <link>http://localhost:1313/tor-visualization/posts/geometry-of-change/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tor-visualization/posts/geometry-of-change/</guid>
+      <description>&lt;p&gt;When a network evolves, the first thing we notice is motion: clusters shift, shapes stretch, boundaries drift. But movement alone rarely tells the full story. Two patterns can travel the same distance yet reflect entirely different internal realities. One shifts cohesively, like a flock adjusting its direction. Another distorts at the edges, showing signs of internal tension. A third appears stationary but rotates in place, changing its meaning without changing its location. The surface motion is simple; the underlying geometry is not.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Goal</title>
+      <link>http://localhost:1313/tor-visualization/posts/goal/</link>
+      <pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tor-visualization/posts/goal/</guid>
+      <description>&lt;p&gt;The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
 Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling.
-This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.&lt;/p>
-&lt;div style="overflow-x:auto;">
-&lt;pre>
-Raw Tor Relay Features
-(flags, CWF, uptime, restarts, geo, etc.) + weights w (Intuition 3+6)
-│
-▼
-┌────────────────┐
-│ Preprocessing │
-│ standardize, │
-│ clip outliers │
-└────────────────┘
-│
-▼
-┌───────────────────────────────────────────────────────────────┐
-│ STAGE A — Backbone Geometry │
-│ Contractive + Denoising Autoencoder (C/D-AE) │ ← Intuition 7
-│ - Encoder: x → z_base (16–32 dims) │
-│ - Loss: L_rec = Σ w_j (x_j - x̂_j)^2 + λ_c ‖∂z/∂x‖² │
-└───────────────────────────────────────────────────────────────┘
-│
-▼
-z_base (stable latent)
-│
-┌─────────────────┴─────────────────┐
-│ │
-▼ ▼
-HDBSCAN on z_base UMAP(z_base)
-(clustering space) (one global 2D map)
-│ │
-▼ ▼
-Cluster snapshots &amp; drift Drift arrows on map
-(centroid, size, density, (visualization only)
-role flips, weighted features)
-│
-▼
-┌───────────────────────────────────────────────────────────────┐
-│ STAGE B — Interpretable Bundles (side head) │
-│ Sparse / Winner-Take-All Autoencoder Head │
-│ - Share the same encoder (or a small adapter) │
-│ - Get z_sparse (few active units) │
-│ - Loss: α·L_rec_sparse + β·‖z_sparse‖₁ / k-sparse mask │
-│ Use: z_sparse to map attention-weighted bundles &amp; “twist” │
-│ (Do NOT use for clustering; clustering stays on z_base) │
-└───────────────────────────────────────────────────────────────┘
-│
-▼
-Bundle fibers (from z_sparse) with attention weights (Intuition 3+6)
-- Explain why drift arrows bend
-- Detect bundle “twist” (orientation change over time)
-│
-▼
-┌───────────────────────────────────────────────────────────────┐
-│ STAGE C — Probabilistic Terrain │
-│ Variational Autoencoder (VAE) head (Intuition 9) │
-│ - Turn decoder into μ, logσ²; KL warm-up (β-anneal/free bits)│
-│ - ELBO/NLL per sample → cluster-level terrain depth │
-│ Option: keep RBM as reference chronometer (Intuition 8) │
-│ for ΔF comparisons (disagreements = insight) │
-└───────────────────────────────────────────────────────────────┘
-│
-▼
-Terrain overlays &amp; metrics:
-- VAE NLL/ELBO (primary terrain)
-- (Optional) RBM ΔF (reference)
-- Composite drift report: speed/angle, ΔNLL, bundle twist
-&lt;/pre>
-&lt;/div>
-&lt;h3 id="legend-of-acronyms-used-in-the-flowchart">Legend of Acronyms Used in the Flowchart&lt;/h3>
-&lt;hr>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>AE&lt;/strong> → &lt;em>Autoencoder&lt;/em>: a neural network that compresses input into a latent representation and reconstructs it back.&lt;/p></description></item><item><title>Feature Drift</title><link>https://vib5252.github.io/tor-visualization/posts/drift/</link><pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/drift/</guid><description>&lt;p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.&lt;/p>
-&lt;p>Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.&lt;/p></description></item><item><title>Cluster Characterization</title><link>https://vib5252.github.io/tor-visualization/posts/which_cluster/</link><pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/which_cluster/</guid><description>&lt;h5 id="z-score">&lt;strong>Z-Score&lt;/strong>&lt;/h5>
-&lt;p>A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.&lt;/p>
-&lt;p>We use this on our top 3 feature combos:&lt;/p>
-&lt;ul>
-&lt;li>A positive ↑ z-score means the feature has higher than average in the cluster.&lt;/li>
-&lt;li>A negative ↓ z-score means the feature is lower than average in the cluster.&lt;/li>
-&lt;/ul>
-&lt;p>A low RBM value means that it is familiar to the neural net. It has seen it while training
-A high RBM means the neural network is not familiar with this pattern.&lt;/p></description></item><item><title>Principal Component Analysis</title><link>https://vib5252.github.io/tor-visualization/posts/pca/</link><pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/pca/</guid><description>&lt;p>PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/p>
-&lt;p>Here is the PCA analysis of some important features:&lt;/p>
-&lt;p>&lt;a href="./plots/PCA_HSDir_PCA1_PCA2_08212025.html">HSDir: Hidden Service Directory&lt;/a>
+This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.&lt;/p&gt;
+&lt;div style=&#34;overflow-x:auto;&#34;&gt;
+&lt;pre&gt;
+                  Raw Tor Relay Signals
+     (flags, bandwidth, uptime, geo, roles, policy, etc.)
+                                   │
+                                   ▼
+                          ┌────────────────┐
+                          │ Preprocessing  │
+                          │ clean, align,  │
+                          │ normalize      │
+                          └────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │ Representation Learning  │
+                    │ latent structure of      │
+                    │ relays &amp; behavior        │
+                    └──────────────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │ Topology Mapping         │
+                    │ manifold / neighborhood  │
+                    │ structure                │
+                    └──────────────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │ Behavioral Clustering    │
+                    │ groups of similar relays │
+                    └──────────────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │ Temporal Dynamics        │
+                    │ motion, shape-change,    │
+                    │ stability over time      │
+                    └──────────────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │ Stability &amp; Drift        │
+                    │ Indicators               │
+                    │ interpretable signals    │
+                    └──────────────────────────┘
+                                   │
+                                   ▼
+                    ┌──────────────────────────┐
+                    │ Visualization Layer      │
+                    │ maps, trajectories,      │
+                    │ ecosystem views          │
+                    └──────────────────────────┘
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;legend--concepts&#34;&gt;Legend / Concepts&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Preprocessing&lt;/strong&gt; – Cleaning and aligning public Tor relay data so it can be compared fairly across time.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Feature Drift</title>
+      <link>http://localhost:1313/tor-visualization/posts/drift/</link>
+      <pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tor-visualization/posts/drift/</guid>
+      <description>&lt;p&gt;I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.&lt;/p&gt;
+&lt;p&gt;Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cluster Characterization</title>
+      <link>http://localhost:1313/tor-visualization/posts/which_cluster/</link>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tor-visualization/posts/which_cluster/</guid>
+      <description>&lt;h5 id=&#34;z-score&#34;&gt;&lt;strong&gt;Z-Score&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.&lt;/p&gt;
+&lt;p&gt;We use this on our top 3 feature combos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A positive ↑ z-score means the feature has higher than average in the cluster.&lt;/li&gt;
+&lt;li&gt;A negative ↓ z-score means the feature is lower than average in the cluster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A low RBM value means that it is familiar to the neural net. It has seen it while training
+A high RBM means the neural network is not familiar with this pattern.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Principal Component Analysis</title>
+      <link>http://localhost:1313/tor-visualization/posts/pca/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tor-visualization/posts/pca/</guid>
+      <description>&lt;p&gt;PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.&lt;/p&gt;
+&lt;p&gt;Here is the PCA analysis of some important features:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;./plots/PCA_HSDir_PCA1_PCA2_08212025.html&#34;&gt;HSDir: Hidden Service Directory&lt;/a&gt;
 When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services.
-The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.&lt;/p></description></item><item><title>Anomaly Detection and Trust Projection in TOR</title><link>https://vib5252.github.io/tor-visualization/posts/intro/</link><pubDate>Sun, 03 Aug 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/intro/</guid><description>&lt;p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.&lt;/p>
-&lt;p>More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &amp;ldquo;The Weak Law of Large Numbers,&amp;rdquo; still blow my mind how this abstract form converges.&lt;/p>
-&lt;p>The &lt;a href="https://onionoo.torproject.org/details">TOR public API&lt;/a> gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &amp;ldquo;trust&amp;rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.&lt;/p></description></item></channel></rss>
+The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Anomaly Detection and Trust Projection in TOR</title>
+      <link>http://localhost:1313/tor-visualization/posts/intro/</link>
+      <pubDate>Sun, 03 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tor-visualization/posts/intro/</guid>
+      <description>&lt;p&gt;This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.&lt;/p&gt;
+&lt;p&gt;More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &amp;ldquo;The Weak Law of Large Numbers,&amp;rdquo; still blow my mind how this abstract form converges.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://onionoo.torproject.org/details&#34;&gt;TOR public API&lt;/a&gt; gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &amp;ldquo;trust&amp;rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
