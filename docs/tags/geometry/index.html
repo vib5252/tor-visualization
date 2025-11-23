@@ -15,24 +15,19 @@
     <title>
         
            
-               Feature Drift &vert; TOR Visualization
+               Geometry &vert; TOR Visualization
            
         
     </title>
-    <meta itemprop="name" content="Feature Drift">
-    <meta itemprop="description" content="Feature Drift - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta itemprop="name" content="Geometry">
+    <meta itemprop="description" content="Geometry - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
 
-    <meta property="og:url" content="http://localhost:1313/tor-visualization/posts/drift/">
+    <meta property="og:url" content="http://localhost:1313/tor-visualization/tags/geometry/">
   <meta property="og:site_name" content="TOR Visualization">
-  <meta property="og:title" content="Feature Drift">
-  <meta property="og:description" content="I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.
-Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.">
+  <meta property="og:title" content="Geometry">
+  <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-08-27T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-27T00:00:00+00:00">
-    <meta property="article:tag" content="Drift">
+  <meta property="og:type" content="website">
 
     <meta property="og:site_name" content="TOR Visualization">
 
@@ -40,9 +35,12 @@ Drift in this context means tracking how the top three Z-score features of each 
 
 
     
+    <link href="http://localhost:1313/tor-visualization/tags/geometry/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
+    <link href="http://localhost:1313/tor-visualization/tags/geometry/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
+    
 
     
-    <link rel="canonical" href="http://localhost:1313/tor-visualization/posts/drift/">
+    <link rel="canonical" href="http://localhost:1313/tor-visualization/tags/geometry/">
     
 
     
@@ -143,9 +141,11 @@ Drift in this context means tracking how the top three Z-score features of each 
 
     <div class="main container">
         
-    <div class="article-wrapper u-cf single">
-        
+    
+    
+        <div class="article-wrapper u-cf">
             
+                
 
 
 
@@ -154,45 +154,24 @@ Drift in this context means tracking how the top three Z-score features of each 
 
     <div class="content">
     <h1 class="article-title">
-        <a href="http://localhost:1313/tor-visualization/posts/drift/">
-            Feature Drift
+        <a href="http://localhost:1313/tor-visualization/posts/geometry-of-change/">
+            The Geometry of Change
         </a>
     </h1>
 
    
 
     
+        <p>When you watch relay clusters over time, the first thing that stands out is motion. Points drift, shapes shift a little, boundaries move. But distance doesn’t tell the whole story. Two clusters can travel the same amount yet experience completely different internal changes. One stays cohesive. Another stretches at the edges. A third barely moves but rotates in place. The coordinates change, but the meaning doesn’t sit in the coordinates.</p>
+
+
+        
+            <a href="http://localhost:1313/tor-visualization/posts/geometry-of-change/" class="more">
+                Continue reading
+                
+            </a>
         
 
-        <p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.</p>
-<p>Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.</p>
-<p>The RBM provides a familiarity landscape of the network. Observing shifts in RBM energy highlights periods and features of behavioral change. These high-drift features, in turn, become candidates for training our classifier.</p>
-<pre tabindex="0"><code class="language-code" data-lang="code">Timepoints (network snapshots at different dates)
-   ↓
-HDBSCAN Clustering (groups relays in embedding space)
-   ↓
-Cluster Characterization
-   (compute per-cluster Z-scores and RBM_avg for all features)
-   ↓
-Select Clusters of Interest
-   (based on high Z-scores, high or changing RBM_avg)
-   ↓
-Extract Relay Fingerprints
-   (collect all relays in selected clusters)
-   ↓
-Track Drift Over Time
-   (observe how the top three Z-score features of each cluster change across timepoints,
-    and monitor RBM energy transitions from low to high or vice versa)
-   ↓
-Identify High-Drift Features
-   (features with the largest changes or most associated with RBM energy transitions)
-   ↓
-Use High-Drift Features as Input for:
-    → Training a Linear Classifier (e.g., LogisticRegression)
-    → Training a Random Forest Classifier
-    → Feeding to RBM for further unsupervised anomaly detection
-    → Feeding to UMAP/t-SNE for latent visualization
-</code></pre>
     
 
     
@@ -200,8 +179,8 @@ Use High-Drift Features as Input for:
         
         
         
-        <a class="link" href="http://localhost:1313/tor-visualization/tags/drift/">
-            <i class="fa fa-tag"></i> Drift
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/geometry/">
+            <i class="fa fa-tag"></i> Geometry
         </a>
         
         
@@ -246,7 +225,7 @@ Use High-Drift Features as Input for:
             <i class="fa fa-calendar-days"></i>
             
             <span class="text moment">
-                2025-08-27</span>
+                2025-11-22</span>
             
         
     </div>
@@ -257,8 +236,18 @@ Use High-Drift Features as Input for:
 
 </article>
 
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+
         
     </div>
+
+
 
     </div>
 
@@ -327,7 +316,8 @@ Use High-Drift Features as Input for:
                 
                 by TOR Visualization
             </a>
-            
+            -
+            <a href="http://localhost:1313/tor-visualization/tags/geometry/index.xml">RSS</a>
         </div>
         <div class="author">
             <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"

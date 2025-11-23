@@ -1,6 +1,7 @@
 ---
 title: "The Geometry of Change"
 date: 2025-11-22
+tags: ["geometry"]
 weight: 2
 ---
 
