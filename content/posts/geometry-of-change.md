@@ -40,5 +40,3 @@ Minor adjustment             Rotation, split, reshape
 Stability also becomes easier to understand this way. A stable cluster can move without losing its internal relationships. An unstable one can break apart even with small displacement. Stability is not stillness; it’s coherence under motion.
 
 This is why geometry matters when studying an evolving network. Raw metrics can’t explain why two clusters move but only one reorganizes, or why certain regions stay tight while others loosen. Geometry turns motion into something interpretable. It exposes how each part of the system reacts over time.
-
-This post sits between the earlier discussion of clusters and the more detailed work on drift. Before talking about drift, we need to understand how structure behaves when it changes. The network moves, but the important part is how the pattern deforms, not how far it travels.
