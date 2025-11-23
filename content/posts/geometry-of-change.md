@@ -23,7 +23,7 @@ Before Disturbance              After Disturbance
 </pre>
 </div>
 
-Local changes touch a few points and leave the rest intact. Global changes reshape the entire group—splits, rotations, contractions. Outward drift can look similar, but internally the stories diverge. Geometry lets you see which shifts are minor adjustments and which signal a deeper reorganization.
+Local changes touch a few points and leave the rest intact. Global changes reshape the entire group: splits, rotations, contractions. Outward drift can look similar, but internally the stories diverge. Geometry lets you see which shifts are minor adjustments and which signal a deeper reorganization.
 
 <div style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
 <pre>
