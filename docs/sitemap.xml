@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/geometry-of-change/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/geometry-of-change/</loc>
     <lastmod>2025-11-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/</loc>
     <lastmod>2025-11-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/</loc>
+    <loc>http://localhost:1313/tor-visualization/</loc>
     <lastmod>2025-11-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/goal/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/goal/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/goal/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/goal/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/drift/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/drift/</loc>
     <lastmod>2025-08-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/drift/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/drift/</loc>
     <lastmod>2025-08-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/cluster/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/cluster/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/which_cluster/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/which_cluster/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/zscore/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/zscore/</loc>
     <lastmod>2025-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/pca/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/pca/</loc>
     <lastmod>2025-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/pca/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/pca/</loc>
     <lastmod>2025-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/posts/intro/</loc>
+    <loc>http://localhost:1313/tor-visualization/posts/intro/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/hdbscan/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/hdbscan/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/pipeline/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/pipeline/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/tags/rbm/</loc>
+    <loc>http://localhost:1313/tor-visualization/tags/rbm/</loc>
     <lastmod>2025-08-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vib5252.github.io/tor-visualization/categories/</loc>
+    <loc>http://localhost:1313/tor-visualization/categories/</loc>
   </url>
 </urlset>

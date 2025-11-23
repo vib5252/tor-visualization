@@ -11,56 +11,37 @@ This chart captures the current state of the system as it grows more nuanced and
 
 <div style="overflow-x:auto;">
 <pre>
-                  Raw Tor Relay Signals
-     (flags, bandwidth, uptime, geo, roles, policy, etc.)
-                                   │
-                                   ▼
-                          ┌────────────────┐
-                          │ Preprocessing  │
-                          │ clean, align,  │
-                          │ normalize      │
-                          └────────────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │ Representation Learning  │
-                    │ latent structure of      │
-                    │ relays & behavior        │
-                    └──────────────────────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │ Topology Mapping         │
-                    │ manifold / neighborhood  │
-                    │ structure                │
-                    └──────────────────────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │ Behavioral Clustering    │
-                    │ groups of similar relays │
-                    └──────────────────────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │ Temporal Dynamics        │
-                    │ motion, shape-change,    │
-                    │ stability over time      │
-                    └──────────────────────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │ Stability & Drift        │
-                    │ Indicators               │
-                    │ interpretable signals    │
-                    └──────────────────────────┘
-                                   │
-                                   ▼
-                    ┌──────────────────────────┐
-                    │ Visualization Layer      │
-                    │ maps, trajectories,      │
-                    │ ecosystem views          │
-                    └──────────────────────────┘
+                       Raw Tor Relay Signals
+      (flags, bandwidth, uptime, geo, roles, policies, etc.)
+                                 │
+                                 ▼
+                           Preprocessing
+                  clean → align → normalize → prepare
+                                 │
+                                 ▼
+                     Representation Learning
+                 learn compressed structure of relays
+                                 │
+                                 ▼
+                         Topology Mapping
+                map relationships / neighborhoods in space
+                                 │
+                                 ▼
+                       Behavioral Clustering
+                  group relays with similar characteristics
+                                 │
+                                 ▼
+                        Temporal Dynamics
+                 track how groups move and evolve over time
+                                 │
+                                 ▼
+                        Stability & Drift
+               identify patterns of change and consistency
+                                 │
+                                 ▼
+                        Visualization Layer
+        maps, trajectories, timelines, and ecosystem overviews
+
 </pre>
 </div>
 
@@ -68,18 +49,18 @@ This chart captures the current state of the system as it grows more nuanced and
 #### Legend / Concepts
 ---
 
-- **Preprocessing** – Cleaning and aligning public Tor relay data so it can be compared fairly across time.
+- **Preprocessing** — Preparing relay data so snapshots are comparable: cleaning, aligning fields, normalizing scales, and handling missing or inconsistent values.
 
-- **Representation Learning** – Learning compact, expressive descriptions of relays and their behavior from many raw signals, instead of relying on any single metric.
+- **Representation Learning** — Learning a compact description of each relay’s behavior from many raw signals, making the system easier to analyze without losing important structure.
 
-- **Topology Mapping** – Revealing the geometric structure of the ecosystem: which relays are neighbors, which regions of behavior space exist, and how they relate.
+- **Topology Mapping** — Mapping how relays sit relative to each other in the learned space: neighborhoods, regions, and broad patterns of similarity.
 
-- **Behavioral Clustering** – Grouping relays that behave similarly, so we can talk about “families” or “roles” rather than isolated points.
+- **Behavioral Clustering** — Grouping relays with similar characteristics so changes can be interpreted at the level of groups rather than individual points.
 
-- **Temporal Dynamics** – Tracking how these groups move, split, merge, or change shape over days, giving a sense of motion in the network.
+- **Temporal Dynamics** — Following how these groups shift over time: movement, shape change, split/merge events, and the general motion of the network.
 
-- **Stability & Drift Indicators** – Summarizing where the ecosystem is stable and where it is restless or evolving, using interpretable signals rather than black-box scores.
+- **Stability & Drift** — Identifying where the ecosystem holds its form and where it evolves, using clear, interpretable signals of consistency or change.
 
-- **Visualization Layer** – Turning all of this into interactive maps, trajectories, and timelines that make the network’s evolution visible to humans.
+- **Visualization Layer** — Presenting the network’s evolution through maps, trajectories, timelines, and other views that make patterns visible at a glance.
 
 
