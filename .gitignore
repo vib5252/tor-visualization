@@ -1,0 +1,21 @@
+# Context files
+context.txt
+context.md
+.context
+**/context.*
+
+# Hugo build artifacts
+.hugo_build.lock
+public/
+resources/_gen/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

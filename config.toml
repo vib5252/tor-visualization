@@ -4,7 +4,7 @@ title = "TOR Visualization"
 theme = "mostafa-hugo-theme"
 publishDir = "docs"
 relativeURLs = false
-canonifyURLs = false
+canonifyURLs = true
 
 [params]
   author = "Vaibhav Chhabra"
