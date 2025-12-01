@@ -1,8 +1,175 @@
-<!doctype html><html itemscope itemtype=https://schema.org/WebPage class=no-js lang=en><head prefix="og: http://ogp.me/ns#"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=siteBaseUrl content="https://vib5252.github.io/tor-visualization/"><meta name=author content="Vaibhav Chhabra"><meta name=description content="Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta name=keywords content><meta name=generator content="Hugo 0.146.0"><title>Goal | TOR Visualization
-</title><meta itemprop=name content="Goal"><meta itemprop=description content="Goal - Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta property="og:url" content="https://vib5252.github.io/tor-visualization/posts/goal/"><meta property="og:site_name" content="TOR Visualization"><meta property="og:title" content="Goal"><meta property="og:description" content="The diagram below outlines the evolving architecture of my Tor relay analysis pipeline. Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling. This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.
-Raw Tor Relay Signals (flags, bandwidth, uptime, geo, roles, policies, etc.) │ ▼ Preprocessing clean → align → normalize → prepare │ ▼ Representation Learning learn compressed structure of relays │ ▼ Topology Mapping map relationships / neighborhoods in space │ ▼ Behavioral Clustering group relays with similar characteristics │ ▼ Temporal Dynamics track how groups move and evolve over time │ ▼ Stability & Drift identify patterns of change and consistency │ ▼ Visualization Layer maps, trajectories, timelines, and ecosystem overviews"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-09-23T00:00:00+00:00"><meta property="article:modified_time" content="2025-09-23T00:00:00+00:00"><meta property="article:tag" content="Goal"><meta property="og:site_name" content="TOR Visualization"><link rel=canonical href=https://vib5252.github.io/tor-visualization/posts/goal/><link rel=stylesheet href=https://vib5252.github.io/tor-visualization/theme.min.22f775c9f9676c42a01a2faff7ba32442728766d53d641704ef7e6c37eaab2ba.css integrity="sha256-Ivd1yflnbEKgGi+v97oyRCcodm1T1kFwTvfmw36qsro=" media=screen><link rel=stylesheet href=https://vib5252.github.io/tor-visualization/css/custom.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script></head><body class=mostafa-hugo-theme><header><a id=back-to-top-button><i class="fas fa-angle-up"></i></a><div class=container><div class=title-container><h1 class=title><a href=https://vib5252.github.io/tor-visualization/>TOR Visualization</a></h1></div><nav><ul></ul></nav></div></header><div class=navigation><div class="pages menu-wrapper"><ul><li><a href=https://vib5252.github.io/tor-visualization/>Home</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></li><li><a href=https://vib5252.github.io/tor-visualization/tags/>Tags</a></li><li class="active menu-toggle menu-button"><a href=#>Pages</a></li></ul></div></div><div class="main container"><div class="article-wrapper u-cf single"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/goal/>Goal</a></h1><p>The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
+<!DOCTYPE html>
+
+
+  
+<html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="siteBaseUrl" content="https://vib5252.github.io/tor-visualization/">
+    <meta name="author" content="Vaibhav Chhabra">
+    <meta name="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta name="keywords" content="">
+    <meta name="generator" content="Hugo 0.146.0">
+    <title>
+        
+           
+               Goal &vert; TOR Visualization
+           
+        
+    </title>
+    <meta itemprop="name" content="Goal">
+    <meta itemprop="description" content="Goal - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+
+    <meta property="og:url" content="https://vib5252.github.io/tor-visualization/posts/goal/">
+  <meta property="og:site_name" content="TOR Visualization">
+  <meta property="og:title" content="Goal">
+  <meta property="og:description" content="The diagram below outlines the evolving architecture of my Tor relay analysis pipeline. Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling. This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.
+Raw Tor Relay Signals (flags, bandwidth, uptime, geo, roles, policies, etc.) │ ▼ Preprocessing clean → align → normalize → prepare │ ▼ Representation Learning learn compressed structure of relays │ ▼ Topology Mapping map relationships / neighborhoods in space │ ▼ Behavioral Clustering group relays with similar characteristics │ ▼ Temporal Dynamics track how groups move and evolve over time │ ▼ Stability &amp; Drift identify patterns of change and consistency │ ▼ Visualization Layer maps, trajectories, timelines, and ecosystem overviews">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-23T00:00:00+00:00">
+    <meta property="article:tag" content="Goal">
+
+    <meta property="og:site_name" content="TOR Visualization">
+
+    
+
+
+    
+
+    
+    <link rel="canonical" href="https://vib5252.github.io/tor-visualization/posts/goal/">
+    
+
+    
+
+
+
+    
+    <link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/theme.min.22f775c9f9676c42a01a2faff7ba32442728766d53d641704ef7e6c37eaab2ba.css" integrity="sha256-Ivd1yflnbEKgGi&#43;v97oyRCcodm1T1kFwTvfmw36qsro=" media="screen">
+
+
+
+    
+        <link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/css/custom.css">
+    
+
+
+
+    
+    
+
+    
+
+    
+    <script>
+    window.MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+    svg: {fontCache: 'global'}
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+</head>
+
+<body class="mostafa-hugo-theme ">
+    
+
+    <header>
+    <a id="back-to-top-button">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title">
+                <a href="https://vib5252.github.io/tor-visualization/">
+                    TOR Visualization
+                </a>
+            </h1>
+            
+        </div>
+
+        <nav>
+            <ul>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="navigation">
+
+    
+    
+    <div class="pages menu-wrapper">
+        <ul>
+            
+            
+            <li >
+                <a href="https://vib5252.github.io/tor-visualization/">Home</a>
+            </li>
+            
+            <li >
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            </li>
+            
+            <li >
+                <a href="https://vib5252.github.io/tor-visualization/tags/">Tags</a>
+            </li>
+            
+            
+            <li class="active menu-toggle menu-button">
+                <a href="#">Pages</a>
+            </li>
+            
+        </ul>
+    </div>
+    
+
+
+
+    
+    
+
+</div>
+
+
+
+
+    <div class="main container">
+        
+    <div class="article-wrapper u-cf single">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/goal/">
+            Goal
+        </a>
+    </h1>
+
+   
+
+    
+        
+
+        <p>The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
 Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling.
-This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.</p><div style=overflow-x:auto><pre>
+This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.</p>
+<div style="overflow-x:auto;">
+<pre>
                        Raw Tor Relay Signals
       (flags, bandwidth, uptime, geo, roles, policies, etc.)
                                  │
@@ -33,7 +200,221 @@ This chart captures the current state of the system as it grows more nuanced and
                                  ▼
                         Visualization Layer
         maps, trajectories, timelines, and ecosystem overviews
-<p></pre></p></div><h4 id=legend--concepts>Legend / Concepts</h4><hr><ul><li><p><strong>Preprocessing</strong> — Preparing relay data so snapshots are comparable: cleaning, aligning fields, normalizing scales, and handling missing or inconsistent values.</p></li><li><p><strong>Representation Learning</strong> — Learning a compact description of each relay’s behavior from many raw signals, making the system easier to analyze without losing important structure.</p></li><li><p><strong>Topology Mapping</strong> — Mapping how relays sit relative to each other in the learned space: neighborhoods, regions, and broad patterns of similarity.</p></li><li><p><strong>Behavioral Clustering</strong> — Grouping relays with similar characteristics so changes can be interpreted at the level of groups rather than individual points.</p></li><li><p><strong>Temporal Dynamics</strong> — Following how these groups shift over time: movement, shape change, split/merge events, and the general motion of the network.</p></li><li><p><strong>Stability & Drift</strong> — Identifying where the ecosystem holds its form and where it evolves, using clear, interpretable signals of consistency or change.</p></li><li><p><strong>Visualization Layer</strong> — Presenting the network’s evolution through maps, trajectories, timelines, and other views that make patterns visible at a glance.</p></li></ul><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/goal/><i class="fa fa-tag"></i> Goal</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-09-23</span></div></div></article></div></div><footer><div class=container><div class=recent-posts><strong>Latest posts</strong><ul><li><a href=https://vib5252.github.io/tor-visualization/posts/geometry-of-change/>The Geometry of Change</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/goal/>Goal</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/drift/>Feature Drift</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/which_cluster/>Cluster Characterization</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/pca/>Principal Component Analysis</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/intro/>Anomaly Detection and Trust Projection in TOR</a></li></ul></div><div class=right><div class=archive></div></div></div></footer><div class=credits><div class=container><div class=copyright><a href=https://vib5252.github.io/tor-visualization/>&copy;
-2024 - 2025
-by TOR Visualization</a></div><div class=author><a href=https://github.com/mirmousaviii/mostafa-hugo-theme target=_blank>Powered by Mostafa-Hugo-Theme</a></div></div></div><script src=https://vib5252.github.io/tor-visualization/theme.min.bb0851191447aa1518e91349573493da59c9ce96fbded709f00a48178ed92ed8.js integrity="sha256-uwhRGRRHqhUY6RNJVzST2lnJzpb73tcJ8ApIF47ZLtg="></script></body></html>
+<p></pre></p>
+</div>
+<h4 id="legend--concepts">Legend / Concepts</h4>
+<hr>
+<ul>
+<li>
+<p><strong>Preprocessing</strong> — Preparing relay data so snapshots are comparable: cleaning, aligning fields, normalizing scales, and handling missing or inconsistent values.</p>
+</li>
+<li>
+<p><strong>Representation Learning</strong> — Learning a compact description of each relay’s behavior from many raw signals, making the system easier to analyze without losing important structure.</p>
+</li>
+<li>
+<p><strong>Topology Mapping</strong> — Mapping how relays sit relative to each other in the learned space: neighborhoods, regions, and broad patterns of similarity.</p>
+</li>
+<li>
+<p><strong>Behavioral Clustering</strong> — Grouping relays with similar characteristics so changes can be interpreted at the level of groups rather than individual points.</p>
+</li>
+<li>
+<p><strong>Temporal Dynamics</strong> — Following how these groups shift over time: movement, shape change, split/merge events, and the general motion of the network.</p>
+</li>
+<li>
+<p><strong>Stability &amp; Drift</strong> — Identifying where the ecosystem holds its form and where it evolves, using clear, interpretable signals of consistency or change.</p>
+</li>
+<li>
+<p><strong>Visualization Layer</strong> — Presenting the network’s evolution through maps, trajectories, timelines, and other views that make patterns visible at a glance.</p>
+</li>
+</ul>
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/goal/">
+            <i class="fa fa-tag"></i> Goal
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-09-23</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+            <ul>
+                
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-of-change/">The Geometry of Change</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/goal/">Goal</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/drift/">Feature Drift</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/which_cluster/">Cluster Characterization</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/pca/">Principal Component Analysis</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/intro/">Anomaly Detection and Trust Projection in TOR</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        
+
+        <div class="right">
+            
+
+
+
+            
+            <div class="archive">
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://vib5252.github.io/tor-visualization/">
+                &copy;
+                
+                2024 - 2025
+                
+                by TOR Visualization
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"
+                target="_blank">Powered by Mostafa-Hugo-Theme</a>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="https://vib5252.github.io/tor-visualization/theme.min.bb0851191447aa1518e91349573493da59c9ce96fbded709f00a48178ed92ed8.js" integrity="sha256-uwhRGRRHqhUY6RNJVzST2lnJzpb73tcJ8ApIF47ZLtg="></script>
+
+
+
+
+
+    
+
+    
+</body>
+
+</html>
