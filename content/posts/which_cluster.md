@@ -124,7 +124,7 @@ Cluster 14:
 
 
 Here is a list of clusters highlighted by the threshold algorithm.
-The [RBM](/plots/RBM_Energy_Overlay_UMAP_8252025.html) and [HDBSCAN](/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF_8252025.html) plots with UMAP (Uniform Manifold Approximation and Projection) as an embedding, tell a story about the cluster. 
+The [RBM](/plots/RBM_Energy_Overlay_UMAP.html) and [HDBSCAN](/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF.html) plots with UMAP (Uniform Manifold Approximation and Projection) as an embedding, tell a story about the cluster. 
 
 A low RBM value tells us that the neural net is familiar with this pattern. Coupled with a high selection_score, this means the cluster is statistically distinct (stands out from the global average on multiple features), but its overall behavior is something the RBM has “seen before.”
 

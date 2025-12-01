@@ -19,10 +19,10 @@ The [TOR public API](https://onionoo.torproject.org/details) gives a rich amount
 	- [UMAP](/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF_08212025.html) (Uniform Manifold Approximation and Projection): Preserves local and some global structure, making it well-suited for highlighting latent topology.
 
 ##### Clustering:
-- [HDBSCAN](/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF_8252025.html) (Hierarchical Density-Based Spatial Clustering of Applications with Noise): Groups data based on density, not distance. Works well on embedded spaces (t-SNE/UMAP outputs).
+- [HDBSCAN](/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF.html) (Hierarchical Density-Based Spatial Clustering of Applications with Noise): Groups data based on density, not distance. Works well on embedded spaces (t-SNE/UMAP outputs).
 
 ##### Latent Pattern Extraction:
-- [RBM](/plots/RBM_Energy_Overlay_UMAP_8252025.html) (Restricted Boltzmann Machine): A generative neural network used to uncover hidden co-activation patterns (learns which features tend to activate together) in Tor relay features. These help capture latent behavioral motifs, such as patterns of bandwidth, flags, and uptime, which are not visible through clustering alone. 
+- [RBM](/plots/RBM_Energy_Overlay_UMAP.html) (Restricted Boltzmann Machine): A generative neural network used to uncover hidden co-activation patterns (learns which features tend to activate together) in Tor relay features. These help capture latent behavioral motifs, such as patterns of bandwidth, flags, and uptime, which are not visible through clustering alone. 
   - Higher energy scores may indicate anomalous or rare behaviors, while lower scores align with well-modeled, typical relays. This plot highlights latent behavioral outliers, useful for surfacing unknown roles or transitions not captured by flags alone.
 
 
@@ -36,6 +36,6 @@ Once we have meaningful behavioral labels, we can train on those labels to creat
 
 ### Geographic Relay Plot
 
-[View Geo Map](/plots/Tor_Relays_Clustered_Geographically_map_08212025.html)  
+[View Geo Map](/plots/Tor_Relays_Clustered_Geographically_map.html)  
 A world map showing Tor relays positioned by geographic coordinates and colored by key behavioral features (such as role flags or bandwidth categories).  
 This visualization helps connect physical relay distribution to behavioral roles, revealing geographic concentrations of specific types (e.g., Guard-heavy zones or Exit-dense regions). Useful for spotting regional relay patterns.
