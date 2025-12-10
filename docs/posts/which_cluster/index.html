@@ -4,10 +4,10 @@
   
 <html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
 
-<head prefix="og: http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns#"><script src="/tor-visualization/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=tor-visualization/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="siteBaseUrl" content="https://vib5252.github.io/tor-visualization/">
+    <meta name="siteBaseUrl" content="http://localhost:1313/tor-visualization/">
     <meta name="author" content="Vaibhav Chhabra">
     <meta name="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
     <meta name="keywords" content="">
@@ -22,7 +22,7 @@
     <meta itemprop="name" content="Cluster Characterization">
     <meta itemprop="description" content="Cluster Characterization - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
 
-    <meta property="og:url" content="https://vib5252.github.io/tor-visualization/posts/which_cluster/">
+    <meta property="og:url" content="http://localhost:1313/tor-visualization/posts/which_cluster/">
   <meta property="og:site_name" content="TOR Visualization">
   <meta property="og:title" content="Cluster Characterization">
   <meta property="og:description" content="Z-Score A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.
@@ -44,20 +44,19 @@ A positive ↑ z-score means the feature has higher than average in the cluster.
     
 
     
-    <link rel="canonical" href="https://vib5252.github.io/tor-visualization/posts/which_cluster/">
+    <link rel="canonical" href="http://localhost:1313/tor-visualization/posts/which_cluster/">
     
 
     
 
 
 
-    
-    <link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/theme.min.22f775c9f9676c42a01a2faff7ba32442728766d53d641704ef7e6c37eaab2ba.css" integrity="sha256-Ivd1yflnbEKgGi&#43;v97oyRCcodm1T1kFwTvfmw36qsro=" media="screen">
+    <link rel="stylesheet" href="http://localhost:1313/tor-visualization/theme.css" media="screen">
 
 
 
     
-        <link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/css/custom.css">
+        <link rel="stylesheet" href="http://localhost:1313/tor-visualization/css/custom.css">
     
 
 
@@ -89,7 +88,7 @@ A positive ↑ z-score means the feature has higher than average in the cluster.
     <div class="container">
         <div class="title-container">
             <h1 class="title">
-                <a href="https://vib5252.github.io/tor-visualization/">
+                <a href="http://localhost:1313/tor-visualization/">
                     TOR Visualization
                 </a>
             </h1>
@@ -114,15 +113,15 @@ A positive ↑ z-score means the feature has higher than average in the cluster.
             
             
             <li >
-                <a href="https://vib5252.github.io/tor-visualization/">Home</a>
+                <a href="http://localhost:1313/tor-visualization/">Home</a>
             </li>
             
             <li >
-                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+                <a href="http://localhost:1313/tor-visualization/posts/">Posts</a>
             </li>
             
             <li >
-                <a href="https://vib5252.github.io/tor-visualization/tags/">Tags</a>
+                <a href="http://localhost:1313/tor-visualization/tags/">Tags</a>
             </li>
             
             
@@ -157,7 +156,7 @@ A positive ↑ z-score means the feature has higher than average in the cluster.
 
     <div class="content">
     <h1 class="article-title">
-        <a href="https://vib5252.github.io/tor-visualization/posts/which_cluster/">
+        <a href="http://localhost:1313/tor-visualization/posts/which_cluster/">
             Cluster Characterization
         </a>
     </h1>
@@ -256,7 +255,7 @@ Clusters are flagged if they have both an extreme combination (↑↑ or ↓↓)
 </span></span><span style="display:flex;"><span>  selection_score: <span style="color:#ae81ff">6.530</span>
 </span></span><span style="display:flex;"><span>  selection_score_threshold: <span style="color:#ae81ff">5</span>
 </span></span></code></pre></div><p>Here is a list of clusters highlighted by the threshold algorithm.
-The <a href="https://vib5252.github.io/tor-visualization/plots/RBM_Energy_Overlay_UMAP.html">RBM</a> and <a href="https://vib5252.github.io/tor-visualization/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF.html">HDBSCAN</a> plots with UMAP (Uniform Manifold Approximation and Projection) as an embedding, tell a story about the cluster.</p>
+The <a href="http://localhost:1313/tor-visualization/plots/RBM_Energy_Overlay_UMAP.html">RBM</a> and <a href="http://localhost:1313/tor-visualization/plots/hdbscan_cluster_on_UMAP1_vs_UMAP2_TOPF.html">HDBSCAN</a> plots with UMAP (Uniform Manifold Approximation and Projection) as an embedding, tell a story about the cluster.</p>
 <p>A low RBM value tells us that the neural net is familiar with this pattern. Coupled with a high selection_score, this means the cluster is statistically distinct (stands out from the global average on multiple features), but its overall behavior is something the RBM has “seen before.”</p>
 <p>In practice, this often surfaces recurring behavioral motifs in the Tor network. These are distinct, persistent patterns that may include relay groups such as:</p>
 <p><strong>Cluster 3: Unusually high authority</strong></p>
@@ -298,14 +297,14 @@ The <a href="https://vib5252.github.io/tor-visualization/plots/RBM_Energy_Overla
         
         
         
-        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/cluster/">
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/cluster/">
             <i class="fa fa-tag"></i> Cluster
         </a>
         
         
         
         
-        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/zscore/">
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/zscore/">
             <i class="fa fa-tag"></i> Zscore
         </a>
         
@@ -324,7 +323,7 @@ The <a href="https://vib5252.github.io/tor-visualization/plots/RBM_Energy_Overla
         <i class="fa fa-file-lines "></i>
         <div class="links">
             
-                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+                <a href="http://localhost:1313/tor-visualization/posts/">Posts</a>
             
         </div>
     </div>
@@ -383,27 +382,31 @@ The <a href="https://vib5252.github.io/tor-visualization/plots/RBM_Energy_Overla
                 
                 
                     <li>
-                        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-of-change/">The Geometry of Change</a>
+                        <a href="http://localhost:1313/tor-visualization/posts/geometry-of-change/">The Geometry of Change</a>
                     </li>
                 
                     <li>
-                        <a href="https://vib5252.github.io/tor-visualization/posts/goal/">Goal</a>
+                        <a href="http://localhost:1313/tor-visualization/posts/sensitivity/">Sensitivity and the Jacobian Matrix</a>
                     </li>
                 
                     <li>
-                        <a href="https://vib5252.github.io/tor-visualization/posts/drift/">Feature Drift</a>
+                        <a href="http://localhost:1313/tor-visualization/posts/goal/">Goal</a>
                     </li>
                 
                     <li>
-                        <a href="https://vib5252.github.io/tor-visualization/posts/which_cluster/">Cluster Characterization</a>
+                        <a href="http://localhost:1313/tor-visualization/posts/drift/">Feature Drift</a>
                     </li>
                 
                     <li>
-                        <a href="https://vib5252.github.io/tor-visualization/posts/pca/">Principal Component Analysis</a>
+                        <a href="http://localhost:1313/tor-visualization/posts/which_cluster/">Cluster Characterization</a>
                     </li>
                 
                     <li>
-                        <a href="https://vib5252.github.io/tor-visualization/posts/intro/">Anomaly Detection and Trust Projection in TOR</a>
+                        <a href="http://localhost:1313/tor-visualization/posts/pca/">Principal Component Analysis</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/intro/">Anomaly Detection and Trust Projection in TOR</a>
                     </li>
                 
             </ul>
@@ -430,7 +433,7 @@ The <a href="https://vib5252.github.io/tor-visualization/plots/RBM_Energy_Overla
 <div class="credits">
     <div class="container">
         <div class="copyright">
-            <a href="https://vib5252.github.io/tor-visualization/">
+            <a href="http://localhost:1313/tor-visualization/">
                 &copy;
                 
                 2024 - 2025
@@ -480,8 +483,7 @@ The <a href="https://vib5252.github.io/tor-visualization/plots/RBM_Energy_Overla
 
 
 
-    
-    <script src="https://vib5252.github.io/tor-visualization/theme.min.bb0851191447aa1518e91349573493da59c9ce96fbded709f00a48178ed92ed8.js" integrity="sha256-uwhRGRRHqhUY6RNJVzST2lnJzpb73tcJ8ApIF47ZLtg="></script>
+    <script src="http://localhost:1313/tor-visualization/theme.js"></script>
 
 
 
