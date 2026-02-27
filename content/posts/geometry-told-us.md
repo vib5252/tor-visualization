@@ -117,10 +117,8 @@ Before the collapse, CCA produced one striking result.
 
 Two independent observers, the RBM and the VAE, were trained separately on the same relay data. They share no weights, no architecture, no explicit coordination. When I asked how much they agreed on the latent structure, the answer was: almost entirely on one dimension, and almost not at all on any other.
 
-First canonical correlation: **0.826**.  
-Second canonical correlation: near noise.
-
-<div style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
+<p style="margin-bottom:0.5rem">First canonical correlation: <strong>0.826</strong>.<br>Second canonical correlation: near noise.</p>
+<div style="overflow-x:auto; margin-top:0; margin-bottom:1rem;">
 <pre>
 Dimension 1:  ████████████████████  0.826  ← shared
 Dimension 2:  ░░░░                         ← noise
@@ -157,9 +155,8 @@ My leading hypothesis was `consensus_weight`, the Tor network's explicit capacit
 
 I ran the test. I removed `consensus_weight` and `consensus_weight_fraction` from the feature set entirely, retrained both models from scratch on the reduced features, and measured the geometric impact.
 
-The shared dimension didn't collapse. It got stronger.
-
-<div style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
+<p style="margin-bottom:0.5rem">The shared dimension didn't collapse. It got stronger.</p>
+<div style="overflow-x:auto; margin-top:0; margin-bottom:1rem;">
 <pre>
 Baseline (with consensus_weight):    pc1_global = 0.36
 E1       (without consensus_weight): pc1_global = 0.27
