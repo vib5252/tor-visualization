@@ -50,8 +50,7 @@ Even knowing the dimension, the shape varies enormously across feature groups.
 
 I measured local anisotropy, how stretched vs. spherical the local geometry is at each point. The results fell into three tiers:
 
-<div style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
-<pre>
+<pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
 Tier 1 — Manifold-like (extreme anisotropy)
   role_probability       ratio_median 15,150   topshare 0.9998
   bandwidth_performance  ratio_median  5,344   topshare 0.9992
@@ -62,7 +61,6 @@ Tier 2 — Moderate structure
 Tier 3 — Binary / isotropic (no dominant axis)
   attack_surface, authority_verdicts, relay_capability
 </pre>
-</div>
 
 Tier 1 features behave like low-dimensional manifolds embedded in higher-dimensional space. Nearly all the local variance lives in one direction. The fluffy cloud. Tier 3 features are effectively discrete. Their variance does not organize along a dominant continuous axis. The threadlike cloud, or no cloud at all.
 
