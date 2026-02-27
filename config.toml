@@ -6,6 +6,10 @@ publishDir = "docs"
 relativeURLs = false
 canonifyURLs = true
 
+[author]
+  name = "Vaibhav Chhabra"
+  email = ""
+
 [params]
   author = "Vaibhav Chhabra"
   description = "Interactive visualization of Tor relays using unsupervised learning and trust scoring"
