@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CCA on TOR Visualization</title>
-    <link>https://vib5252.github.io/tor-visualization/tags/cca/</link>
-    <description>Recent content in CCA on TOR Visualization</description>
+    <title>Code on TOR Visualization</title>
+    <link>https://vib5252.github.io/tor-visualization/tags/code/</link>
+    <description>Recent content in Code on TOR Visualization</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vib5252.github.io/tor-visualization/tags/cca/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vib5252.github.io/tor-visualization/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What the Geometry Actually Told Us</title>
       <link>https://vib5252.github.io/tor-visualization/posts/geometry-told-us/</link>

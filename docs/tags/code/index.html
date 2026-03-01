@@ -15,25 +15,19 @@
     <title>
         
            
-               Principal Component Analysis &vert; TOR Visualization
+               Code &vert; TOR Visualization
            
         
     </title>
-    <meta itemprop="name" content="Principal Component Analysis">
-    <meta itemprop="description" content="Principal Component Analysis - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta itemprop="name" content="Code">
+    <meta itemprop="description" content="Code - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
 
-    <meta property="og:url" content="https://vib5252.github.io/tor-visualization/posts/pca/">
+    <meta property="og:url" content="https://vib5252.github.io/tor-visualization/tags/code/">
   <meta property="og:site_name" content="TOR Visualization">
-  <meta property="og:title" content="Principal Component Analysis">
-  <meta property="og:description" content="PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.
-Here is the PCA analysis of some important features:
-HSDir: Hidden Service Directory When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services. The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.">
+  <meta property="og:title" content="Code">
+  <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-08-21T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-21T00:00:00+00:00">
-    <meta property="article:tag" content="Pca">
+  <meta property="og:type" content="website">
 
     <meta property="og:site_name" content="TOR Visualization">
 
@@ -41,9 +35,12 @@ HSDir: Hidden Service Directory When a Tor relay receives the HSDir flag, it mea
 
 
     
+    <link href="https://vib5252.github.io/tor-visualization/tags/code/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
+    <link href="https://vib5252.github.io/tor-visualization/tags/code/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
+    
 
     
-    <link rel="canonical" href="https://vib5252.github.io/tor-visualization/posts/pca/">
+    <link rel="canonical" href="https://vib5252.github.io/tor-visualization/tags/code/">
     
 
     
@@ -145,9 +142,11 @@ HSDir: Hidden Service Directory When a Tor relay receives the HSDir flag, it mea
 
     <div class="main container">
         
-    <div class="article-wrapper u-cf single">
-        
+    
+    
+        <div class="article-wrapper u-cf">
             
+                
 
 
 
@@ -156,26 +155,28 @@ HSDir: Hidden Service Directory When a Tor relay receives the HSDir flag, it mea
 
     <div class="content">
     <h1 class="article-title">
-        <a href="https://vib5252.github.io/tor-visualization/posts/pca/">
-            Principal Component Analysis
+        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-told-us/">
+            What the Geometry Actually Told Us
         </a>
     </h1>
 
    
 
     
-        
+        <p>In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry <em>should</em> be able to do.</p>
+<p>This post is what happened when I actually did it.</p>
+<hr>
+<h2 id="where-the-intuition-came-from">Where the intuition came from</h2>
+<p>Some of it came from walking with my cat.</p>
+<p>I&rsquo;d watch clouds on those walks and find myself noticing things I couldn&rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&rsquo;t how far they moved. It was how they changed while moving.</p>
 
-        <p>PCA (Principal Component Analysis): Projects high-dimensional data onto a lower-dimensional linear subspace (eg: 2D) by preserving maximum variance. Used as an input to t-SNE/UMAP to reduce feature noise.</p>
-<p>Here is the PCA analysis of some important features:</p>
-<p><a href="https://vib5252.github.io/tor-visualization/plots/PCA_HSDir_PCA1_PCA2_08212025.html">HSDir: Hidden Service Directory</a>
-When a Tor relay receives the HSDir flag, it means that the relay acts as a directory node for onion (hidden) services.
-The purpose of HSDir is to facilitate the discovery of onion services while preserving anonymity. To receive the HSDir flag, a relay must be stable, have sufficient bandwidth, and usually must have been running for at least 96 hours.</p>
-<p><a href="https://vib5252.github.io/tor-visualization/plots/PCA_Exit_PCA1_PCA2_08212025.html">Exit</a>
-Exit relays are the final hop in the TOR circuit before traffic reaches the public internet.
-Attackers often seek to operate exit relays to exploit users, the Exit flag is a key feature to identify and monitor anomaly detection.</p>
-<p><a href="https://vib5252.github.io/tor-visualization/plots/PCA_days_since_restart_PCA1_PCA2_08212025.html">Day Since Restart</a>
-This feature captures temporal behavior. Malicious relays often have irregular restart patterns or short uptimes.</p>
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/geometry-told-us/" class="more">
+                Continue reading
+                
+            </a>
+        
 
     
 
@@ -184,8 +185,36 @@ This feature captures temporal behavior. Malicious relays often have irregular r
         
         
         
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/geometry/">
+            <i class="fa fa-tag"></i> Geometry
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/stability/">
+            <i class="fa fa-tag"></i> Stability
+        </a>
+        
+        
+        
+        
         <a class="link" href="https://vib5252.github.io/tor-visualization/tags/pca/">
             <i class="fa fa-tag"></i> Pca
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/cca/">
+            <i class="fa fa-tag"></i> CCA
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/code/">
+            <i class="fa fa-tag"></i> Code
         </a>
         
         
@@ -225,12 +254,32 @@ This feature captures temporal behavior. Malicious relays often have irregular r
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="date">
         
             <i class="fa fa-calendar-days"></i>
             
             <span class="text moment">
-                2025-08-21</span>
+                2026-02-26</span>
             
         
     </div>
@@ -241,8 +290,18 @@ This feature captures temporal behavior. Malicious relays often have irregular r
 
 </article>
 
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+
         
     </div>
+
+
 
     </div>
 
@@ -315,7 +374,8 @@ This feature captures temporal behavior. Malicious relays often have irregular r
                 
                 by TOR Visualization
             </a>
-            
+            -
+            <a href="https://vib5252.github.io/tor-visualization/tags/code/index.xml">RSS</a>
         </div>
         <div class="author">
             <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"

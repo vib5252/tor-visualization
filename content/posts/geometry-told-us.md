@@ -1,7 +1,7 @@
 ---
 title: "What the Geometry Actually Told Us"
 date: 2026-02-26
-tags: ["Geometry", "Stability", "PCA", "CCA"]
+tags: ["Geometry", "Stability", "PCA", "CCA", "Code"]
 math: true
 weight: 1
 ---
@@ -179,3 +179,13 @@ The network treats `consensus_weight` as ground truth for capacity allocation. B
 That's the next experiment. Not removing features, but adding history: lifespan, uptime consistency, bandwidth stability over time. Turning the snapshot into a film.
 
 The sail doesn't fight the wind. It reads it. I think the stiff axis is the wind.
+
+---
+
+## The Meta-Framework
+
+The Q1–Q4 diagnostic framework is now public.
+
+[tor-meta-framework on GitHub](https://github.com/vib5252/tor-meta-framework)
+
+The repo includes the full pipeline — fetch, contract, Q1–Q4 diagnostics, and the VAE+RBM worked example. If you're exploring the Tor network or want to run the same geometric diagnostics on your own network data, that's the starting point.

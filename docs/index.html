@@ -1,13 +1,541 @@
-<!doctype html><html itemscope itemtype=https://schema.org/WebPage class=no-js lang=en><head prefix="og: http://ogp.me/ns#"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=siteBaseUrl content="https://vib5252.github.io/tor-visualization/"><meta name=author content="Vaibhav Chhabra"><meta name=description content="Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta name=keywords content><meta name=generator content="Hugo 0.146.0"><title>TOR Visualization
-</title><meta itemprop=name content><meta itemprop=description content="Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta property="og:url" content="https://vib5252.github.io/tor-visualization/"><meta property="og:site_name" content="TOR Visualization"><meta property="og:title" content="TOR Visualization"><meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta property="og:locale" content="en_us"><meta property="og:type" content="website"><meta property="og:site_name" content="TOR Visualization"><link href=https://vib5252.github.io/tor-visualization/index.xml rel=alternate type=application/rss+xml title="TOR Visualization"><link href=https://vib5252.github.io/tor-visualization/index.xml rel=feed type=application/rss+xml title="TOR Visualization"><link rel=canonical href=https://vib5252.github.io/tor-visualization/><link rel=stylesheet href=https://vib5252.github.io/tor-visualization/theme.min.22f775c9f9676c42a01a2faff7ba32442728766d53d641704ef7e6c37eaab2ba.css integrity="sha256-Ivd1yflnbEKgGi+v97oyRCcodm1T1kFwTvfmw36qsro=" media=screen><link rel=stylesheet href=https://vib5252.github.io/tor-visualization/css/custom.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script></head><body class=mostafa-hugo-theme><header><a id=back-to-top-button><i class="fas fa-angle-up"></i></a><div class=container><div class=title-container><h1 class=title><a href=https://vib5252.github.io/tor-visualization/>TOR Visualization</a></h1></div><nav><ul></ul></nav></div></header><div class=navigation><div class="pages menu-wrapper"><ul><li class="active menu-toggle"><a href=https://vib5252.github.io/tor-visualization/>Home</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></li><li><a href=https://vib5252.github.io/tor-visualization/tags/>Tags</a></li></ul></div></div><div class="main container"><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>What the Geometry Actually Told Us</a></h1><p>In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry <em>should</em> be able to do.</p><p>This post is what happened when I actually did it.</p><hr><h2 id=where-the-intuition-came-from>Where the intuition came from</h2><p>Some of it came from walking with my cat.</p><p>I&rsquo;d watch clouds on those walks and find myself noticing things I couldn&rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&rsquo;t how far they moved. It was how they changed while moving.</p><a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/geometry/><i class="fa fa-tag"></i> Geometry
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/stability/><i class="fa fa-tag"></i> Stability
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/pca/><i class="fa fa-tag"></i> Pca
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/cca/><i class="fa fa-tag"></i> CCA</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2026-02-26</span></div></div></article></div><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/geometry-of-change/>The Geometry of Change</a></h1><p>When you watch relay clusters over time, the first thing that stands out is motion. Points drift, shapes shift a little, boundaries move. But distance doesn’t tell the whole story. Two clusters can travel the same amount yet experience completely different internal changes. One stays cohesive. Another stretches at the edges. A third barely moves but rotates in place. The coordinates change, but the meaning doesn’t sit in the coordinates.</p><a href=https://vib5252.github.io/tor-visualization/posts/geometry-of-change/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/geometry/><i class="fa fa-tag"></i> Geometry</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-11-22</span></div></div></article></div><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/sensitivity/>Sensitivity and the Jacobian Matrix</a></h1><p>Unlike a plain autoencoder, a <strong>contractive autoencoder</strong> doesn’t just reconstruct the input, it also learns to <strong>control the sensitivity</strong> of its latent space to small changes in the input features.</p><p>The <strong>loss function</strong> combines two terms:</p><ul><li><strong>Reconstruction error</strong>: Measures how well the autoencoder can recover the original input from the compressed latent space.</li><li><strong>Contractive penalty</strong>: Involves the <strong>Jacobian matrix</strong> of the encoder and directly penalizes excessive sensitivity.</li></ul><p>The training objective is:</p><a href=https://vib5252.github.io/tor-visualization/posts/sensitivity/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/sensitivity/><i class="fa fa-tag"></i> Sensitivity</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-09-28</span></div></div></article></div><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/goal/>Goal</a></h1><p>The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
+<!DOCTYPE html>
+
+
+  
+<html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="siteBaseUrl" content="https://vib5252.github.io/tor-visualization/">
+    <meta name="author" content="Vaibhav Chhabra">
+    <meta name="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta name="keywords" content="">
+    <meta name="generator" content="Hugo 0.146.0">
+    <title>
+        
+           
+               TOR Visualization
+           
+        
+    </title>
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+
+    <meta property="og:url" content="https://vib5252.github.io/tor-visualization/">
+  <meta property="og:site_name" content="TOR Visualization">
+  <meta property="og:title" content="TOR Visualization">
+  <meta property="og:description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+    <meta property="og:site_name" content="TOR Visualization">
+
+    
+
+
+    
+    <link href="https://vib5252.github.io/tor-visualization/index.xml" rel="alternate" type="application/rss+xml" title="TOR Visualization" />
+    <link href="https://vib5252.github.io/tor-visualization/index.xml" rel="feed" type="application/rss+xml" title="TOR Visualization" />
+    
+
+    
+    <link rel="canonical" href="https://vib5252.github.io/tor-visualization/">
+    
+
+    
+
+
+
+    
+    <link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/theme.min.22f775c9f9676c42a01a2faff7ba32442728766d53d641704ef7e6c37eaab2ba.css" integrity="sha256-Ivd1yflnbEKgGi&#43;v97oyRCcodm1T1kFwTvfmw36qsro=" media="screen">
+
+
+
+    
+        <link rel="stylesheet" href="https://vib5252.github.io/tor-visualization/css/custom.css">
+    
+
+
+
+    
+    
+
+    
+
+    
+    <script>
+    window.MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+    svg: {fontCache: 'global'}
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+</head>
+
+<body class="mostafa-hugo-theme ">
+    
+
+    <header>
+    <a id="back-to-top-button">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title">
+                <a href="https://vib5252.github.io/tor-visualization/">
+                    TOR Visualization
+                </a>
+            </h1>
+            
+        </div>
+
+        <nav>
+            <ul>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="navigation">
+
+    
+    
+    <div class="pages menu-wrapper">
+        <ul>
+            
+            
+            <li  class="active menu-toggle">
+                <a href="https://vib5252.github.io/tor-visualization/">Home</a>
+            </li>
+            
+            <li >
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            </li>
+            
+            <li >
+                <a href="https://vib5252.github.io/tor-visualization/tags/">Tags</a>
+            </li>
+            
+            
+        </ul>
+    </div>
+    
+
+
+
+    
+    
+
+</div>
+
+
+
+
+    <div class="main container">
+        
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-told-us/">
+            What the Geometry Actually Told Us
+        </a>
+    </h1>
+
+   
+
+    
+        <p>In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry <em>should</em> be able to do.</p>
+<p>This post is what happened when I actually did it.</p>
+<hr>
+<h2 id="where-the-intuition-came-from">Where the intuition came from</h2>
+<p>Some of it came from walking with my cat.</p>
+<p>I&rsquo;d watch clouds on those walks and find myself noticing things I couldn&rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&rsquo;t how far they moved. It was how they changed while moving.</p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/geometry-told-us/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/geometry/">
+            <i class="fa fa-tag"></i> Geometry
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/stability/">
+            <i class="fa fa-tag"></i> Stability
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/pca/">
+            <i class="fa fa-tag"></i> Pca
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/cca/">
+            <i class="fa fa-tag"></i> CCA
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/code/">
+            <i class="fa fa-tag"></i> Code
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2026-02-26</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-of-change/">
+            The Geometry of Change
+        </a>
+    </h1>
+
+   
+
+    
+        <p>When you watch relay clusters over time, the first thing that stands out is motion. Points drift, shapes shift a little, boundaries move. But distance doesn’t tell the whole story. Two clusters can travel the same amount yet experience completely different internal changes. One stays cohesive. Another stretches at the edges. A third barely moves but rotates in place. The coordinates change, but the meaning doesn’t sit in the coordinates.</p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/geometry-of-change/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/geometry/">
+            <i class="fa fa-tag"></i> Geometry
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-11-22</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/sensitivity/">
+            Sensitivity and the Jacobian Matrix
+        </a>
+    </h1>
+
+   
+
+    
+        <p>Unlike a plain autoencoder, a <strong>contractive autoencoder</strong> doesn’t just reconstruct the input, it also learns to <strong>control the sensitivity</strong> of its latent space to small changes in the input features.</p>
+<p>The <strong>loss function</strong> combines two terms:</p>
+<ul>
+<li><strong>Reconstruction error</strong>: Measures how well the autoencoder can recover the original input from the compressed latent space.</li>
+<li><strong>Contractive penalty</strong>: Involves the <strong>Jacobian matrix</strong> of the encoder and directly penalizes excessive sensitivity.</li>
+</ul>
+<p>The training objective is:</p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/sensitivity/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/sensitivity/">
+            <i class="fa fa-tag"></i> Sensitivity
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-09-28</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/goal/">
+            Goal
+        </a>
+    </h1>
+
+   
+
+    
+        <p>The diagram below outlines the evolving architecture of my Tor relay analysis pipeline.
 Each stage reflects a new layer of insight, beginning with raw feature engineering and progressing through geometry extraction, unsupervised clustering, and finally interpretable and probabilistic modeling.
-This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.</p><div style=overflow-x:auto><pre>
+This chart captures the current state of the system as it grows more nuanced and capable of explaining drift, anomaly, and pattern formation in the network.</p>
+<div style="overflow-x:auto;">
+<pre>
                        Raw Tor Relay Signals
       (flags, bandwidth, uptime, geo, roles, policies, etc.)
                                  │
@@ -38,16 +566,564 @@ This chart captures the current state of the system as it grows more nuanced and
                                  ▼
                         Visualization Layer
         maps, trajectories, timelines, and ecosystem overviews
-<p></pre></p><a href=https://vib5252.github.io/tor-visualization/posts/goal/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/goal/><i class="fa fa-tag"></i> Goal</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-09-23</span></div></div></article></div><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/drift/>Feature Drift</a></h1><p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.</p><p>Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.</p><a href=https://vib5252.github.io/tor-visualization/posts/drift/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/drift/><i class="fa fa-tag"></i> Drift</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-08-27</span></div></div></article></div><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/which_cluster/>Cluster Characterization</a></h1><h5 id=z-score><strong>Z-Score</strong></h5><p>A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.</p><p>We use this on our top 3 feature combos:</p><ul><li>A positive ↑ z-score means the feature has higher than average in the cluster.</li><li>A negative ↓ z-score means the feature is lower than average in the cluster.</li></ul><p>A low RBM value means that it is familiar to the neural net. It has seen it while training
-A high RBM means the neural network is not familiar with this pattern.</p><a href=https://vib5252.github.io/tor-visualization/posts/which_cluster/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/cluster/><i class="fa fa-tag"></i> Cluster
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/zscore/><i class="fa fa-tag"></i> Zscore</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-08-25</span></div></div></article></div><div class="article-wrapper u-cf"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/intro/>Anomaly Detection and Trust Projection in TOR</a></h1><p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.</p><p>More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.</p><p>The <a href=https://onionoo.torproject.org/details>TOR public API</a> gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p><a href=https://vib5252.github.io/tor-visualization/posts/intro/ class=more>Continue reading</a><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/pipeline/><i class="fa fa-tag"></i> Pipeline
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/rbm/><i class="fa fa-tag"></i> Rbm
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/hdbscan/><i class="fa fa-tag"></i> Hdbscan</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2025-08-03</span></div></div></article></div><div class=paginator></div></div><footer><div class=container><div class=recent-posts><strong>Latest posts</strong><ul><li><a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>What the Geometry Actually Told Us</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/geometry-of-change/>The Geometry of Change</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/sensitivity/>Sensitivity and the Jacobian Matrix</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/goal/>Goal</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/drift/>Feature Drift</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/which_cluster/>Cluster Characterization</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/pca/>Principal Component Analysis</a></li></ul></div><div class=right><div class=archive></div></div></div></footer><div class=credits><div class=container><div class=copyright><a href=https://vib5252.github.io/tor-visualization/>&copy;
-2024 - 2026
-by TOR Visualization
-</a>-
-<a href=https://vib5252.github.io/tor-visualization/index.xml>RSS</a></div><div class=author><a href=https://github.com/mirmousaviii/mostafa-hugo-theme target=_blank>Powered by Mostafa-Hugo-Theme</a></div></div></div><script src=https://vib5252.github.io/tor-visualization/theme.min.bb0851191447aa1518e91349573493da59c9ce96fbded709f00a48178ed92ed8.js integrity="sha256-uwhRGRRHqhUY6RNJVzST2lnJzpb73tcJ8ApIF47ZLtg="></script></body></html>
+<p></pre></p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/goal/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/goal/">
+            <i class="fa fa-tag"></i> Goal
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-09-23</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/drift/">
+            Feature Drift
+        </a>
+    </h1>
+
+   
+
+    
+        <p>I have reached a point where our selected clusters, identified through cluster characterization (using Z-score and RBM_avg), yield a set of relays (by fingerprint) for drift analysis.</p>
+<p>Drift in this context means tracking how the top three Z-score features of each relay’s cluster evolve across timepoints. An important element of this process is using the RBM (Restricted Boltzmann Machine) to detect transitions. For example, we can spot when a relay moves from low RBM energy (routine) to high RBM energy (anomalous), or vice versa.</p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/drift/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/drift/">
+            <i class="fa fa-tag"></i> Drift
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-08-27</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/which_cluster/">
+            Cluster Characterization
+        </a>
+    </h1>
+
+   
+
+    
+        <h5 id="z-score"><strong>Z-Score</strong></h5>
+<p>A Z-score tells us how many standard deviations a feature’s average (mean) is from the global mean.</p>
+<p>We use this on our top 3 feature combos:</p>
+<ul>
+<li>A positive ↑ z-score means the feature has higher than average in the cluster.</li>
+<li>A negative ↓ z-score means the feature is lower than average in the cluster.</li>
+</ul>
+<p>A low RBM value means that it is familiar to the neural net. It has seen it while training
+A high RBM means the neural network is not familiar with this pattern.</p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/which_cluster/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/cluster/">
+            <i class="fa fa-tag"></i> Cluster
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/zscore/">
+            <i class="fa fa-tag"></i> Zscore
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-08-25</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="https://vib5252.github.io/tor-visualization/posts/intro/">
+            Anomaly Detection and Trust Projection in TOR
+        </a>
+    </h1>
+
+   
+
+    
+        <p>This project started as a sandbox to learn data science algorithms with a passion backed by my years of security research inspecting telemetry.</p>
+<p>More specifically, it arose from a desire to understand the concept by applying mathematics to tease out underlying patterns. Patterns of expectation, such as &ldquo;The Weak Law of Large Numbers,&rdquo; still blow my mind how this abstract form converges.</p>
+<p>The <a href="https://onionoo.torproject.org/details">TOR public API</a> gives a rich amount of data that is perfect for exploring latent features. This project explores a pipeline for &ldquo;trust&rdquo; scoring of TOR relays using a hybrid of unsupervised learning and a final linear classifier.</p>
+
+
+        
+            <a href="https://vib5252.github.io/tor-visualization/posts/intro/" class="more">
+                Continue reading
+                
+            </a>
+        
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/pipeline/">
+            <i class="fa fa-tag"></i> Pipeline
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/rbm/">
+            <i class="fa fa-tag"></i> Rbm
+        </a>
+        
+        
+        
+        
+        <a class="link" href="https://vib5252.github.io/tor-visualization/tags/hdbscan/">
+            <i class="fa fa-tag"></i> Hdbscan
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="https://vib5252.github.io/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2025-08-03</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+
+    
+
+    
+    <div class="paginator">
+        
+
+        
+    </div>
+
+
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+            <ul>
+                
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-told-us/">What the Geometry Actually Told Us</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/geometry-of-change/">The Geometry of Change</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/sensitivity/">Sensitivity and the Jacobian Matrix</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/goal/">Goal</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/drift/">Feature Drift</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/which_cluster/">Cluster Characterization</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://vib5252.github.io/tor-visualization/posts/pca/">Principal Component Analysis</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        
+
+        <div class="right">
+            
+
+
+
+            
+            <div class="archive">
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://vib5252.github.io/tor-visualization/">
+                &copy;
+                
+                2024 - 2026
+                
+                by TOR Visualization
+            </a>
+            -
+            <a href="https://vib5252.github.io/tor-visualization/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"
+                target="_blank">Powered by Mostafa-Hugo-Theme</a>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="https://vib5252.github.io/tor-visualization/theme.min.bb0851191447aa1518e91349573493da59c9ce96fbded709f00a48178ed92ed8.js" integrity="sha256-uwhRGRRHqhUY6RNJVzST2lnJzpb73tcJ8ApIF47ZLtg="></script>
+
+
+
+
+
+    
+
+    
+</body>
+
+</html>
