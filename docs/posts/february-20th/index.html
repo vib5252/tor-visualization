@@ -29,8 +29,7 @@ people on it who use Tor do not stop using Tor. They change how they use it. New
 entry guards. New circuits. Different timing patterns. Operational security responses
 at scale are not visible in traffic volume. They are visible in the pattern of which
 relays get selected together — and how that pattern shifts between two independent
-observers watching the same network from different mathematical vantage points.</p><p>Three days later, <u>on February 20th, the geometry of the Tor network changed.</u></p><p>This post is about what that means — and why the honest answer is: I don&rsquo;t know yet.</p><p><em>W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):</em>
-<a href=https://vib5252.github.io/tor-visualization/plots/e3_w14_signal.png data-dimbox data-dimbox-caption="E3 Signal W=14"><img src=https://vib5252.github.io/tor-visualization/plots/e3_w14_signal.png alt="E3 Signal W=14"></a></p><p>The <a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>previous post</a> documented that the
+observers watching the same network from different mathematical vantage points.</p><p>Three days later, <u>on February 20th, the geometry of the Tor network changed.</u></p><p>This post is about what that means — and why the honest answer is: I don&rsquo;t know yet.</p><p>The <a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>previous post</a> documented that the
 pipeline had been operating in a degenerate state since February 9th — 13 consecutive
 days where the CCA alignment collapsed and the two observers lost their shared
 direction entirely. February 20th sits inside that window. What follows happened
@@ -54,7 +53,12 @@ The output is two numbers per day:</p><pre style=overflow-x:auto;margin-top:1rem
 </pre><p>Three window sizes: W=3, W=7, W=14 days. Each resolves a different timescale.
 W=3 drowns in noise. W=7 catches sharp point events. W=14 catches slow structural
 regimes — month-long changes in how the relay population organizes itself.</p><p>This multi-scale structure was not designed. It emerged from laying three plots
-side by side.</p><hr><h2 id=the-honest-limitation--stated-first>The Honest Limitation — Stated First</h2><p>Both observers were frozen across the entire 98-day period. Trained on early data,
+side by side.</p><p><a href=https://vib5252.github.io/tor-visualization/plots/trackB_e3_w14_signal_mar8.png data-dimbox data-dimbox-caption="E3 Signal W=14"><img src=https://vib5252.github.io/tor-visualization/plots/trackB_e3_w14_signal_mar8.png alt="E3 Signal W=14"></a></p><p><em>W=14 geometric signal, December 2025 — March 2026. Top: eigenvalue gap Δρ.
+Middle: principal angle θ — suppression to near-zero from February 20 through
+March 6 is visible, followed by the rank #1 spike. Bottom: OONI global Tor
+anomaly rate with co-movement markers. Solid vertical lines: internal relay-side
+events. Dashed vertical lines: external events. Red dots: large combined Δρ+Δθ
+crossings.</em></p><hr><h2 id=the-honest-limitation--stated-first>The Honest Limitation — Stated First</h2><p>Both observers were frozen across the entire 98-day period. Trained on early data,
 never updated. As the network evolved, their representations drifted out of
 distribution. The eigenvalue gap compressed toward zero throughout.</p><p>A principled statistical filter would have left almost no data to analyze. The system
 was operating at the edge of its sensitivity. Signal and noise were mixed throughout.

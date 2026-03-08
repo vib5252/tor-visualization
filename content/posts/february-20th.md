@@ -58,9 +58,6 @@ Three days later, <u>on February 20th, the geometry of the Tor network changed.<
 
 This post is about what that means — and why the honest answer is: I don't know yet.
 
-*W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):*
-![E3 Signal W=14](/plots/e3_w14_signal.png)
-
 The [previous post]({{< relref "posts/geometry-told-us.md" >}}) documented that the
 pipeline had been operating in a degenerate state since February 9th — 13 consecutive
 days where the CCA alignment collapsed and the two observers lost their shared
@@ -106,6 +103,15 @@ regimes — month-long changes in how the relay population organizes itself.
 
 This multi-scale structure was not designed. It emerged from laying three plots
 side by side.
+
+![E3 Signal W=14](/plots/trackB_e3_w14_signal_mar8.png)
+
+*W=14 geometric signal, December 2025 — March 2026. Top: eigenvalue gap Δρ.
+Middle: principal angle θ — suppression to near-zero from February 20 through
+March 6 is visible, followed by the rank #1 spike. Bottom: OONI global Tor
+anomaly rate with co-movement markers. Solid vertical lines: internal relay-side
+events. Dashed vertical lines: external events. Red dots: large combined Δρ+Δθ
+crossings.*
 
 ---
 
