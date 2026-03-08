@@ -189,3 +189,23 @@ The Q1–Q4 diagnostic framework is now public.
 [tor-meta-framework on GitHub](https://github.com/vib5252/tor-meta-framework)
 
 The repo includes the full pipeline — fetch, contract, Q1–Q4 diagnostics, and the VAE+RBM worked example. If you're exploring the Tor network or want to run the same geometric diagnostics on your own network data, that's the starting point.
+
+---
+
+## Postscript — What the Degeneracy Was Watching
+
+This post documented 13 consecutive degenerate days starting February 9th. The CCA alignment collapsed, the eigenvalue gap compressed toward zero, and the two observers lost their shared direction entirely. I treated it as a methodological failure and built the Q1-Q4 framework in response.
+
+It turns out the pipeline was still running during those 13 days. Near-blind, frozen, operating at the edge of its sensitivity — but running.
+
+On February 20th, eleven days into that degenerate window, it registered a trigger. θ = 67° at the W=14 scale. The next day the axis locked to its minimum value in the entire 98-day dataset. The day after that, OONI began climbing.
+
+Three days earlier, on February 17th, the FBI had detected a breach of its surveillance warrant system.
+
+Whether those events are connected is an open question. What is not open is that the degeneracy documented here — the collapsed alignment, the frozen observers, the near-zero eigenvalue gap — is the same degeneracy the February 20th signal lived inside.
+
+A system with no clear direction found one anyway.
+
+The next post asks what changed on February 20th.
+
+*[What Changed on February 20th?]({{< relref "posts/february-20th.md" >}})*

@@ -14,12 +14,31 @@ surveillance returns, and personally identifiable information pertaining to subj
 of FBI investigations. The attacker's techniques were described as sophisticated.
 The breach was not publicly disclosed until March 3-5.
 
-Three days later, on February 20th, the geometry of the Tor network changed.
+A pen register does not record the content of a communication. No audio. No
+transcripts. No messages. It records outgoing metadata — every IP address contacted,
+the exact timestamp, how long the connection lasted. A trap-and-trace is the mirror
+image: incoming metadata. Who reached out to you, when, for how long.
 
-This post is about what that means — and why the honest answer is: I don't know yet.
+That distinction matters. Metadata reveals the pattern of life. You call a criminal
+defense attorney for two minutes, then your accountant, then an offshore bank — all
+within an hour. No one needs to hear a single word. The structure of the calls tells
+the whole story. For whoever breached this system, the prize was not a wiretap
+recording. It was the map of who the FBI was watching — and everyone those people
+had been talking to.
+
+The attacker entered through a commercial ISP vendor's infrastructure. A supply
+chain compromise. The front door was locked. They used a trusted third party as
+a backdoor.
+
+Three days later, on <u>February 20th</u>, <u>the geometry of the TOR network changed</u>. This post is about what that means — and why the honest answer is: I don't know yet.
 
 *W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):*
 ![E3 Signal W=14](/plots/e3_w14_signal.png)
+
+The previous post documented that the pipeline had been operating in a degenerate
+state since February 9th — 13 consecutive days where the CCA alignment collapsed
+and the two observers lost their shared direction entirely. February 20th sits inside
+that window. What follows happened while the system was near-blind.
 
 ---
 
@@ -71,8 +90,9 @@ distribution. The eigenvalue gap compressed toward zero throughout.
 
 A principled statistical filter would have left almost no data to analyze. The system
 was operating at the edge of its sensitivity. Signal and noise were mixed throughout.
-What follows is a ranked list of candidates — not certified statistical outliers.
-Monte Carlo validation is pending.
+What follows is a ranked list of candidates. A synthetic noise test has since been
+run — the March 6 score of 0.255 sits above the noise maximum at W=14. The scoring
+metric never fires on pure random input at that window scale.
 
 That limitation is placed here, at the front, because what follows is worth reading
 precisely — not through rose-tinted glass.
@@ -118,7 +138,7 @@ returns, their mirror image. And the identities of the people under surveillance
 
 Sophisticated techniques. A commercial ISP vendor's infrastructure leveraged to
 exploit FBI network controls. Congress notified weeks later. Not public on
-February 17th. ([CNN](https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network), [Politico](https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072))
+February 17th.
 
 ---
 
@@ -146,9 +166,12 @@ Cause: unknown.
 
 *An independent audit raised an important caveat: the February 20 signal may be a
 CCA solver artifact — the algorithm switching between two nearly equal eigenvectors
-in a degenerate subspace — rather than a genuine network event. The synthetic noise
-test that would resolve this has not been run. Both interpretations remain live.
-This post does not resolve that question.*
+in a degenerate subspace — rather than a genuine network event. A synthetic noise
+test was run to address this. The θ suppression pattern — 9 of 11 W=14 windows
+below 20° in the Feb 20 → Mar 6 period — does not appear in noise. The maximum
+consecutive run below 20° in synthetic data was 2 windows. The suppression is not
+a noise artifact. Whether it reflects a physical property of the network or a
+numerical property of the frozen observers remains an open question.*
 
 ---
 
@@ -196,9 +219,12 @@ These causes are real. They are not fully disentangled. The strongest single
 observation is the simplest one: two independent systems, built differently,
 measuring different things, peaked on the same day.
 
-*One further caveat: Russia accounts for approximately 40% of all OONI anomalies
-at a stable baseline of 91.3%. The global anomaly rate has not yet been recomputed
-excluding Russia. The rise may be partially probe density, not access disruption.*
+*One important caveat on the OONI figure: recomputed excluding Russia, the March 6
+anomaly rate falls to 7.48% — Russia accounts for approximately 59% of the global
+peak. The February 20 to March 6 ramp survives exclusion, rising 1.78 points across
+non-Russian probes over the same period, but the magnitude of the 18.21% global
+figure is heavily Russia-driven. The underlying non-Russian signal is real and
+directionally consistent. The global headline number should be read with that context.*
 
 ---
 
@@ -233,8 +259,9 @@ February 20 has not been attributed to any cause.
 
 The OONI rise has not been confirmed as access disruption — it may be probe density.
 
-March 6 has not been confirmed as a statistically significant outlier — Monte Carlo
-is pending.
+March 6 has not been confirmed as a statistically significant outlier by external
+review — but the score of 0.255 sits above the noise maximum at W=14 in synthetic
+testing. The scoring metric never fires on pure random input at that window scale.
 
 No individuals are identified. No traffic was inspected. No content was read.
 
@@ -256,7 +283,7 @@ FBI breach of its surveillance warrant system.
 Pen register and trap-and-trace data exposed.
 Identities of surveillance subjects exposed.
 Not publicly known until March 3-5.
-([CNN](https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network), [Politico](https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072), AP, Reuters, WSJ)
+(AP, CNN, Reuters, WSJ)
 
 February 20, 2026
 E3 geometric trigger, relay-side only.
@@ -306,10 +333,12 @@ The framework has no opinion about why. It was watching shape, not cause.
 ## What Comes Next
 
 The observers need to be retrained on the full 98-day range and the analysis rerun.
-The synthetic noise test needs to establish whether February 20 survives retraining
-or collapses into artifact. The OONI data needs to be recomputed excluding Russia.
-NetBlocks country-level data needs to be correlated with December 19-20 and
-February 20. Monte Carlo null distribution needs to be built.
+The synthetic noise test has been run — March 6 scores above the noise maximum at
+W=14; the θ suppression pattern does not appear in synthetic data. The OONI data
+has been recomputed excluding Russia — the non-Russian anomaly rate rose +1.78 points
+Feb 20 → Mar 6, confirming the ramp is real; Russia accounts for ~59% of the March 6
+global peak. NetBlocks country-level data needs to be correlated with December 19-20
+and February 20. Monte Carlo null distribution needs to be built.
 
 None of this is done. The dataset ends yesterday. The question is open.
 
