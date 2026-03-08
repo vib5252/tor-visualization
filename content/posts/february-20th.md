@@ -251,8 +251,12 @@ Two independent measurement systems. Same day.
 February 20 + 14 days = March 6. Exactly.
 </pre>
 
-Three things converged on this date. The 14-day window purging the February 20
-state — a mathematical consequence, not a new event. Six days of post-strike relay
+Three things converged on this date. The window purge hypothesis predicted this
+spike was the window's memory releasing — February 20 state clearing after 14 days,
+mathematical consequence, not new network event. A boundary test of all W=14 events
+found that December 19-20 had no W=7 precursor at all. W=14 detected it
+independently. The window purge hypothesis does not hold. March 6 is a genuine
+W=14 detection, not a delayed echo of February 20. Six days of post-strike relay
 disruption accumulated in the window. And the OONI ramp, climbing since
 February 21st, reaching its peak.
 
@@ -387,7 +391,10 @@ Feb 20 → Mar 6, confirming the ramp is real; Russia accounts for ~59% of the M
 global peak. NetBlocks country-level data needs to be correlated with December 19-20
 and February 20. Monte Carlo null distribution needs to be built.
 
-None of this is done. The dataset ends yesterday. The question is open.
+None of this is done. As of March 7, the geometry has not resolved. The W=14
+signal continued rather than recovering after the March 6 peak. March 8 is the
+next date to watch. The dataset does not end yesterday. The question is still
+open — and moving.
 
 ---
 
