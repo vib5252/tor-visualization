@@ -1,6 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Stability on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/stability/</link><description>Recent content in Stability on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/stability/index.xml" rel="self" type="application/rss+xml"/><item><title>What the Geometry Actually Told Us</title><link>https://vib5252.github.io/tor-visualization/posts/geometry-told-us/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/geometry-told-us/</guid><description>&lt;p>In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry &lt;em>should&lt;/em> be able to do.&lt;/p>
-&lt;p>This post is what happened when I actually did it.&lt;/p>
-&lt;hr>
-&lt;h2 id="where-the-intuition-came-from">Where the intuition came from&lt;/h2>
-&lt;p>Some of it came from walking with my cat.&lt;/p>
-&lt;p>I&amp;rsquo;d watch clouds on those walks and find myself noticing things I couldn&amp;rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&amp;rsquo;t how far they moved. It was how they changed while moving.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stability on TOR Visualization</title>
+    <link>http://localhost:1313/tor-visualization/tags/stability/</link>
+    <description>Recent content in Stability on TOR Visualization</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tor-visualization/tags/stability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What the Geometry Actually Told Us</title>
+      <link>http://localhost:1313/tor-visualization/posts/geometry-told-us/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tor-visualization/posts/geometry-told-us/</guid>
+      <description>&lt;p&gt;In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry &lt;em&gt;should&lt;/em&gt; be able to do.&lt;/p&gt;&#xA;&lt;p&gt;This post is what happened when I actually did it.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;where-the-intuition-came-from&#34;&gt;Where the intuition came from&lt;/h2&gt;&#xA;&lt;p&gt;Some of it came from walking with my cat.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;d watch clouds on those walks and find myself noticing things I couldn&amp;rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&amp;rsquo;t how far they moved. It was how they changed while moving.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,8 +1,203 @@
-<!doctype html><html itemscope itemtype=https://schema.org/WebPage class=no-js lang=en><head prefix="og: http://ogp.me/ns#"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=siteBaseUrl content="https://vib5252.github.io/tor-visualization/"><meta name=author content="Vaibhav Chhabra"><meta name=description content="Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta name=keywords content><meta name=generator content="Hugo 0.146.0"><title>What the Geometry Actually Told Us | TOR Visualization
-</title><meta itemprop=name content="What the Geometry Actually Told Us"><meta itemprop=description content="What the Geometry Actually Told Us - Interactive visualization of Tor relays using unsupervised learning and trust scoring"><meta property="og:url" content="https://vib5252.github.io/tor-visualization/posts/geometry-told-us/"><meta property="og:site_name" content="TOR Visualization"><meta property="og:title" content="What the Geometry Actually Told Us"><meta property="og:description" content="In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry should be able to do.
+<!DOCTYPE html>
+
+
+  
+<html itemscope itemtype="https://schema.org/WebPage" class="no-js" lang="en">
+
+<head prefix="og: http://ogp.me/ns#"><script src="/tor-visualization/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=tor-visualization/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="siteBaseUrl" content="http://localhost:1313/tor-visualization/">
+    <meta name="author" content="Vaibhav Chhabra">
+    <meta name="description" content="Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+    <meta name="keywords" content="">
+    <meta name="generator" content="Hugo 0.146.0">
+    <title>
+        
+           
+               What the Geometry Actually Told Us &vert; TOR Visualization
+           
+        
+    </title>
+    <meta itemprop="name" content="What the Geometry Actually Told Us">
+    <meta itemprop="description" content="What the Geometry Actually Told Us - Interactive visualization of Tor relays using unsupervised learning and trust scoring">
+
+    <meta property="og:url" content="http://localhost:1313/tor-visualization/posts/geometry-told-us/">
+  <meta property="og:site_name" content="TOR Visualization">
+  <meta property="og:title" content="What the Geometry Actually Told Us">
+  <meta property="og:description" content="In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry should be able to do.
 This post is what happened when I actually did it.
 Where the intuition came from Some of it came from walking with my cat.
-I’d watch clouds on those walks and find myself noticing things I couldn’t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn’t how far they moved. It was how they changed while moving."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-26T00:00:00+00:00"><meta property="article:modified_time" content="2026-02-26T00:00:00+00:00"><meta property="article:tag" content="Geometry"><meta property="article:tag" content="Stability"><meta property="article:tag" content="Pca"><meta property="article:tag" content="CCA"><meta property="article:tag" content="Code"><meta property="og:site_name" content="TOR Visualization"><link rel=canonical href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/><link rel=stylesheet href=https://vib5252.github.io/tor-visualization/theme.min.22f775c9f9676c42a01a2faff7ba32442728766d53d641704ef7e6c37eaab2ba.css integrity="sha256-Ivd1yflnbEKgGi+v97oyRCcodm1T1kFwTvfmw36qsro=" media=screen><link rel=stylesheet href=https://vib5252.github.io/tor-visualization/css/custom.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script></head><body class=mostafa-hugo-theme><header><a id=back-to-top-button><i class="fas fa-angle-up"></i></a><div class=container><div class=title-container><h1 class=title><a href=https://vib5252.github.io/tor-visualization/>TOR Visualization</a></h1></div><nav><ul></ul></nav></div></header><div class=navigation><div class="pages menu-wrapper"><ul><li><a href=https://vib5252.github.io/tor-visualization/>Home</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></li><li><a href=https://vib5252.github.io/tor-visualization/tags/>Tags</a></li><li class="active menu-toggle menu-button"><a href=#>Pages</a></li></ul></div></div><div class="main container"><div class="article-wrapper u-cf single"><article class="default article"><div class=content><h1 class=article-title><a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>What the Geometry Actually Told Us</a></h1><p>In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry <em>should</em> be able to do.</p><p>This post is what happened when I actually did it.</p><hr><h2 id=where-the-intuition-came-from>Where the intuition came from</h2><p>Some of it came from walking with my cat.</p><p>I&rsquo;d watch clouds on those walks and find myself noticing things I couldn&rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&rsquo;t how far they moved. It was how they changed while moving.</p><p>Height and density weren&rsquo;t incidental. Low clouds are dense, anisotropic, dominated by a preferred direction. High clouds are diffuse, nearly isotropic. Any axis is as good as any other, which means no axis anchors them. The wind doesn&rsquo;t need to be strong to pull them apart.</p><p>The circular clouds taught me something else. An elongated cloud tracks cleanly. You can follow it. A nearly round cloud is slippery. Under gentle wind it seems to spin in place, the long axis swapping with the short one, orientation becoming ambiguous. I later recognized this as eigenvalue gap instability: when the top two principal values are close, the data does not privilege one direction over the other, so small perturbations can rotate the basis dramatically.</p><p>The other observation came from a sail shade in the yard. Water dripping off it never falls randomly. It finds grooves, follows streaks, converges along paths of least resistance into thin lines of flow. The first time I really looked at it I thought: that&rsquo;s gradient descent. The water isn&rsquo;t computing anything. It&rsquo;s just obeying local slope. But the result is that scattered drops trace the manifold structure of the surface, revealing geometry through accumulation.</p><p>I didn&rsquo;t write any of this down as math at the time. But when the Q1-Q4 diagnostics came back, I recognized what I was looking at.</p><hr><h2 id=q1-how-many-dimensions-does-this-actually-live-in>Q1: How many dimensions does this actually live in?</h2><p>22 features. But 95% of the variance lives in 6 principal components. All measurements were performed in standardized feature space.</p><p>That compression alone isn&rsquo;t surprising. High-dimensional relay data usually has latent structure. What was surprising was how unevenly that compression distributed across feature groups.</p><p><code>network_allocation</code> collapses to essentially one dimension. One axis captures it almost completely. It&rsquo;s the sail shade with a single dominant groove, everything flows one way.</p><p><code>role_probability</code> is the opposite. It resists compression. It spreads across all three components and doesn&rsquo;t surrender to a simpler description. I expected it to collapse the way <code>network_allocation</code> did. It didn&rsquo;t.</p><p>That asymmetry matters. Not every feature group lives in the same kind of space.</p><p><a href=https://vib5252.github.io/tor-visualization/plots/q1_cumulative_variance.png data-dimbox data-dimbox-caption="Q1 cumulative variance"><img src=https://vib5252.github.io/tor-visualization/plots/q1_cumulative_variance.png alt="Q1 cumulative variance"></a></p><hr><h2 id=q2-what-shape-is-that-space>Q2: What shape is that space?</h2><p>Even knowing the dimension, the shape varies enormously across feature groups.</p><p>I measured local anisotropy, how stretched vs. spherical the local geometry is at each point. The results fell into three tiers:</p><pre style=overflow-x:auto;margin-top:1rem;margin-bottom:1rem>
+I’d watch clouds on those walks and find myself noticing things I couldn’t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn’t how far they moved. It was how they changed while moving.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-26T00:00:00+00:00">
+    <meta property="article:tag" content="Geometry">
+    <meta property="article:tag" content="Stability">
+    <meta property="article:tag" content="Pca">
+    <meta property="article:tag" content="CCA">
+    <meta property="article:tag" content="Code">
+
+    <meta property="og:site_name" content="TOR Visualization">
+
+    
+
+
+    
+
+    
+    <link rel="canonical" href="http://localhost:1313/tor-visualization/posts/geometry-told-us/">
+    
+
+    
+
+
+
+    <link rel="stylesheet" href="http://localhost:1313/tor-visualization/theme.css" media="screen">
+
+
+
+    
+        <link rel="stylesheet" href="http://localhost:1313/tor-visualization/css/custom.css">
+    
+
+
+
+    
+    
+
+    
+
+    
+    <script>
+    window.MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+    svg: {fontCache: 'global'}
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+</head>
+
+<body class="mostafa-hugo-theme ">
+    
+
+    <header>
+    <a id="back-to-top-button">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title">
+                <a href="http://localhost:1313/tor-visualization/">
+                    TOR Visualization
+                </a>
+            </h1>
+            
+        </div>
+
+        <nav>
+            <ul>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="navigation">
+
+    
+    
+    <div class="pages menu-wrapper">
+        <ul>
+            
+            
+            <li >
+                <a href="http://localhost:1313/tor-visualization/">Home</a>
+            </li>
+            
+            <li >
+                <a href="http://localhost:1313/tor-visualization/posts/">Posts</a>
+            </li>
+            
+            <li >
+                <a href="http://localhost:1313/tor-visualization/tags/">Tags</a>
+            </li>
+            
+            
+            <li class="active menu-toggle menu-button">
+                <a href="#">Pages</a>
+            </li>
+            
+        </ul>
+    </div>
+    
+
+
+
+    
+    
+
+</div>
+
+
+
+
+    <div class="main container">
+        
+    <div class="article-wrapper u-cf single">
+        
+            
+
+
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title">
+        <a href="http://localhost:1313/tor-visualization/posts/geometry-told-us/">
+            What the Geometry Actually Told Us
+        </a>
+    </h1>
+
+   
+
+    
+        
+
+        <p>In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry <em>should</em> be able to do.</p>
+<p>This post is what happened when I actually did it.</p>
+<hr>
+<h2 id="where-the-intuition-came-from">Where the intuition came from</h2>
+<p>Some of it came from walking with my cat.</p>
+<p>I&rsquo;d watch clouds on those walks and find myself noticing things I couldn&rsquo;t quite articulate yet. The low ones held together. Dense and fluffy, they moved as units, keeping their shape against the wind, internal structure intact. The high ones were different. Thin and threadlike, they sheared apart, filaments stretching and dissolving. Same sky, same wind, completely different response. The interesting thing wasn&rsquo;t how far they moved. It was how they changed while moving.</p>
+<p>Height and density weren&rsquo;t incidental. Low clouds are dense, anisotropic, dominated by a preferred direction. High clouds are diffuse, nearly isotropic. Any axis is as good as any other, which means no axis anchors them. The wind doesn&rsquo;t need to be strong to pull them apart.</p>
+<p>The circular clouds taught me something else. An elongated cloud tracks cleanly. You can follow it. A nearly round cloud is slippery. Under gentle wind it seems to spin in place, the long axis swapping with the short one, orientation becoming ambiguous. I later recognized this as eigenvalue gap instability: when the top two principal values are close, the data does not privilege one direction over the other, so small perturbations can rotate the basis dramatically.</p>
+<p>The other observation came from a sail shade in the yard. Water dripping off it never falls randomly. It finds grooves, follows streaks, converges along paths of least resistance into thin lines of flow. The first time I really looked at it I thought: that&rsquo;s gradient descent. The water isn&rsquo;t computing anything. It&rsquo;s just obeying local slope. But the result is that scattered drops trace the manifold structure of the surface, revealing geometry through accumulation.</p>
+<p>I didn&rsquo;t write any of this down as math at the time. But when the Q1-Q4 diagnostics came back, I recognized what I was looking at.</p>
+<hr>
+<h2 id="q1-how-many-dimensions-does-this-actually-live-in">Q1: How many dimensions does this actually live in?</h2>
+<p>22 features. But 95% of the variance lives in 6 principal components. All measurements were performed in standardized feature space.</p>
+<p>That compression alone isn&rsquo;t surprising. High-dimensional relay data usually has latent structure. What was surprising was how unevenly that compression distributed across feature groups.</p>
+<p><code>network_allocation</code> collapses to essentially one dimension. One axis captures it almost completely. It&rsquo;s the sail shade with a single dominant groove, everything flows one way.</p>
+<p><code>role_probability</code> is the opposite. It resists compression. It spreads across all three components and doesn&rsquo;t surrender to a simpler description. I expected it to collapse the way <code>network_allocation</code> did. It didn&rsquo;t.</p>
+<p>That asymmetry matters. Not every feature group lives in the same kind of space.</p>
+<p>
+<a href="http://localhost:1313/tor-visualization/plots/q1_cumulative_variance.png" data-dimbox data-dimbox-caption="Q1 cumulative variance">
+    <img src="http://localhost:1313/tor-visualization/plots/q1_cumulative_variance.png" alt="Q1 cumulative variance" />
+</a>
+
+</p>
+<hr>
+<h2 id="q2-what-shape-is-that-space">Q2: What shape is that space?</h2>
+<p>Even knowing the dimension, the shape varies enormously across feature groups.</p>
+<p>I measured local anisotropy, how stretched vs. spherical the local geometry is at each point. The results fell into three tiers:</p>
+<pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
 Tier 1 — Manifold-like (extreme anisotropy)
   role_probability       ratio_median 15,150   topshare 0.9998
   bandwidth_performance  ratio_median  5,344   topshare 0.9992
@@ -12,25 +207,331 @@ Tier 2 — Moderate structure
 
 Tier 3 — Binary / isotropic (no dominant axis)
   attack_surface, authority_verdicts, relay_capability
-</pre><p>Tier 1 features behave like low-dimensional manifolds embedded in higher-dimensional space. Nearly all the local variance lives in one direction. The fluffy cloud. Tier 3 features are effectively discrete. Their variance does not organize along a dominant continuous axis. The threadlike cloud, or no cloud at all.</p><p>The lesson from Q2: you can&rsquo;t apply the same analysis to all feature groups and expect consistent results. The geometry of <code>role_probability</code> and the geometry of <code>attack_surface</code> are different kinds of objects.</p><p><a href=https://vib5252.github.io/tor-visualization/plots/q2_directional_dominance.png data-dimbox data-dimbox-caption="Q2 anisotropy distribution"><img src=https://vib5252.github.io/tor-visualization/plots/q2_directional_dominance.png alt="Q2 anisotropy distribution"></a></p><hr><h2 id=q3-is-the-structure-density-or-correlation>Q3: Is the structure density or correlation?</h2><p>For <code>network_allocation</code>, the answer was clear: it&rsquo;s correlation. The first principal component loads at 1.0. The features don&rsquo;t cluster in dense pockets. They align along a shared axis. It&rsquo;s a line, not a cloud.</p><p>For <code>role_probability</code> and <code>bandwidth_performance</code>, the answer was ambiguous. Strong local geometry, but no clean global structure. I spent time wondering if this was a threshold problem, maybe I&rsquo;d drawn the wrong boundary, or the scale was off. It wasn&rsquo;t. The ambiguity is real. Those feature groups have coherent local neighborhoods that don&rsquo;t resolve into a single global shape.</p><p>That finding is meaningful on its own. Not everything has to resolve. Some structure is genuinely local.</p><hr><h2 id=q4-did-any-of-this-hold-over-time>Q4: Did any of this hold over time?</h2><p>This is where the intuition met its hardest test.</p><p>I ran the diagnostics across 94 snapshots from November 2025 through February 2026. The question was simple: does the geometric structure stay stable, or does it deform?</p><div style=overflow-x:auto;margin-top:1rem;margin-bottom:1rem><pre>
+</pre>
+<p>Tier 1 features behave like low-dimensional manifolds embedded in higher-dimensional space. Nearly all the local variance lives in one direction. The fluffy cloud. Tier 3 features are effectively discrete. Their variance does not organize along a dominant continuous axis. The threadlike cloud, or no cloud at all.</p>
+<p>The lesson from Q2: you can&rsquo;t apply the same analysis to all feature groups and expect consistent results. The geometry of <code>role_probability</code> and the geometry of <code>attack_surface</code> are different kinds of objects.</p>
+<p>
+<a href="http://localhost:1313/tor-visualization/plots/q2_directional_dominance.png" data-dimbox data-dimbox-caption="Q2 anisotropy distribution">
+    <img src="http://localhost:1313/tor-visualization/plots/q2_directional_dominance.png" alt="Q2 anisotropy distribution" />
+</a>
+
+</p>
+<hr>
+<h2 id="q3-is-the-structure-density-or-correlation">Q3: Is the structure density or correlation?</h2>
+<p>For <code>network_allocation</code>, the answer was clear: it&rsquo;s correlation. The first principal component loads at 1.0. The features don&rsquo;t cluster in dense pockets. They align along a shared axis. It&rsquo;s a line, not a cloud.</p>
+<p>For <code>role_probability</code> and <code>bandwidth_performance</code>, the answer was ambiguous. Strong local geometry, but no clean global structure. I spent time wondering if this was a threshold problem, maybe I&rsquo;d drawn the wrong boundary, or the scale was off. It wasn&rsquo;t. The ambiguity is real. Those feature groups have coherent local neighborhoods that don&rsquo;t resolve into a single global shape.</p>
+<p>That finding is meaningful on its own. Not everything has to resolve. Some structure is genuinely local.</p>
+<hr>
+<h2 id="q4-did-any-of-this-hold-over-time">Q4: Did any of this hold over time?</h2>
+<p>This is where the intuition met its hardest test.</p>
+<p>I ran the diagnostics across 94 snapshots from November 2025 through February 2026. The question was simple: does the geometric structure stay stable, or does it deform?</p>
+<div style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
+<pre>
 Snapshots analyzed:  94
 Stable days:         38  (40%)
 Unstable days:       56  (60%)
 Mean stability:       0.560
-</pre></div><p>60% unstable. The mean stability score barely clears 0.5. And then, starting February 9th, something worse: 13 consecutive degenerate days. CCA (Canonical Correlation Analysis, which measures how well two independent representations of the same data agree) collapsed completely. It never recovered.</p><p><a href=https://vib5252.github.io/tor-visualization/plots/q4_stability_over_time.png data-dimbox data-dimbox-caption="Q4 stability over time"><img src=https://vib5252.github.io/tor-visualization/plots/q4_stability_over_time.png alt="Q4 stability over time"></a></p><p>What actually happened on February 9th matters, because the honest version is more instructive than the dramatic one.</p><p>That day I made a deliberate decision: fix the CCA projection at 16 dimensions, train it once, and freeze it across time. The decision itself wasn&rsquo;t wrong. What failed was how the training data was constructed. CCA requires paired samples, RBM latent vectors and VAE latent vectors, drawn from the same relays at the same snapshot. Instead, due to missing historical RBM inputs, the training script silently reused February 9th RBM data for all historical dates. VAE data varied across dates. RBM data was effectively constant.</p><p>When one side of a correlation has zero variance, correlation becomes undefined. The optimizer had nothing to work with. All 16 canonical correlations came back exactly zero. Not small. Zero. Then I froze that degenerate projection and kept applying it to new data for 13 days.</p><p>The geometry wasn&rsquo;t collapsing. The alignment layer was already collapsed, locked to a basis trained on corrupted inputs.</p><p>What matters is what happened next. I could have patched the bug and moved on. Instead I treated it as a signal. If the alignment layer is this fragile, what assumptions was it making? That question is what produced the Q1-Q4 meta-framework. The collapse didn&rsquo;t reveal a geometric singularity. It revealed that alignment methods assume variance, and when that assumption breaks, agreement scores become meaningless without warning.</p><hr><h2 id=the-rank-1-truth>The rank-1 truth</h2><p>Before the collapse, CCA produced one striking result.</p><p>Two independent observers, the RBM and the VAE, were trained separately on the same relay data. They share no weights, no architecture, no explicit coordination. When I asked how much they agreed on the latent structure, the answer was: almost entirely on one dimension, and almost not at all on any other.</p><p style=margin-bottom:.5rem>First canonical correlation: <strong>0.826</strong>.<br>Second canonical correlation: near noise.</p><div style=overflow-x:auto;margin-top:0;margin-bottom:1rem><pre>
+</pre>
+</div>
+<p>60% unstable. The mean stability score barely clears 0.5. And then, starting February 9th, something worse: 13 consecutive degenerate days. CCA (Canonical Correlation Analysis, which measures how well two independent representations of the same data agree) collapsed completely. It never recovered.</p>
+<p>
+<a href="http://localhost:1313/tor-visualization/plots/q4_stability_over_time.png" data-dimbox data-dimbox-caption="Q4 stability over time">
+    <img src="http://localhost:1313/tor-visualization/plots/q4_stability_over_time.png" alt="Q4 stability over time" />
+</a>
+
+</p>
+<p>What actually happened on February 9th matters, because the honest version is more instructive than the dramatic one.</p>
+<p>That day I made a deliberate decision: fix the CCA projection at 16 dimensions, train it once, and freeze it across time. The decision itself wasn&rsquo;t wrong. What failed was how the training data was constructed. CCA requires paired samples, RBM latent vectors and VAE latent vectors, drawn from the same relays at the same snapshot. Instead, due to missing historical RBM inputs, the training script silently reused February 9th RBM data for all historical dates. VAE data varied across dates. RBM data was effectively constant.</p>
+<p>When one side of a correlation has zero variance, correlation becomes undefined. The optimizer had nothing to work with. All 16 canonical correlations came back exactly zero. Not small. Zero. Then I froze that degenerate projection and kept applying it to new data for 13 days.</p>
+<p>The geometry wasn&rsquo;t collapsing. The alignment layer was already collapsed, locked to a basis trained on corrupted inputs.</p>
+<p>What matters is what happened next. I could have patched the bug and moved on. Instead I treated it as a signal. If the alignment layer is this fragile, what assumptions was it making? That question is what produced the Q1-Q4 meta-framework. The collapse didn&rsquo;t reveal a geometric singularity. It revealed that alignment methods assume variance, and when that assumption breaks, agreement scores become meaningless without warning.</p>
+<hr>
+<h2 id="the-rank-1-truth">The rank-1 truth</h2>
+<p>Before the collapse, CCA produced one striking result.</p>
+<p>Two independent observers, the RBM and the VAE, were trained separately on the same relay data. They share no weights, no architecture, no explicit coordination. When I asked how much they agreed on the latent structure, the answer was: almost entirely on one dimension, and almost not at all on any other.</p>
+<p style="margin-bottom:0.5rem">First canonical correlation: <strong>0.826</strong>.<br>Second canonical correlation: near noise.</p>
+<div style="overflow-x:auto; margin-top:0; margin-bottom:1rem;">
+<pre>
 Dimension 1:  ████████████████████  0.826  ← shared
 Dimension 2:  ░░░░                         ← noise
 Dimension 3:  ░░░                          ← noise
 ...
-</pre></div><p>One stiff axis. Fifteen elastic ones.</p><p>Two models, independently trained, converging on a single shared structure. That&rsquo;s not a coincidence. That&rsquo;s signal.</p><hr><h2 id=why-geometry-has-to-come-before-alignment>Why geometry has to come before alignment</h2><p>February 9th clarified something I hadn&rsquo;t thought through carefully enough.</p><p>CCA measures agreement between representations. But agreement requires something stable to agree <em>about</em>. When variance collapses on one side of the pairing, there is nothing for the models to lock onto. The score doesn&rsquo;t just drop. It becomes undefined, and undefined is not the same as zero.</p><p>I had been thinking of CCA as a diagnostic tool. It is. But it assumes the geometry is already well-defined. It doesn&rsquo;t warn you when that assumption breaks. It just returns a number.</p><p>The lesson is sequencing. You can&rsquo;t measure agreement before you understand structure. Alignment cannot precede geometric understanding.</p><p>Drift is not motion. It&rsquo;s deformation of latent geometric structure. And a relay that looks surprising in one representation might just be registering that deformation, not that the relay itself has changed. Surprising is not the same as anomalous.</p><hr><h2 id=the-open-question>The open question</h2><p>The one stiff axis remains unidentified. But now I know what it isn&rsquo;t.</p><p>My leading hypothesis was <code>consensus_weight</code>, the Tor network&rsquo;s explicit capacity allocation signal. A single authoritative number the network computes for each relay. If any feature drives a shared latent dimension across independent models, it seemed like the obvious candidate.</p><p>I ran the test. I removed <code>consensus_weight</code> and <code>consensus_weight_fraction</code> from the feature set entirely, retrained both models from scratch on the reduced features, and measured the geometric impact.</p><p style=margin-bottom:.5rem>The shared dimension didn't collapse. It got stronger.</p><div style=overflow-x:auto;margin-top:0;margin-bottom:1rem><pre>
+</pre>
+</div>
+<p>One stiff axis. Fifteen elastic ones.</p>
+<p>Two models, independently trained, converging on a single shared structure. That&rsquo;s not a coincidence. That&rsquo;s signal.</p>
+<hr>
+<h2 id="why-geometry-has-to-come-before-alignment">Why geometry has to come before alignment</h2>
+<p>February 9th clarified something I hadn&rsquo;t thought through carefully enough.</p>
+<p>CCA measures agreement between representations. But agreement requires something stable to agree <em>about</em>. When variance collapses on one side of the pairing, there is nothing for the models to lock onto. The score doesn&rsquo;t just drop. It becomes undefined, and undefined is not the same as zero.</p>
+<p>I had been thinking of CCA as a diagnostic tool. It is. But it assumes the geometry is already well-defined. It doesn&rsquo;t warn you when that assumption breaks. It just returns a number.</p>
+<p>The lesson is sequencing. You can&rsquo;t measure agreement before you understand structure. Alignment cannot precede geometric understanding.</p>
+<p>Drift is not motion. It&rsquo;s deformation of latent geometric structure. And a relay that looks surprising in one representation might just be registering that deformation, not that the relay itself has changed. Surprising is not the same as anomalous.</p>
+<hr>
+<h2 id="the-open-question">The open question</h2>
+<p>The one stiff axis remains unidentified. But now I know what it isn&rsquo;t.</p>
+<p>My leading hypothesis was <code>consensus_weight</code>, the Tor network&rsquo;s explicit capacity allocation signal. A single authoritative number the network computes for each relay. If any feature drives a shared latent dimension across independent models, it seemed like the obvious candidate.</p>
+<p>I ran the test. I removed <code>consensus_weight</code> and <code>consensus_weight_fraction</code> from the feature set entirely, retrained both models from scratch on the reduced features, and measured the geometric impact.</p>
+<p style="margin-bottom:0.5rem">The shared dimension didn't collapse. It got stronger.</p>
+<div style="overflow-x:auto; margin-top:0; margin-bottom:1rem;">
+<pre>
 Baseline (with consensus_weight):    pc1_global = 0.36
 E1       (without consensus_weight): pc1_global = 0.27
 Effective dimensionality (dim_95):   9 → 9  (unchanged)
-</pre></div><p>Removing the two features cost one independent dimension of information. They were nearly perfectly collinear, eigenvalue ratio ~10¹⁵, essentially the same number stored twice. The geometry was not organized around them. <code>consensus_weight</code> was the loudest voice in the room, but not the one the models were listening to.</p><p>The audit also surfaced something worth noting: <code>consensus_weight</code> correlates at 0.94 with <code>advertised_bandwidth</code> and <code>observed_bandwidth</code>. Its signal was already present in the data. Removing it didn&rsquo;t create a void. It reduced redundancy.</p><p>So the stiff axis is something more fundamental. Something the two models find independently, even after the dominant capacity signal is gone.</p><p>This changes the question. Not what is the most prominent feature, but what does a relay actually <em>do</em> over time that two independent observers consistently agree on.</p><p>A snapshot shows position. What I think the models are converging on is something closer to trajectory, the behavioral history of a relay, not its current state. A relay that has held the same flags for two years, maintained stable bandwidth, stayed consistently online. That relay has a different geometric signature than one that appeared last week with identical current values.</p><p>The network treats <code>consensus_weight</code> as ground truth for capacity allocation. But the models may be finding something the network doesn&rsquo;t explicitly label: that reliable relays are, in a precise mathematical sense, tonal. Their history predicts their future. Unreliable ones are noise.</p><p>That&rsquo;s the next experiment. Not removing features, but adding history: lifespan, uptime consistency, bandwidth stability over time. Turning the snapshot into a film.</p><p>The sail doesn&rsquo;t fight the wind. It reads it. I think the stiff axis is the wind.</p><hr><h2 id=the-meta-framework>The Meta-Framework</h2><p>The Q1–Q4 diagnostic framework is now public.</p><p><a href=https://github.com/vib5252/tor-meta-framework>tor-meta-framework on GitHub</a></p><p>The repo includes the full pipeline — fetch, contract, Q1–Q4 diagnostics, and the VAE+RBM worked example. If you&rsquo;re exploring the Tor network or want to run the same geometric diagnostics on your own network data, that&rsquo;s the starting point.</p><div class=tags><a class=link href=https://vib5252.github.io/tor-visualization/tags/geometry/><i class="fa fa-tag"></i> Geometry
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/stability/><i class="fa fa-tag"></i> Stability
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/pca/><i class="fa fa-tag"></i> Pca
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/cca/><i class="fa fa-tag"></i> CCA
-</a><a class=link href=https://vib5252.github.io/tor-visualization/tags/code/><i class="fa fa-tag"></i> Code</a></div></div><div class=footer><div class=categories><i class="fa fa-file-lines"></i><div class=links><a href=https://vib5252.github.io/tor-visualization/posts/>Posts</a></div></div><div class=date><i class="fa fa-calendar-days"></i>
-<span class="text moment">2026-02-26</span></div></div></article></div></div><footer><div class=container><div class=recent-posts><strong>Latest posts</strong><ul><li><a href=https://vib5252.github.io/tor-visualization/posts/february-20th/>What Changed on February 20th?</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>What the Geometry Actually Told Us</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/geometry-of-change/>The Geometry of Change</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/sensitivity/>Sensitivity and the Jacobian Matrix</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/goal/>Goal</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/drift/>Feature Drift</a></li><li><a href=https://vib5252.github.io/tor-visualization/posts/which_cluster/>Cluster Characterization</a></li></ul></div><div class=right><div class=archive></div></div></div></footer><div class=credits><div class=container><div class=copyright><a href=https://vib5252.github.io/tor-visualization/>&copy;
-2024 - 2026
-by TOR Visualization</a></div><div class=author><a href=https://github.com/mirmousaviii/mostafa-hugo-theme target=_blank>Powered by Mostafa-Hugo-Theme</a></div></div></div><script src=https://vib5252.github.io/tor-visualization/theme.min.bb0851191447aa1518e91349573493da59c9ce96fbded709f00a48178ed92ed8.js integrity="sha256-uwhRGRRHqhUY6RNJVzST2lnJzpb73tcJ8ApIF47ZLtg="></script></body></html>
+</pre>
+</div>
+<p>Removing the two features cost one independent dimension of information. They were nearly perfectly collinear, eigenvalue ratio ~10¹⁵, essentially the same number stored twice. The geometry was not organized around them. <code>consensus_weight</code> was the loudest voice in the room, but not the one the models were listening to.</p>
+<p>The audit also surfaced something worth noting: <code>consensus_weight</code> correlates at 0.94 with <code>advertised_bandwidth</code> and <code>observed_bandwidth</code>. Its signal was already present in the data. Removing it didn&rsquo;t create a void. It reduced redundancy.</p>
+<p>So the stiff axis is something more fundamental. Something the two models find independently, even after the dominant capacity signal is gone.</p>
+<p>This changes the question. Not what is the most prominent feature, but what does a relay actually <em>do</em> over time that two independent observers consistently agree on.</p>
+<p>A snapshot shows position. What I think the models are converging on is something closer to trajectory, the behavioral history of a relay, not its current state. A relay that has held the same flags for two years, maintained stable bandwidth, stayed consistently online. That relay has a different geometric signature than one that appeared last week with identical current values.</p>
+<p>The network treats <code>consensus_weight</code> as ground truth for capacity allocation. But the models may be finding something the network doesn&rsquo;t explicitly label: that reliable relays are, in a precise mathematical sense, tonal. Their history predicts their future. Unreliable ones are noise.</p>
+<p>That&rsquo;s the next experiment. Not removing features, but adding history: lifespan, uptime consistency, bandwidth stability over time. Turning the snapshot into a film.</p>
+<p>The sail doesn&rsquo;t fight the wind. It reads it. I think the stiff axis is the wind.</p>
+<hr>
+<h2 id="the-meta-framework">The Meta-Framework</h2>
+<p>The Q1–Q4 diagnostic framework is now public.</p>
+<p><a href="https://github.com/vib5252/tor-meta-framework">tor-meta-framework on GitHub</a></p>
+<p>The repo includes the full pipeline — fetch, contract, Q1–Q4 diagnostics, and the VAE+RBM worked example. If you&rsquo;re exploring the Tor network or want to run the same geometric diagnostics on your own network data, that&rsquo;s the starting point.</p>
+
+    
+
+    
+    <div class="tags">
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/geometry/">
+            <i class="fa fa-tag"></i> Geometry
+        </a>
+        
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/stability/">
+            <i class="fa fa-tag"></i> Stability
+        </a>
+        
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/pca/">
+            <i class="fa fa-tag"></i> Pca
+        </a>
+        
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/cca/">
+            <i class="fa fa-tag"></i> CCA
+        </a>
+        
+        
+        
+        
+        <a class="link" href="http://localhost:1313/tor-visualization/tags/code/">
+            <i class="fa fa-tag"></i> Code
+        </a>
+        
+        
+    </div>
+    
+
+
+    
+
+</div>
+
+    
+<div class="footer">
+<div class="categories">
+        <i class="fa fa-file-lines "></i>
+        <div class="links">
+            
+                <a href="http://localhost:1313/tor-visualization/posts/">Posts</a>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="date">
+        
+            <i class="fa fa-calendar-days"></i>
+            
+            <span class="text moment">
+                2026-02-26</span>
+            
+        
+    </div>
+
+
+
+</div>
+
+</article>
+
+        
+    </div>
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+            <ul>
+                
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/february-20th/">What Changed on February 20th?</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/geometry-told-us/">What the Geometry Actually Told Us</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/geometry-of-change/">The Geometry of Change</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/sensitivity/">Sensitivity and the Jacobian Matrix</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/goal/">Goal</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/drift/">Feature Drift</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://localhost:1313/tor-visualization/posts/which_cluster/">Cluster Characterization</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        
+
+        <div class="right">
+            
+
+
+
+            
+            <div class="archive">
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="http://localhost:1313/tor-visualization/">
+                &copy;
+                
+                2024 - 2026
+                
+                by TOR Visualization
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://github.com/mirmousaviii/mostafa-hugo-theme"
+                target="_blank">Powered by Mostafa-Hugo-Theme</a>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script src="http://localhost:1313/tor-visualization/theme.js"></script>
+
+
+
+
+
+    
+
+    
+</body>
+
+</html>

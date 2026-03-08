@@ -16,7 +16,7 @@ The breach was not publicly disclosed until March 3-5.
 
 Three days later, on February 20th, the geometry of the Tor network changed.
 
-This post is about what that means — and why the honest answer is: we don't know yet.
+This post is about what that means — and why the honest answer is: I don't know yet.
 
 *W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):*
 ![E3 Signal W=14](/plots/e3_w14_signal.png)
@@ -118,7 +118,7 @@ returns, their mirror image. And the identities of the people under surveillance
 
 Sophisticated techniques. A commercial ISP vendor's infrastructure leveraged to
 exploit FBI network controls. Congress notified weeks later. Not public on
-February 17th.
+February 17th. ([CNN](https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network), [Politico](https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072))
 
 ---
 
@@ -256,7 +256,7 @@ FBI breach of its surveillance warrant system.
 Pen register and trap-and-trace data exposed.
 Identities of surveillance subjects exposed.
 Not publicly known until March 3-5.
-(AP, CNN, Reuters, WSJ)
+([CNN](https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network), [Politico](https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072), AP, Reuters, WSJ)
 
 February 20, 2026
 E3 geometric trigger, relay-side only.
