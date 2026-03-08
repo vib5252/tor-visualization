@@ -2,7 +2,7 @@
 title: "The Geometry of Change"
 date: 2025-11-22
 tags: ["geometry"]
-weight: 2
+weight: 3
 ---
 
 When you watch relay clusters over time, the first thing that stands out is motion. Points drift, shapes shift a little, boundaries move. But distance doesn’t tell the whole story. Two clusters can travel the same amount yet experience completely different internal changes. One stays cohesive. Another stretches at the edges. A third barely moves but rotates in place. The coordinates change, but the meaning doesn’t sit in the coordinates.

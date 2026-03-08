@@ -3,7 +3,7 @@ title: "What the Geometry Actually Told Us"
 date: 2026-02-26
 tags: ["Geometry", "Stability", "PCA", "CCA", "Code"]
 math: true
-weight: 1
+weight: 2
 ---
 
 In November I wrote that geometry turns motion into something interpretable. That post was written from intuition, before any real measurement had been done. It was a claim about what geometry *should* be able to do.
