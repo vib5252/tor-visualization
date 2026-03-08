@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Sensitivity on TOR Visualization</title>
-    <link>https://vib5252.github.io/tor-visualization/tags/sensitivity/</link>
-    <description>Recent content in Sensitivity on TOR Visualization</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vib5252.github.io/tor-visualization/tags/sensitivity/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Sensitivity and the Jacobian Matrix</title>
-      <link>https://vib5252.github.io/tor-visualization/posts/sensitivity/</link>
-      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://vib5252.github.io/tor-visualization/posts/sensitivity/</guid>
-      <description>&lt;p&gt;Unlike a plain autoencoder, a &lt;strong&gt;contractive autoencoder&lt;/strong&gt; doesn’t just reconstruct the input, it also learns to &lt;strong&gt;control the sensitivity&lt;/strong&gt; of its latent space to small changes in the input features.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;strong&gt;loss function&lt;/strong&gt; combines two terms:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reconstruction error&lt;/strong&gt;: Measures how well the autoencoder can recover the original input from the compressed latent space.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Contractive penalty&lt;/strong&gt;: Involves the &lt;strong&gt;Jacobian matrix&lt;/strong&gt; of the encoder and directly penalizes excessive sensitivity.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The training objective is:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sensitivity on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/sensitivity/</link><description>Recent content in Sensitivity on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/sensitivity/index.xml" rel="self" type="application/rss+xml"/><item><title>Sensitivity and the Jacobian Matrix</title><link>https://vib5252.github.io/tor-visualization/posts/sensitivity/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/sensitivity/</guid><description>&lt;p>Unlike a plain autoencoder, a &lt;strong>contractive autoencoder&lt;/strong> doesn’t just reconstruct the input, it also learns to &lt;strong>control the sensitivity&lt;/strong> of its latent space to small changes in the input features.&lt;/p>
+&lt;p>The &lt;strong>loss function&lt;/strong> combines two terms:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Reconstruction error&lt;/strong>: Measures how well the autoencoder can recover the original input from the compressed latent space.&lt;/li>
+&lt;li>&lt;strong>Contractive penalty&lt;/strong>: Involves the &lt;strong>Jacobian matrix&lt;/strong> of the encoder and directly penalizes excessive sensitivity.&lt;/li>
+&lt;/ul>
+&lt;p>The training objective is:&lt;/p></description></item></channel></rss>
