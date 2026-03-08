@@ -8,18 +8,33 @@ of FBI investigations. The attacker&rsquo;s techniques were described as sophist
 The breach was not publicly disclosed until March 3-5.</p><p>A pen register does not record the content of a communication. No audio. No
 transcripts. No messages. It records outgoing metadata — every IP address contacted,
 the exact timestamp, how long the connection lasted. A trap-and-trace is the mirror
-image: incoming metadata. Who reached out to you, when, for how long.</p><p>That distinction matters. Metadata reveals the pattern of life. You call a criminal
-defense attorney for two minutes, then your accountant, then an offshore bank — all
-within an hour. No one needs to hear a single word. The structure of the calls tells
-the whole story. For whoever breached this system, the prize was not a wiretap
-recording. It was the map of who the FBI was watching — and everyone those people
-had been talking to.</p><p>The attacker entered through a commercial ISP vendor&rsquo;s infrastructure. A supply
+image: incoming metadata. Who reached out to you, when, for how long.</p><p>That distinction matters. Metadata reveals the pattern of life. For whoever breached
+this system, the prize was not a wiretap recording. It was the map of who the FBI
+was watching — and everyone those people had been talking to.</p><p>The attacker entered through a commercial ISP vendor&rsquo;s infrastructure. A supply
 chain compromise. The front door was locked. They used a trusted third party as
-a backdoor.</p><p>Three days later, on <u>February 20th</u>, <u>the geometry of the TOR network changed</u>. This post is about what that means — and why the honest answer is: I don&rsquo;t know yet.</p><p><em>W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):</em>
-<a href=https://vib5252.github.io/tor-visualization/plots/e3_w14_signal.png data-dimbox data-dimbox-caption="E3 Signal W=14"><img src=https://vib5252.github.io/tor-visualization/plots/e3_w14_signal.png alt="E3 Signal W=14"></a></p><p>The previous post documented that the pipeline had been operating in a degenerate
-state since February 9th — 13 consecutive days where the CCA alignment collapsed
-and the two observers lost their shared direction entirely. February 20th sits inside
-that window. What follows happened while the system was near-blind.</p><hr><h2 id=the-framework>The Framework</h2><p>For the past 98 days, two independent machine learning observers have been watching
+a backdoor.</p><p>This entry vector has a name and a history.</p><p>In 2024, a Chinese state-linked threat group known as Salt Typhoon compromised the
+lawful intercept systems of at least nine major US telecommunications providers —
+AT&amp;T, Verizon, Lumen, and others. They entered the same way: through ISP
+infrastructure, through the supply chain, through trusted vendor access. Once
+inside, they accessed the metadata of over a million users. More importantly, they
+accessed federal target selection lists — the active roster of who law enforcement
+was watching, and the full operational network of everyone those targets had been
+in contact with.</p><p>Salt Typhoon did not just steal data. They learned the structure of FBI surveillance.
+Who was being watched. Who was connected to whom. The entire graph.</p><p>The FBI has since stated that Salt Typhoon holds exfiltrated data in perpetuity —
+for future theft, future exploitation, future leverage. Whether the February 17
+breach is connected to Salt Typhoon has not been confirmed. The entry vector is
+identical. The target is identical. The value of the prize is identical.</p><p>When that map moves — to peer intelligence services, to the subjects of surveillance
+themselves, to operational networks that have now learned they are burned — the
+people on it who use Tor do not stop using Tor. They change how they use it. New
+entry guards. New circuits. Different timing patterns. Operational security responses
+at scale are not visible in traffic volume. They are visible in the pattern of which
+relays get selected together — and how that pattern shifts between two independent
+observers watching the same network from different mathematical vantage points.</p><p>Three days later, <u>on February 20th, the geometry of the Tor network changed.</u></p><p>This post is about what that means — and why the honest answer is: I don&rsquo;t know yet.</p><p><em>W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):</em>
+<a href=https://vib5252.github.io/tor-visualization/plots/e3_w14_signal.png data-dimbox data-dimbox-caption="E3 Signal W=14"><img src=https://vib5252.github.io/tor-visualization/plots/e3_w14_signal.png alt="E3 Signal W=14"></a></p><p>The <a href=https://vib5252.github.io/tor-visualization/posts/geometry-told-us/>previous post</a> documented that the
+pipeline had been operating in a degenerate state since February 9th — 13 consecutive
+days where the CCA alignment collapsed and the two observers lost their shared
+direction entirely. February 20th sits inside that window. What follows happened
+while the system was near-blind.</p><hr><h2 id=the-framework>The Framework</h2><p>For the past 98 days, two independent machine learning observers have been watching
 the Tor relay network. Not the traffic. Not the users. The shape.</p><p>23 behavioral features per relay, per day: bandwidth, uptime, restart frequency,
 address stability, consensus weight, flag history, and related signals. No packets
 inspected. No content. No individual identities.</p><p>The first observer — a Variational Autoencoder — maps the relay population into a
@@ -59,13 +74,22 @@ during investigations.</p><p>The exposed data included pen register returns — 
 surveillance targets: who they contacted, when, for how long — and trap-and-trace
 returns, their mirror image. And the identities of the people under surveillance.</p><p>Sophisticated techniques. A commercial ISP vendor&rsquo;s infrastructure leveraged to
 exploit FBI network controls. Congress notified weeks later. Not public on
-February 17th.</p><hr><h3 id=february-20-2026>February 20, 2026</h3><p>Three days after the FBI detected the breach —</p><p>The E3 framework registered a structural trigger at the 14-day window scale.
+February 17th. (<a href=https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network>CNN</a>, <a href=https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072>Politico</a>)</p><p>This is the same entry vector Salt Typhoon used in 2024 to compromise nine US
+telecom providers and access federal lawful intercept systems. In that operation,
+Salt Typhoon accessed active federal target selection lists — the operational map
+of who was under surveillance and their full contact network. Attribution of the
+February 17 breach has not been confirmed. The pattern is documented.</p><hr><h3 id=february-20-2026>February 20, 2026</h3><p>Three days after the FBI detected the breach —</p><p>The E3 framework registered a structural trigger at the 14-day window scale.
 θ = 67°. Ranked sixth in 98 days of data.</p><p>The next day — February 21st — θ collapsed to 1.4°. The minimum value recorded
 in the entire W=14 dataset. One day. Trigger to lock. The axis froze.</p><p>Simultaneously: the OONI global anomaly rate began rising for the first time since
 January. 11.5% to 13.4% the following day. A 14-day progressive climb had begun.</p><p>The character of the signal matters. The geometric shift was relay-side only. No
 spike in the volume of users connecting globally. No change in accessibility. Only
 the pattern of which relays co-activated together — and how that pattern aligned
-between two observers who share no infrastructure and no methodology.</p><p>A relay-side event with a one-day lag to client-side impact.</p><p>Cause: unknown.</p><p><em>An independent audit raised an important caveat: the February 20 signal may be a
+between two observers who share no infrastructure and no methodology.</p><p>A relay-side event. No corresponding client-side spike.</p><p>This is consistent with operational security responses at scale. Users who learn
+they are under surveillance — or whose contacts learn the same — do not stop using
+Tor. They change how they use it. New entry guards, new circuits, changed timing.
+That behavioral shift does not change the number of users connecting. It changes
+which relays they connect through, and how those relay selections correlate across
+the network. That is exactly what the geometry measures.</p><p>Cause: unknown.</p><p><em>An independent audit raised an important caveat: the February 20 signal may be a
 CCA solver artifact — the algorithm switching between two nearly equal eigenvectors
 in a degenerate subspace — rather than a genuine network event. A synthetic noise
 test was run to address this. The θ suppression pattern — 9 of 11 W=14 windows
@@ -78,7 +102,8 @@ availability zones in AWS ME-CENTRAL-1 were knocked out. EC2, S3, Lambda, RDS,
 DynamoDB: all affected.</p><p>Tor relays hosted on AWS infrastructure in the UAE degraded or went offline.</p><p>One caveat, stated plainly: most Tor relays are hosted in Europe and North America.
 Middle East AWS hosting is a small fraction of global relay capacity. The physical
 destruction likely contributed to what followed — but probably was not its dominant
-cause.</p><p>Nine days after February 20th.</p><hr><h3 id=march-6-2026>March 6, 2026</h3><p>The strongest signal in 98 days.</p><p>θ = 80.4°. Ranked first. Heuristic score: 0.255.</p><p>On the same day — independently, with no shared infrastructure, no shared
+cause.</p><p>Nine days after February 20th.</p><hr><h3 id=march-6-2026>March 6, 2026</h3><p>The strongest signal in 98 days.</p><p>θ = 80.4°. Ranked first. Heuristic score: 0.255 — above the noise maximum at W=14.
+The scoring metric does not fire on pure random input at that window scale.</p><p>On the same day — independently, with no shared infrastructure, no shared
 methodology, no coordination of any kind — OONI recorded an 18.2% global anomaly
 rate across its collection. The highest reading in 270,285 records spanning
 181 countries.</p><p>Two independent measurement systems. Same day.</p><pre style=overflow-x:auto;margin-top:1rem;margin-bottom:1rem>
@@ -100,7 +125,7 @@ external to the entire pipeline — unexplainable by any internal artifact.</p><
 footprint, pure relay-side, genuinely unexplained.</p><p>What was reframed: the θ suppression pattern during degenerate periods may be CCA
 numerical pseudo-stability over highly overlapping windows, not a physical property
 of the network. The scoring function is heuristic with no established null
-distribution. Relay population churn across 98 days has not been controlled for.</p><p>These findings were accepted. They are why the work continues rather than why it stops.</p><hr><h2 id=what-this-post-is-not-claiming>What This Post Is Not Claiming</h2><p>The framework did not predict the drone strike.</p><p>The framework did not detect the FBI breach.</p><p>February 20 has not been attributed to any cause.</p><p>The OONI rise has not been confirmed as access disruption — it may be probe density.</p><p>March 6 has not been confirmed as a statistically significant outlier by external
+distribution. Relay population churn across 98 days has not been controlled for.</p><p>These findings were accepted. They are why the work continues rather than why it stops.</p><hr><h2 id=what-this-post-is-not-claiming>What This Post Is Not Claiming</h2><p>The framework did not predict the drone strike.</p><p>The framework did not detect the FBI breach.</p><p>February 20 has not been attributed to any cause.</p><p>The Salt Typhoon connection to the February 17 breach has not been confirmed.</p><p>The OONI rise has not been confirmed as access disruption — it may be probe density.</p><p>March 6 has not been confirmed as a statistically significant outlier by external
 review — but the score of 0.255 sits above the noise maximum at W=14 in synthetic
 testing. The scoring metric never fires on pure random input at that window scale.</p><p>No individuals are identified. No traffic was inspected. No content was read.</p><p>This is a geometric finding. Security implications, if any, are for others to assess.</p><hr><h2 id=what-this-post-is-claiming>What This Post Is Claiming</h2><p>Five dates. Sourced precisely.</p><pre style=overflow-x:auto;margin-top:1rem;margin-bottom:1rem>
 December 19-20, 2025
@@ -112,7 +137,9 @@ FBI breach of its surveillance warrant system.
 Pen register and trap-and-trace data exposed.
 Identities of surveillance subjects exposed.
 Not publicly known until March 3-5.
-(AP, CNN, Reuters, WSJ)
+Same entry vector as Salt Typhoon 2024.
+Attribution unconfirmed.
+(AP, CNN, Politico, Reuters, WSJ)
 
 February 20, 2026
 E3 geometric trigger, relay-side only.
@@ -125,13 +152,15 @@ Two availability zones destroyed.
 (Tom's Hardware, CNBC)
 
 March 6, 2026
-E3 rank #1 in 98 days.
-OONI 18.2% — highest in collection.
+E3 rank #1 in 98 days. Score above noise maximum.
+OONI 18.2% globally — highest in collection.
+Ex-Russia: 7.48%, ramp +1.78 points confirmed.
 Both peaked simultaneously.
 February 20 + 14 = March 6. Exactly.
 </pre><hr><h2 id=the-question>The Question</h2><p>The drone strike is explained. March 6 is layered but partially understood.
-December 19-20 is a mystery — contained, quiet, and still waiting for an answer.</p><p>February 20 is different.</p><p>Three days after the FBI detected a breach of the system holding the identities of
-its surveillance targets and their connection metadata —</p><p>The geometry of the Tor network shifted in a way that ranked sixth in 98 days of
+December 19-20 is a mystery — contained, quiet, and still waiting for an answer.</p><p>February 20 is different.</p><p>Three days after the FBI detected a breach using the same entry vector a Chinese
+state actor used in 2024 to map the operational network of every active FBI
+surveillance target —</p><p>The geometry of the Tor network shifted in a way that ranked sixth in 98 days of
 continuous observation. Visible only at the relay level. No change in the volume
 of users connecting. No change in accessibility. Only the pattern of which relays
 co-activated together, and how that pattern aligned between two observers who did

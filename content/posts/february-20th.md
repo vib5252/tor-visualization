@@ -19,26 +19,53 @@ transcripts. No messages. It records outgoing metadata — every IP address cont
 the exact timestamp, how long the connection lasted. A trap-and-trace is the mirror
 image: incoming metadata. Who reached out to you, when, for how long.
 
-That distinction matters. Metadata reveals the pattern of life. You call a criminal
-defense attorney for two minutes, then your accountant, then an offshore bank — all
-within an hour. No one needs to hear a single word. The structure of the calls tells
-the whole story. For whoever breached this system, the prize was not a wiretap
-recording. It was the map of who the FBI was watching — and everyone those people
-had been talking to.
+That distinction matters. Metadata reveals the pattern of life. For whoever breached
+this system, the prize was not a wiretap recording. It was the map of who the FBI
+was watching — and everyone those people had been talking to.
 
 The attacker entered through a commercial ISP vendor's infrastructure. A supply
 chain compromise. The front door was locked. They used a trusted third party as
 a backdoor.
 
-Three days later, on <u>February 20th</u>, <u>the geometry of the TOR network changed</u>. This post is about what that means — and why the honest answer is: I don't know yet.
+This entry vector has a name and a history.
+
+In 2024, a Chinese state-linked threat group known as Salt Typhoon compromised the
+lawful intercept systems of at least nine major US telecommunications providers —
+AT&T, Verizon, Lumen, and others. They entered the same way: through ISP
+infrastructure, through the supply chain, through trusted vendor access. Once
+inside, they accessed the metadata of over a million users. More importantly, they
+accessed federal target selection lists — the active roster of who law enforcement
+was watching, and the full operational network of everyone those targets had been
+in contact with.
+
+Salt Typhoon did not just steal data. They learned the structure of FBI surveillance.
+Who was being watched. Who was connected to whom. The entire graph.
+
+The FBI has since stated that Salt Typhoon holds exfiltrated data in perpetuity —
+for future theft, future exploitation, future leverage. Whether the February 17
+breach is connected to Salt Typhoon has not been confirmed. The entry vector is
+identical. The target is identical. The value of the prize is identical.
+
+When that map moves — to peer intelligence services, to the subjects of surveillance
+themselves, to operational networks that have now learned they are burned — the
+people on it who use Tor do not stop using Tor. They change how they use it. New
+entry guards. New circuits. Different timing patterns. Operational security responses
+at scale are not visible in traffic volume. They are visible in the pattern of which
+relays get selected together — and how that pattern shifts between two independent
+observers watching the same network from different mathematical vantage points.
+
+Three days later, <u>on February 20th, the geometry of the Tor network changed.</u>
+
+This post is about what that means — and why the honest answer is: I don't know yet.
 
 *W=14 days — Feb 20 trigger (θ=67°), Mar 6 rank #1 (θ=80.4°):*
 ![E3 Signal W=14](/plots/e3_w14_signal.png)
 
-The previous post documented that the pipeline had been operating in a degenerate
-state since February 9th — 13 consecutive days where the CCA alignment collapsed
-and the two observers lost their shared direction entirely. February 20th sits inside
-that window. What follows happened while the system was near-blind.
+The [previous post]({{< relref "posts/geometry-told-us.md" >}}) documented that the
+pipeline had been operating in a degenerate state since February 9th — 13 consecutive
+days where the CCA alignment collapsed and the two observers lost their shared
+direction entirely. February 20th sits inside that window. What follows happened
+while the system was near-blind.
 
 ---
 
@@ -138,7 +165,13 @@ returns, their mirror image. And the identities of the people under surveillance
 
 Sophisticated techniques. A commercial ISP vendor's infrastructure leveraged to
 exploit FBI network controls. Congress notified weeks later. Not public on
-February 17th.
+February 17th. ([CNN](https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network), [Politico](https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072))
+
+This is the same entry vector Salt Typhoon used in 2024 to compromise nine US
+telecom providers and access federal lawful intercept systems. In that operation,
+Salt Typhoon accessed active federal target selection lists — the operational map
+of who was under surveillance and their full contact network. Attribution of the
+February 17 breach has not been confirmed. The pattern is documented.
 
 ---
 
@@ -160,7 +193,14 @@ spike in the volume of users connecting globally. No change in accessibility. On
 the pattern of which relays co-activated together — and how that pattern aligned
 between two observers who share no infrastructure and no methodology.
 
-A relay-side event with a one-day lag to client-side impact.
+A relay-side event. No corresponding client-side spike.
+
+This is consistent with operational security responses at scale. Users who learn
+they are under surveillance — or whose contacts learn the same — do not stop using
+Tor. They change how they use it. New entry guards, new circuits, changed timing.
+That behavioral shift does not change the number of users connecting. It changes
+which relays they connect through, and how those relay selections correlate across
+the network. That is exactly what the geometry measures.
 
 Cause: unknown.
 
@@ -197,7 +237,8 @@ Nine days after February 20th.
 
 The strongest signal in 98 days.
 
-θ = 80.4°. Ranked first. Heuristic score: 0.255.
+θ = 80.4°. Ranked first. Heuristic score: 0.255 — above the noise maximum at W=14.
+The scoring metric does not fire on pure random input at that window scale.
 
 On the same day — independently, with no shared infrastructure, no shared
 methodology, no coordination of any kind — OONI recorded an 18.2% global anomaly
@@ -257,6 +298,8 @@ The framework did not detect the FBI breach.
 
 February 20 has not been attributed to any cause.
 
+The Salt Typhoon connection to the February 17 breach has not been confirmed.
+
 The OONI rise has not been confirmed as access disruption — it may be probe density.
 
 March 6 has not been confirmed as a statistically significant outlier by external
@@ -283,7 +326,9 @@ FBI breach of its surveillance warrant system.
 Pen register and trap-and-trace data exposed.
 Identities of surveillance subjects exposed.
 Not publicly known until March 3-5.
-(AP, CNN, Reuters, WSJ)
+Same entry vector as Salt Typhoon 2024.
+Attribution unconfirmed.
+(AP, CNN, Politico, Reuters, WSJ)
 
 February 20, 2026
 E3 geometric trigger, relay-side only.
@@ -296,8 +341,9 @@ Two availability zones destroyed.
 (Tom's Hardware, CNBC)
 
 March 6, 2026
-E3 rank #1 in 98 days.
-OONI 18.2% — highest in collection.
+E3 rank #1 in 98 days. Score above noise maximum.
+OONI 18.2% globally — highest in collection.
+Ex-Russia: 7.48%, ramp +1.78 points confirmed.
 Both peaked simultaneously.
 February 20 + 14 = March 6. Exactly.
 </pre>
@@ -311,8 +357,9 @@ December 19-20 is a mystery — contained, quiet, and still waiting for an answe
 
 February 20 is different.
 
-Three days after the FBI detected a breach of the system holding the identities of
-its surveillance targets and their connection metadata —
+Three days after the FBI detected a breach using the same entry vector a Chinese
+state actor used in 2024 to map the operational network of every active FBI
+surveillance target —
 
 The geometry of the Tor network shifted in a way that ranked sixth in 98 days of
 continuous observation. Visible only at the relay level. No change in the volume
