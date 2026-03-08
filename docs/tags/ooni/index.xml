@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OONI on TOR Visualization</title>
-    <link>http://localhost:1313/tor-visualization/tags/ooni/</link>
-    <description>Recent content in OONI on TOR Visualization</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tor-visualization/tags/ooni/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>What Changed on February 20th?</title>
-      <link>http://localhost:1313/tor-visualization/posts/february-20th/</link>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tor-visualization/posts/february-20th/</guid>
-      <description>&lt;p&gt;On February 17, 2026, the FBI detected a breach of its Digital Collection System&#xA;Network — the internal system used to manage wiretapping and foreign intelligence&#xA;surveillance warrants. According to a notification sent to Congress and reviewed by&#xA;the Associated Press, the breached system contained pen register and trap-and-trace&#xA;surveillance returns, and personally identifiable information pertaining to subjects&#xA;of FBI investigations. The attacker&amp;rsquo;s techniques were described as sophisticated.&#xA;The breach was not publicly disclosed until March 3-5.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OONI on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/ooni/</link><description>Recent content in OONI on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/ooni/index.xml" rel="self" type="application/rss+xml"/><item><title>What Changed on February 20th?</title><link>https://vib5252.github.io/tor-visualization/posts/february-20th/</link><pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/february-20th/</guid><description>&lt;p>On February 17, 2026, the FBI detected a breach of its Digital Collection System
+Network — the internal system used to manage wiretapping and foreign intelligence
+surveillance warrants. According to a notification sent to Congress and reviewed by
+the Associated Press, the breached system contained pen register and trap-and-trace
+surveillance returns, and personally identifiable information pertaining to subjects
+of FBI investigations. The attacker&amp;rsquo;s techniques were described as sophisticated.
+The breach was not publicly disclosed until March 3-5.&lt;/p></description></item></channel></rss>
