@@ -252,13 +252,16 @@ February 20 + 14 days = March 6. Exactly.
 </pre>
 
 Three things converged on this date. The window purge hypothesis predicted this
-spike was the window's memory releasing — February 20 state clearing after 14 days,
-mathematical consequence, not new network event. A boundary test of all W=14 events
-found that December 19-20 had no W=7 precursor at all. W=14 detected it
-independently. The window purge hypothesis does not hold. March 6 is a genuine
-W=14 detection, not a delayed echo of February 20. Six days of post-strike relay
-disruption accumulated in the window. And the OONI ramp, climbing since
-February 21st, reaching its peak.
+spike was the window's memory releasing — mathematical, not network. A boundary
+test of all W=14 events found that December 19-20 had no W=7 precursor at all.
+W=14 detected it independently. The February 3 and February 20 events had W=7
+rows at the expected 14-day prior dates, but those rows had θ of 14.76° and
+12.18° — near-zero, below any detection threshold. W=7 saw the same data and
+registered nothing. W=14 amplified sub-threshold structure that W=7 passed over.
+The window purge hypothesis does not hold. March 6 is a genuine W=14 detection,
+not a delayed echo of February 20. Six days of post-strike relay disruption
+accumulated in the window. And the OONI ramp, climbing since February 21st,
+reaching its peak.
 
 These causes are real. They are not fully disentangled. The strongest single
 observation is the simplest one: two independent systems, built differently,
@@ -392,9 +395,10 @@ global peak. NetBlocks country-level data needs to be correlated with December 1
 and February 20. Monte Carlo null distribution needs to be built.
 
 None of this is done. As of March 7, the geometry has not resolved. The W=14
-signal continued rather than recovering after the March 6 peak. March 8 is the
-next date to watch. The dataset does not end yesterday. The question is still
-open — and moving.
+signal continued rather than recovering after the March 6 peak. All three window
+scales — W=3, W=7, and W=14 — showed θ above background on March 7. The geometry
+is not recovering. It is continuing. March 8 is the next date to watch. The
+question is still open — and moving.
 
 ---
 
