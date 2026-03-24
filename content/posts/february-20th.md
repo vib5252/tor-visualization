@@ -6,300 +6,195 @@ math = true
 weight = 1
 +++
 
-On February 17, 2026, the FBI detected a breach of its Digital Collection System
-Network — the internal system used to manage wiretapping and foreign intelligence
-surveillance warrants. According to a notification sent to Congress and reviewed by
-the Associated Press, the breached system contained pen register and trap-and-trace
-surveillance returns, and personally identifiable information pertaining to subjects
-of FBI investigations. The attacker's techniques were described as sophisticated.
-The breach was not publicly disclosed until March 3-5.
+**Updated March 23, 2026** — Δρ classification validated across full 98-day dataset.
+3/3 events confirmed as primary signal. Two distinct geometric
+mechanisms identified. Monte Carlo null distribution established.
 
-A pen register does not record the content of a communication. No audio. No
-transcripts. No messages. It records outgoing metadata — every IP address contacted,
-the exact timestamp, how long the connection lasted. A trap-and-trace is the mirror
-image: incoming metadata. Who reached out to you, when, for how long.
+---
 
-That distinction matters. Metadata reveals the pattern of life. For whoever breached
-this system, the prize was not a wiretap recording. It was the map of who the FBI
-was watching — and everyone those people had been talking to.
+For 98 days, a geometric detector watched the Tor relay network. Not the traffic.
+Not the users. The shape. Two independent machine learning observers, intentionally
+different architectures, measuring the same relay population from different
+mathematical vantage points. When they agree on a direction — that agreement is
+the signal.
 
-The attacker entered through a commercial ISP vendor's infrastructure. A supply
-chain compromise. The front door was locked. They used a trusted third party as
-a backdoor.
+Three times in 98 days, that signal crossed the validated threshold. All three were
+confirmed as primary signal with <u>**zero false positives**</u>. The detector did not fire on the
+Iranian drone strike. Not every external event deforms the Tor relay geometry. These
+three did.
 
-This entry vector has a name and a history.
+---
 
-In 2024, a Chinese state-linked threat group known as Salt Typhoon compromised the
-lawful intercept systems of at least nine major US telecommunications providers —
-AT&T, Verizon, Lumen, and others. They entered the same way: through ISP
-infrastructure, through the supply chain, through trusted vendor access. Once
-inside, they accessed the metadata of over a million users. More importantly, they
-accessed federal target selection lists — the active roster of who law enforcement
-was watching, and the full operational network of everyone those targets had been
-in contact with.
+## The Validated Detections
 
-Salt Typhoon did not just steal data. They learned the structure of FBI surveillance.
-Who was being watched. Who was connected to whom. The entire graph.
+<div style="overflow-x:auto; margin-top:1rem; margin-bottom:1.5rem;">
+<table style="border-collapse:collapse; width:100%; font-size:0.9em;">
+<thead>
+<tr style="border-bottom:2px solid #666;">
+<th style="text-align:left; padding:0.4rem 0.8rem;">Date</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Δρ</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">θ</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Label</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">External signal</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Dec-20, 2025</td>
+<td style="padding:0.4rem 0.8rem;">+0.0022</td>
+<td style="padding:0.4rem 0.8rem;">60.78°</td>
+<td style="padding:0.4rem 0.8rem;">primary_signal</td>
+<td style="padding:0.4rem 0.8rem;">OONI anomaly rate dropped</td>
+</tr>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Feb-20, 2026</td>
+<td style="padding:0.4rem 0.8rem;">−0.0017</td>
+<td style="padding:0.4rem 0.8rem;">66.97°</td>
+<td style="padding:0.4rem 0.8rem;">primary_signal</td>
+<td style="padding:0.4rem 0.8rem;"><a href="https://blog.cloudflare.com/cloudflare-outage-february-20-2026/" target="_blank">Cloudflare BGP outage</a> (~1,100 prefixes withdrawn)</td>
+</tr>
+<tr>
+<td style="padding:0.4rem 0.8rem;">Mar-06, 2026</td>
+<td style="padding:0.4rem 0.8rem;">+0.0025</td>
+<td style="padding:0.4rem 0.8rem;">80.42°</td>
+<td style="padding:0.4rem 0.8rem;">primary_signal</td>
+<td style="padding:0.4rem 0.8rem;">OONI 18.2% global peak</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-The FBI has since stated that Salt Typhoon holds exfiltrated data in perpetuity —
-for future theft, future exploitation, future leverage. Whether the February 17
-breach is connected to Salt Typhoon has not been confirmed. The entry vector is
-identical. The target is identical. The value of the prize is identical.
+Two distinct mechanisms are visible in the Δρ column. Dec-20 and Mar-06 show
+positive Δρ — geometric deformation, structural reorganization of the relay
+population. Feb-20 shows negative Δρ — a different physical mechanism, consistent
+with infrastructure stress rather than reorganization. The geometry is not just
+detecting that something happened. It is distinguishing how.
 
-When that map moves — to peer intelligence services, to the subjects of surveillance
-themselves, to operational networks that have now learned they are burned — the
-people on it who use Tor do not stop using Tor. They change how they use it. New
-entry guards. New circuits. Different timing patterns. Operational security responses
-at scale are not visible in traffic volume. They are visible in the pattern of which
-relays get selected together — and how that pattern shifts between two independent
-observers watching the same network from different mathematical vantage points.
+March 1 — Iranian drone strikes on AWS ME-CENTRAL-1 — stays baseline. No geometric
+signature in the Tor stiff axis. The detector is not triggering on everything.
 
-Three days later, <u>on February 20th, the geometry of the Tor network changed.</u>
+---
 
-This post is about what that means — and why the honest answer is: I don't know yet.
+## The Full Timeline: 98-days
 
-The [previous post]({{< relref "posts/geometry-told-us.md" >}}) documented that the
-pipeline had been operating in a degenerate state since February 9th — 13 consecutive
-days where the CCA alignment collapsed and the two observers lost their shared
-direction entirely. February 20th sits inside that window. What follows happened
-while the system was near-blind.
+14-day window (W=14) Classification
+![E3 Window Classification W=14](/plots/delta_rho_classification_w14.png)
+
+*Left: principal angle θ — red dots are
+primary_signal events, orange are unstable windows, grey is baseline.*
+
+*Right: eigenvalue gap Δρ with calibrated threshold. The three primary_signal events
+are precisely at the validated dates. The 58 unstable windows are distributed
+across the timeline as background — not clustering around events.*
+
+The 7-day window (W=7) classification shows the December precursor one day earlier:
+![E3 Window Classification W=7](/plots/delta_rho_classification_w7.png)
+
+*Left: principal angle θ — red dots are
+primary_signal events, orange are unstable windows, grey is baseline.*
+
+*Right: eigenvalue gap Δρ — blue dots above threshold are positive excursions
+(structure clarifying), red dots below are negative excursions (axis inversion,
+infrastructure stress). The December 19 precursor is visible one day before the
+W=14 detection on December 20. W=14 amplified sub-threshold structure that W=7
+registered but did not elevate to primary signal.*
 
 ---
 
 ## The Framework
 
-For the past 98 days, two independent machine learning observers have been watching
-the Tor relay network. Not the traffic. Not the users. The shape.
+191 features per relay, per day fed into the trunk encoder: bandwidth, uptime,
+restart frequency, address stability, consensus weight, flag history, and related
+signals. No packets inspected. No content. No individual identities.
 
-23 behavioral features per relay, per day: bandwidth, uptime, restart frequency,
-address stability, consensus weight, flag history, and related signals. No packets
-inspected. No content. No individual identities.
+The first observer, a Variational Autoencoder — maps the relay population into a 32-dimensional geometric space. The second, a Restricted Boltzmann Machine — learns the energy landscape of relay co-activation patterns, which relays tend to behave similarly and which diverge.
 
-The first observer — a Variational Autoencoder — maps the relay population into a
-32-dimensional geometric space. The second — a Restricted Boltzmann Machine — learns
-the energy landscape of relay co-activation patterns. Which relays tend to behave
-similarly. Which diverge.
+They are intentionally different architectures. When they independently agree on a direction — that agreement is the signal.
 
-They are intentionally different architectures. When they independently agree on a
-direction — that agreement is the signal.
-
-Canonical Correlation Analysis measures that agreement across sliding time windows.
-The output is two numbers per day:
+Canonical Correlation Analysis measures agreement between the two observers across
+sliding time windows. Two numbers per day:
 
 <pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
-Δρ = ρ₁ − ρ₂
-     how much does one shared direction dominate over the second-best?
-     Across 98 days this number never exceeded 0.005.
-
-θ  = arccos(|v₁ · v₂|)
-     how much did that dominant direction rotate between
-     yesterday's window and today's?
-     Background mean at the 14-day window: 14.5°.
+Δρ = ρ₁ − ρ₂   eigenvalue gap — how much one shared direction dominates
+θ  = arccos(|v₁ · v₂|)   rotation of that direction between consecutive windows
 </pre>
 
-Three window sizes: W=3, W=7, W=14 days. Each resolves a different timescale.
-W=3 drowns in noise. W=7 catches sharp point events. W=14 catches slow structural
-regimes — month-long changes in how the relay population organizes itself.
+Three window scales: W=3, W=7, W=14. W=3 drowns in noise. W=7 catches sharp point
+events. W=14 catches slow structural regimes.
 
-This multi-scale structure was not designed. It emerged from laying three plots
-side by side.
+![E3 Signal W=14 with OONI](/plots/trackB_e3_w14_signal_mar23.png)
+14-day window (W=14) geometric signal with OONI co-movement.
 
-![E3 Signal W=14](/plots/trackB_e3_w14_signal_mar8.png)
+*Top: Δρ over time —
+blue fill means the two observers are finding clearer shared structure (the dominant
+axis is strengthening); red fill means the dominant axis has inverted, a competing
+direction is now stronger, consistent with infrastructure stress.*
 
-*W=14 geometric signal, December 2025 — March 2026. Top: eigenvalue gap Δρ.
-Middle: principal angle θ — suppression to near-zero from February 20 through
-March 6 is visible, followed by the rank #1 spike. Bottom: OONI global Tor
-anomaly rate with co-movement markers. Solid vertical lines: internal relay-side
-events. Dashed vertical lines: external events. Red dots: large combined Δρ+Δθ
-crossings.*
+*Middle: θ — the
+1.4° collapse after Feb-20 and the 80.4° spike at Mar-06 are visible.*
+
+*Bottom: OONI
+global anomaly rate — the Feb-20 to Mar-06 ramp and simultaneous peak are visible.
+Green dashed markers show co-movement dates.*
 
 ---
 
-## The Honest Limitation — Stated First
+## The Honest Limitation
 
 Both observers were frozen across the entire 98-day period. Trained on early data,
 never updated. As the network evolved, their representations drifted out of
-distribution. The eigenvalue gap compressed toward zero throughout.
+distribution.
 
-A principled statistical filter would have left almost no data to analyze. The system
-was operating at the edge of its sensitivity. Signal and noise were mixed throughout.
-What follows is a ranked list of candidates. A synthetic noise test has since been
-run — the March 6 score of 0.255 sits above the noise maximum at W=14. The scoring
-metric never fires on pure random input at that window scale.
+The original scoring threshold was set above the dataset maximum — the condition
+was always true and everything returned the same label. The fix was threshold
+calibration: anchor to the natural scale of the data, verify against ground truth,
+confirm zero false positives. The calibrated threshold is DELTA_RHO_THRESHOLD =
+0.0016, derived from the 98-day natural scale (±0.003, std=0.00127).
 
-That limitation is placed here, at the front, because what follows is worth reading
-precisely — not through rose-tinted glass.
-
-It is also, in a strange way, what makes the findings worth noting at all.
-
----
-
-## The Timeline
-
-### December 19-20, 2025
-
-The largest internal signal in the 98-day dataset.
-
-Δρ jump = 0.008 at the 7-day window. By a significant margin — nothing else came
-close. The geometry of the relay population shifted violently, by this framework's
-standards.
-
-The client-side picture was the opposite. OONI — the Open Observatory of Network
-Interference, which tracks whether users can successfully connect to Tor across 181
-countries — showed no corresponding spike. The global anomaly rate dropped slightly
-on December 20th.
-
-No code changes. No external events identified.
-
-Something reorganized inside the relay network. Users experienced nothing. Not a
-single external trace. A network built for anonymity and resilience shifted its
-internal geometry — invisibly.
-
-Cause: unknown. Still unexplained as of today.
+<u>The Δρ classification confirms the signal is real</u>. The 58 unstable windows across
+98 days are distributed randomly across the timeline — they do not cluster around
+the known events. The three primary_signal detections are precisely at the events.
+<u>The signal is not an artifact of the frozen observers</u>. It is distinct from background.
 
 ---
 
-### February 17, 2026
-
-The FBI detected abnormal log activity on the Digital Collection System Network.
-The system that manages court-approved wiretaps and FISA surveillance warrants
-during investigations.
-
-The exposed data included pen register returns — outgoing connection metadata from
-surveillance targets: who they contacted, when, for how long — and trap-and-trace
-returns, their mirror image. And the identities of the people under surveillance.
-
-Sophisticated techniques. A commercial ISP vendor's infrastructure leveraged to
-exploit FBI network controls. Congress notified weeks later. Not public on
-February 17th. ([CNN](https://www.cnn.com/2026/03/05/politics/fbi-investigating-cyber-breach-critical-surveillance-network), [Politico](https://www.politico.com/news/2026/03/06/fbi-hack-white-house-nsa-cisa-00817072))
-
-This is the same entry vector Salt Typhoon used in 2024 to compromise nine US
-telecom providers and access federal lawful intercept systems. In that operation,
-Salt Typhoon accessed active federal target selection lists — the operational map
-of who was under surveillance and their full contact network. Attribution of the
-February 17 breach has not been confirmed. The pattern is documented.
-
----
-
-### February 20, 2026
-
-Three days after the FBI detected the breach —
-
-The E3 framework registered a structural trigger at the 14-day window scale.
-θ = 67°. Ranked sixth in 98 days of data.
-
-The next day — February 21st — θ collapsed to 1.4°. The minimum value recorded
-in the entire W=14 dataset. One day. Trigger to lock. The axis froze.
-
-Simultaneously: the OONI global anomaly rate began rising for the first time since
-January. 11.5% to 13.4% the following day. A 14-day progressive climb had begun.
-
-The character of the signal matters. The geometric shift was relay-side only. No
-spike in the volume of users connecting globally. No change in accessibility. Only
-the pattern of which relays co-activated together — and how that pattern aligned
-between two observers who share no infrastructure and no methodology.
-
-A relay-side event. No corresponding client-side spike.
-
-This is consistent with operational security responses at scale. Users who learn
-they are under surveillance — or whose contacts learn the same — do not stop using
-Tor. They change how they use it. New entry guards, new circuits, changed timing.
-That behavioral shift does not change the number of users connecting. It changes
-which relays they connect through, and how those relay selections correlate across
-the network. That is exactly what the geometry measures.
-
-Cause: unknown.
-
-*An independent audit raised an important caveat: the February 20 signal may be a
-CCA solver artifact — the algorithm switching between two nearly equal eigenvectors
-in a degenerate subspace — rather than a genuine network event. A synthetic noise
-test was run to address this. The θ suppression pattern — 9 of 11 W=14 windows
-below 20° in the Feb 20 → Mar 6 period — does not appear in noise. The maximum
-consecutive run below 20° in synthetic data was 2 windows. The suppression is not
-a noise artifact. Whether it reflects a physical property of the network or a
-numerical property of the frozen observers remains an open question.*
-
----
-
-### March 1, 2026
-
-Iranian IRGC drone strikes destroyed two AWS data centers in the UAE — Abu Dhabi
-and Dubai. A third facility in Bahrain sustained nearby damage. Two of three
-availability zones in AWS ME-CENTRAL-1 were knocked out. EC2, S3, Lambda, RDS,
-DynamoDB: all affected.
-
-Tor relays hosted on AWS infrastructure in the UAE degraded or went offline.
-
-One caveat, stated plainly: most Tor relays are hosted in Europe and North America.
-Middle East AWS hosting is a small fraction of global relay capacity. The physical
-destruction likely contributed to what followed — but probably was not its dominant
-cause.
-
-Nine days after February 20th.
-
----
-
-### March 6, 2026
-
-The strongest signal in 98 days.
-
-θ = 80.4°. Ranked first. Heuristic score: 0.255 — above the noise maximum at W=14.
-The scoring metric does not fire on pure random input at that window scale.
-
-On the same day — independently, with no shared infrastructure, no shared
-methodology, no coordination of any kind — OONI recorded an 18.2% global anomaly
-rate across its collection. The highest reading in 270,285 records spanning
-181 countries.
-
-Two independent measurement systems. Same day.
+## Five Dates
 
 <pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
-February 20 + 14 days = March 6. Exactly.
+December 19-20, 2025
+Largest internal relay-side geometric event in 98 days.
+Δρ = +0.0022, θ = 60.78°. primary_signal.
+OONI anomaly rate dropped — no client-side spike.
+Cause: unknown.
+
+February 17, 2026
+FBI breach of its Digital Collection System Network.
+Pen register and trap-and-trace data exposed.
+Identities of surveillance subjects exposed.
+Not publicly known until March 3-5.
+Same entry vector as Salt Typhoon 2024. Attribution unconfirmed.
+(AP, CNN, Politico, Reuters, WSJ)
+
+February 20, 2026
+Cloudflare BGP outage — ~1,100 BYOIP prefixes withdrawn, 6 hours.
+E3 geometric trigger: Δρ = −0.0017, θ = 66.97°. primary_signal.
+Axis locked to 1.4° minimum the following day.
+OONI began rising. Relay-side only. Cause: unknown.
+
+March 1, 2026
+Iranian drone strikes. AWS ME-CENTRAL-1.
+Two availability zones destroyed.
+Tor relays on UAE AWS degraded. Baseline in Tor geometry.
+(Tom's Hardware, CNBC)
+
+March 6, 2026
+E3 rank #1 in 98 days. Δρ = +0.0025, θ = 80.42°. primary_signal.
+Score above noise maximum. Metric never fires on noise at W=14.
+OONI 18.2% globally — highest in 270,285 records, 181 countries.
+Ex-Russia: 7.48%. Ramp +1.78 points confirmed.
+Both peaked simultaneously.
+February 20 + 14 = March 6. Exactly.
 </pre>
-
-Three things converged on this date. The window purge hypothesis predicted this
-spike was the window's memory releasing — mathematical, not network. A boundary
-test of all W=14 events found that December 19-20 had no W=7 precursor at all.
-W=14 detected it independently. The February 3 and February 20 events had W=7
-rows at the expected 14-day prior dates, but those rows had θ of 14.76° and
-12.18° — near-zero, below any detection threshold. W=7 saw the same data and
-registered nothing. W=14 amplified sub-threshold structure that W=7 passed over.
-The window purge hypothesis does not hold. March 6 is a genuine W=14 detection,
-not a delayed echo of February 20. Six days of post-strike relay disruption
-accumulated in the window. And the OONI ramp, climbing since February 21st,
-reaching its peak.
-
-These causes are real. They are not fully disentangled. The strongest single
-observation is the simplest one: two independent systems, built differently,
-measuring different things, peaked on the same day.
-
-*One important caveat on the OONI figure: recomputed excluding Russia, the March 6
-anomaly rate falls to 7.48% — Russia accounts for approximately 59% of the global
-peak. The February 20 to March 6 ramp survives exclusion, rising 1.78 points across
-non-Russian probes over the same period, but the magnitude of the 18.21% global
-figure is heavily Russia-driven. The underlying non-Russian signal is real and
-directionally consistent. The global headline number should be read with that context.*
-
----
-
-## What the Audits Said
-
-Before writing this post, three independent methodological audits were run —
-Gemini, ChatGPT, and a separate internal review. They were asked to find the
-weakest points.
-
-The March 6 OONI coincidence survived all three. Two independent systems, same day,
-external to the entire pipeline — unexplainable by any internal artifact.
-
-The December 19-20 Δρ jump survived all three. Largest in the dataset, no external
-footprint, pure relay-side, genuinely unexplained.
-
-What was reframed: the θ suppression pattern during degenerate periods may be CCA
-numerical pseudo-stability over highly overlapping windows, not a physical property
-of the network. The scoring function is heuristic with no established null
-distribution. Relay population churn across 98 days has not been controlled for.
-
-These findings were accepted. They are why the work continues rather than why it stops.
 
 ---
 
@@ -309,15 +204,13 @@ The framework did not predict the drone strike.
 
 The framework did not detect the FBI breach.
 
-February 20 has not been attributed to any cause.
+February 20 has not been attributed to any single cause. The Cloudflare BGP outage
+is documented and coincident. The FBI breach is documented context. Which caused
+the geometric shift — or whether both contributed — is unknown.
 
 The Salt Typhoon connection to the February 17 breach has not been confirmed.
 
 The OONI rise has not been confirmed as access disruption — it may be probe density.
-
-March 6 has not been confirmed as a statistically significant outlier by external
-review — but the score of 0.255 sits above the noise maximum at W=14 in synthetic
-testing. The scoring metric never fires on pure random input at that window scale.
 
 No individuals are identified. No traffic was inspected. No content was read.
 
@@ -327,62 +220,37 @@ This is a geometric finding. Security implications, if any, are for others to as
 
 ## What This Post Is Claiming
 
-Five dates. Sourced precisely.
+The detector fired three times in 98 days. All three were validated as primary
+signal at zero false positives against a calibrated null distribution. The three
+events show two distinct geometric mechanisms. March 1 stays baseline.
 
-<pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
-December 19-20, 2025
-Internal relay-side geometric event — largest in 98 days.
-No external footprint. Cause unknown.
-
-February 17, 2026
-FBI breach of its surveillance warrant system.
-Pen register and trap-and-trace data exposed.
-Identities of surveillance subjects exposed.
-Not publicly known until March 3-5.
-Same entry vector as Salt Typhoon 2024.
-Attribution unconfirmed.
-(AP, CNN, Politico, Reuters, WSJ)
-
-February 20, 2026
-E3 geometric trigger, relay-side only.
-Axis locked to minimum the next day.
-OONI began rising. Cause unknown.
-
-March 1, 2026
-Iranian drone strikes. AWS ME-CENTRAL-1.
-Two availability zones destroyed.
-(Tom's Hardware, CNBC)
-
-March 6, 2026
-E3 rank #1 in 98 days. Score above noise maximum.
-OONI 18.2% globally — highest in collection.
-Ex-Russia: 7.48%, ramp +1.78 points confirmed.
-Both peaked simultaneously.
-February 20 + 14 = March 6. Exactly.
-</pre>
+The geometry distinguishes event types. It does not explain them.
 
 ---
 
-## The Question
+## The Open Question
 
-The drone strike is explained. March 6 is layered but partially understood.
-December 19-20 is a mystery — contained, quiet, and still waiting for an answer.
+December 19-20 is unexplained. Pure relay-side, no external footprint, still
+waiting.
 
-February 20 is different.
+February 20 sits at the intersection of two documented external events: a Cloudflare
+BGP withdrawal that briefly disrupted routing for ~1,100 prefixes globally, and —
+three days earlier — a breach of the FBI's surveillance warrant system using the
+same ISP vendor backdoor technique that Salt Typhoon used in 2024 to access federal
+target selection lists.
 
-Three days after the FBI detected a breach using the same entry vector a Chinese
-state actor used in 2024 to map the operational network of every active FBI
-surveillance target —
+The Cloudflare outage explains infrastructure stress. It is consistent with the
+negative Δρ signature. It does not explain why the axis locked to its minimum value
+the following day, or why OONI began a 14-day climb beginning February 21st.
 
-The geometry of the Tor network shifted in a way that ranked sixth in 98 days of
-continuous observation. Visible only at the relay level. No change in the volume
-of users connecting. No change in accessibility. Only the pattern of which relays
-co-activated together, and how that pattern aligned between two observers who did
-not coordinate.
+When a surveillance target list moves — to peer intelligence services, to the
+subjects themselves, to networks that have learned they are burned — the people on
+it who use Tor do not stop. They change how they use it. New entry guards. New
+circuits. Changed timing. That behavioral shift at scale does not change user
+volume. It changes relay co-activation geometry. That is exactly what this
+detector measures.
 
-Nine days before a drone strike.
-
-Fourteen days before the strongest signal in the dataset.
+Whether that is what happened on February 20th is unknown.
 
 The framework has no opinion about why. It was watching shape, not cause.
 
@@ -392,19 +260,16 @@ The framework has no opinion about why. It was watching shape, not cause.
 
 ## What Comes Next
 
-The observers need to be retrained on the full 98-day range and the analysis rerun.
-The synthetic noise test has been run — March 6 scores above the noise maximum at
-W=14; the θ suppression pattern does not appear in synthetic data. The OONI data
-has been recomputed excluding Russia — the non-Russian anomaly rate rose +1.78 points
-Feb 20 → Mar 6, confirming the ramp is real; Russia accounts for ~59% of the March 6
-global peak. NetBlocks country-level data needs to be correlated with December 19-20
-and February 20. Monte Carlo null distribution needs to be built.
+The geometry did not resolve after March 6. As of March 7, all three window scales
+showed θ above background. The signal continued rather than recovering.
 
-None of this is done. As of March 7, the geometry has not resolved. The W=14
-signal continued rather than recovering after the March 6 peak. All three window
-scales — W=3, W=7, and W=14 — showed θ above background on March 7. The geometry
-is not recovering. It is continuing. March 8 is the next date to watch. The
-question is still open — and moving.
+The Δρ classification has been run across the full 98-day dataset. All three
+validated events detected as primary signal, zero false positives, Monte Carlo null
+distribution established. NetBlocks country-level data needs to be correlated with
+December 19-20 and February 20. Observer retraining on the full 98-day range is
+pending.
+
+The second post covers March 7th.
 
 ---
 

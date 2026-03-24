@@ -1,7 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>E3 on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/e3/</link><description>Recent content in E3 on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/e3/index.xml" rel="self" type="application/rss+xml"/><item><title>What Changed on February 20th?</title><link>https://vib5252.github.io/tor-visualization/posts/february-20th/</link><pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/february-20th/</guid><description>&lt;p>On February 17, 2026, the FBI detected a breach of its Digital Collection System
-Network — the internal system used to manage wiretapping and foreign intelligence
-surveillance warrants. According to a notification sent to Congress and reviewed by
-the Associated Press, the breached system contained pen register and trap-and-trace
-surveillance returns, and personally identifiable information pertaining to subjects
-of FBI investigations. The attacker&amp;rsquo;s techniques were described as sophisticated.
-The breach was not publicly disclosed until March 3-5.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>E3 on TOR Visualization</title>
+    <link>http://localhost:1313/tor-visualization/tags/e3/</link>
+    <description>Recent content in E3 on TOR Visualization</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tor-visualization/tags/e3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Changed on February 20th?</title>
+      <link>http://localhost:1313/tor-visualization/posts/february-20th/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tor-visualization/posts/february-20th/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Updated March 23, 2026&lt;/strong&gt; — Δρ classification validated across full 98-day dataset.&#xA;3/3 events confirmed as primary signal. Two distinct geometric&#xA;mechanisms identified. Monte Carlo null distribution established.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;For 98 days, a geometric detector watched the Tor relay network. Not the traffic.&#xA;Not the users. The shape. Two independent machine learning observers, intentionally&#xA;different architectures, measuring the same relay population from different&#xA;mathematical vantage points. When they agree on a direction — that agreement is&#xA;the signal.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
