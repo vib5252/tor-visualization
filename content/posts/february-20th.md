@@ -1,7 +1,7 @@
 +++
 title = "What Changed on February 20th?"
 date = 2026-03-07
-tags = ["Geometry", "CCA", "E3", "OONI"]
+tags = ["Geometry", "CCA", "E3", "OONI","PAPER0"]
 math = true
 weight = 1
 +++
@@ -23,8 +23,9 @@ This post documents the first empirical validation of that thesis. Over 98 days,
 the detector watched the Tor network without updating its observers. Three times,
 the signal crossed the calibrated detection threshold. All three coincided with
 documented external events. The Iranian drone strike that destroyed two AWS data
-centers did not move it. Routine network churn did not move it. Only three events
-did, and the detector found all three.
+centers did not move it. Routine network churn did not move it. Only three events 
+crossed the threshold, and all three coincided with something real happening in the 
+world.
 
 The February 20th event is the most important of the three. It gave the framework
 something it needed: a reference event with a known external correlate that allowed
