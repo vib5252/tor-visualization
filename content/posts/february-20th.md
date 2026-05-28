@@ -11,7 +11,7 @@ infrastructure failure, a geopolitical shock, without reading a single packet?
 No content. No identities. No traffic volume. Just the shape of how anonymous
 relays behave with each other.
 
-That is the central claim of [Drift as Deformation](https://zenodo.org/records/18463659),
+That is the central claim of [Drift as Deformation](https://github.com/vib5252/tor-meta-framework),
 a geometric framework for detecting structural change in anonymity networks. The
 thesis is simple: when the Tor relay population undergoes a meaningful shift, it
 does not just move. It deforms. The latent geometry changes shape. Two independent
@@ -26,170 +26,134 @@ The bigger the disagreement, the more significant the shift. The detector is not
 looking for anomalies in traffic. It is listening for the moment two independent
 mathematical lenses stop seeing the same thing.
 
-This post documents the first empirical validation of that thesis. Over 98 days,
-the detector watched the Tor network without updating its observers. Three times,
-the signal crossed the calibrated detection threshold. All three coincided with
-documented external events. The Iranian drone strike that destroyed two AWS data
-centers did not move it. Routine network churn did not move it. Only three events
-crossed the threshold, and the detector found all three.
-
-The February 20th event is the most important of the three. It gave the framework
-something it needed: a reference event with a known external correlate that allowed
-the stiff axis to be defined empirically. That reference frame now anchors a
-broader research program.
+This post documents the exploratory analysis that preceded the formal study. The
+observations described here were made across an early 98-day window before the
+formal observation period was established. The definitive findings, including formal
+falsification of the relay departure hypothesis for February 20th, are published in
+the paper: [Latent Geometry as a Structural Monitor](https://arxiv.org/abs/2605.20391)
+(arXiv:2605.20391). The February 20th event is the only externally confirmed event
+in the formal study. Everything else in this post is exploratory geometry.
 
 ---
 
-## The Validated Detections
+## The Confirmed Event: February 20, 2026
+
+On February 20, 2026, at approximately 16:00 UTC (Coordinated Universal Time), [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-february-20-2026/) withdrew BGP prefixes
+affecting ~1,100 BYOIP (Bring Your Own IP) customer routes globally, with 4 full prefix withdrawals
+confirmed by RIPE NCC Routing Information Service (RIPE RIS) BGP routing data.
+BGP (Border Gateway Protocol) is the routing system that controls how traffic moves
+between internet providers. A prefix withdrawal means a block of IP addresses became
+unreachable from the broader internet for the duration of the outage, approximately
+six hours.
+
+The pipeline registered a structural anomaly classified as REGIME_E (stiff-axis
+fracture at the population level):
 
 <div style="overflow-x:auto; margin-top:1rem; margin-bottom:1.5rem;">
 <table style="border-collapse:collapse; width:100%; font-size:0.9em;">
 <thead>
 <tr style="border-bottom:2px solid #666;">
-<th style="text-align:left; padding:0.4rem 0.8rem;">Date</th>
-<th style="text-align:left; padding:0.4rem 0.8rem;">Δρ (did one direction clearly dominate?)</th>
-<th style="text-align:left; padding:0.4rem 0.8rem;">θ (how much did that direction rotate?)</th>
-<th style="text-align:left; padding:0.4rem 0.8rem;">Label</th>
-<th style="text-align:left; padding:0.4rem 0.8rem;">External signal</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Channel</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Signal</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">What it means</th>
 </tr>
 </thead>
 <tbody>
 <tr style="border-bottom:1px solid #444;">
-<td style="padding:0.4rem 0.8rem;">Dec-20, 2025</td>
-<td style="padding:0.4rem 0.8rem;">+0.0022</td>
-<td style="padding:0.4rem 0.8rem;">60.78°</td>
-<td style="padding:0.4rem 0.8rem;">primary_signal (validated detection)</td>
-<td style="padding:0.4rem 0.8rem;">OONI anomaly rate dropped</td>
+<td style="padding:0.4rem 0.8rem;">Global EJT z-score</td>
+<td style="padding:0.4rem 0.8rem;">−4.38</td>
+<td style="padding:0.4rem 0.8rem;">The full relay population moved 4.38 standard deviations into the load-bearing structural axes simultaneously</td>
 </tr>
 <tr style="border-bottom:1px solid #444;">
-<td style="padding:0.4rem 0.8rem;">Feb-20, 2026</td>
-<td style="padding:0.4rem 0.8rem;">−0.0017</td>
-<td style="padding:0.4rem 0.8rem;">66.97°</td>
-<td style="padding:0.4rem 0.8rem;">primary_signal</td>
-<td style="padding:0.4rem 0.8rem;"><a href="https://blog.cloudflare.com/cloudflare-outage-february-20-2026/" target="_blank">Cloudflare BGP outage</a> (~1,100 prefixes withdrawn)</td>
+<td style="padding:0.4rem 0.8rem;">θ (axis rotation)</td>
+<td style="padding:0.4rem 0.8rem;">67.13°</td>
+<td style="padding:0.4rem 0.8rem;">The shared direction between the two observers rotated nearly five times the stable background of 14.6°</td>
 </tr>
 <tr>
-<td style="padding:0.4rem 0.8rem;">Mar-06, 2026</td>
-<td style="padding:0.4rem 0.8rem;">+0.0025</td>
-<td style="padding:0.4rem 0.8rem;">80.42°</td>
-<td style="padding:0.4rem 0.8rem;">primary_signal</td>
-<td style="padding:0.4rem 0.8rem;">OONI 18.2% global peak</td>
+<td style="padding:0.4rem 0.8rem;">Δρ (directional dominance)</td>
+<td style="padding:0.4rem 0.8rem;">−0.0017</td>
+<td style="padding:0.4rem 0.8rem;">A competing direction overtook the dominant one, consistent with infrastructure stress rather than reorganization</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-To read this table: θ is how much the shared direction between the two observers
-rotated compared to the previous window. On a stable day, that rotation is small,
-around 14 degrees on average, the kind of gentle drift you would expect from a
-live network with thousands of relays coming and going. A rotation of 60, 67, or
-80 degrees means the two observers have fundamentally reoriented. They are no
-longer describing the same structure they were describing yesterday. Something in
-the relay population changed enough to move both of them.
+Two signals fired independently. The CCA bridge detected significant observer
+divergence. The global EJT (Eigendecomposition of the Jacobian Trace, which measures
+how much the relay population moved into the load-bearing structural axes) fired
+at z = −4.38. The per-cluster signal for the exit relay group was sub-threshold,
+meaning the deformation was distributed across the full population rather than
+concentrated in any single role cluster. This is consistent with a network-wide
+routing disruption, not a targeted attack on one relay type.
 
-Two distinct mechanisms are visible in the Δρ column. Δρ measures how much one
-shared direction dominates over the next best alternative. Dec-20 and Mar-06 show
-positive Δρ: the dominant direction strengthened, consistent with structural
-reorganization of the relay population. Feb-20 shows negative Δρ: the dominant
-direction weakened and a competing direction became stronger, consistent with
-infrastructure stress rather than reorganization. The geometry is not just
-detecting that something happened. It is distinguishing how.
+**The relay departure hypothesis has been formally falsified.**
 
-March 1, Iranian drone strikes on AWS ME-CENTRAL-1, stays baseline. No geometric
-signature in the Tor stiff axis. The detector is not triggering on everything.
+Forensic analysis compared the 116 relays present on February 19th but absent on
+February 20th against confirmed Cloudflare IPv4 prefixes from RIPE RIS BGP routing
+data. Zero of 116 departed relay IP addresses matched any Cloudflare prefix.
+
+The geometry moved. The relays did not leave. The conclusion is connectivity
+degradation without topology change: routing paths were disrupted while relays
+remained listed in the Tor consensus. Standard relay-count monitoring would have
+seen nothing. The geometric detector saw a 4.38 standard deviation event.
 
 If you are new to this space: Tor is a global network of volunteer-operated relays
 that anonymize internet traffic by routing it through multiple hops. OONI (Open
 Observatory of Network Interference) is an independent project that monitors
-whether users can successfully connect to Tor across 181 countries. BGP (Border
-Gateway Protocol) is the routing system that controls how traffic is directed
-across the internet. The relay population collectively forms a geometric structure.
-When that structure deforms, something changed in how the network is being used.
-This detector measures that deformation. It never sees who is connecting or what
-they are sending. It only sees shape.
-
----
-
-## The Full Timeline: 98-days
-
-W= refers to the sliding window size in days used to compute each measurement.
-A larger window smooths over short bursts and catches slower structural shifts.
-
-14-day window (W=14) Classification
-![E3 Window Classification W=14](/plots/delta_rho_classification_w14.png)
-
-*Left: principal angle θ. Red dots are primary_signal events: validated detections
-where both Δρ and θ crossed the calibrated threshold simultaneously. Orange dots
-are unstable windows where the CCA eigenvalue gap compressed toward zero, making
-the directional measurement unreliable. These are not detections. They are periods
-where the compass needle had no strong preferred direction. Grey dots are stable
-background. The orange windows are distributed randomly across 98 days and do not
-cluster around the validated events, which means the instability is not driving
-the signal.*
-
-*Right: eigenvalue gap Δρ with calibrated threshold. The three primary_signal
-events are precisely at the validated dates.*
-
-The 7-day window (W=7) classification shows the December precursor one day earlier:
-![E3 Window Classification W=7](/plots/delta_rho_classification_w7.png)
-
-*Left: principal angle θ at W=7. Same color scheme. The December 19 precursor
-appears one day before the W=14 detection on December 20, showing that the signal
-was building before the longer window caught it.*
-
-*Right: eigenvalue gap Δρ at W=7. Blue dots above threshold are positive excursions
-where the dominant direction strengthened. Red dots below are negative excursions
-where a competing direction overtook it. W=14 amplified sub-threshold structure
-that W=7 registered but did not elevate to primary_signal.*
+whether users can successfully connect to Tor across 181 countries. The relay
+population collectively forms a geometric structure. When that structure deforms,
+something changed in how the network is being used. This detector measures that
+deformation. It never sees who is connecting or what they are sending.
+It only sees shape.
 
 ---
 
 ## The Framework
 
-191 features per relay, per day fed into the trunk encoder: bandwidth, uptime,
-restart frequency, address stability, consensus weight, flag history, and related
-signals. No packets inspected. No content. No individual identities.
+191 behavioral features per relay, per day, sourced from the public Tor Onionoo API
+(Application Programming Interface). No packets inspected. No content. No individual identities.
 
-The first observer, a Variational Autoencoder, maps the relay population into a
-32-dimensional geometric space. The second, a Restricted Boltzmann Machine, learns
-the energy landscape of relay co-activation patterns, which relays tend to behave
-similarly and which diverge.
+The first observer, a geometric encoder, maps the relay population into a
+32-dimensional latent space and learns which directions in that space are
+load-bearing (the stiff axes) and which absorb movement freely (the soft axes).
+The second observer, a thermodynamic encoder, learns the energy landscape of
+relay co-activation patterns, which relays tend to behave similarly and which
+diverge.
 
 They are intentionally different architectures. When they independently agree on a
 direction, that agreement is the signal. When they stop agreeing, that is the
 detector firing.
 
 Canonical Correlation Analysis (CCA) measures that agreement across sliding time
-windows. It produces two numbers per day:
+windows. Two numbers per day:
 
 <pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
-Δρ = ρ₁ − ρ₂   how much one shared direction dominates over the next best
-θ  = arccos(|v₁ · v₂|)   how much that direction rotated since yesterday
+Δρ = ρ₁ − ρ₂   did one shared direction clearly dominate over the next best?
+θ  = arccos(|v₁ · v₂|)   how much did that direction rotate since yesterday?
 </pre>
 
-On a stable day, θ sits around 14 degrees. The network drifts gently. Both
-observers track it together. When something structural happens, θ jumps. A 60
-degree rotation means the shared direction has fundamentally reoriented overnight.
-An 80 degree rotation, which happened on March 6th, is close to a right angle.
-The two observers were pointing in almost entirely different directions compared
-to the day before.
+On a stable day, θ sits around 14.6 degrees. The network drifts gently. A rotation
+of 60 to 80 degrees means the two observers have fundamentally reoriented. They
+are no longer describing the same structure they were describing yesterday.
 
-Three window scales: W=3, W=7, W=14. W=3 drowns in noise. W=7 catches sharp
-point events. W=14 catches slow structural regimes, month-long changes in how
-the relay population organizes itself.
+The stiff subspace (k = 9 dimensions) is invariant across all 67 formal observation
+windows at the 90% trace mass threshold. It was not chosen. It emerged from the
+network geometry. The Monte Carlo null baseline yields ρ₁ = 0.509 across 1,000
+iterations of Gaussian noise. Empirical Tor data yields ρ₁ = 0.9992. The 16.8σ
+separation confirms the structural agreement is a property of the Tor relay
+population, not of the pipeline architecture.
 
 ![E3 Signal W=14 with OONI](/plots/trackB_e3_w14_signal_mar23.png)
 14-day window (W=14) geometric signal with OONI co-movement.
 
-*Top: Δρ over time. Blue fill means the dominant direction is strengthening. Red
-fill means a competing direction has overtaken it, consistent with infrastructure
-stress.*
+*Top: Δρ over time. Blue fill means the dominant direction is strengthening,
+consistent with structural reorganization. Red fill means a competing direction
+has overtaken it, consistent with infrastructure stress.*
 
 *Middle: θ, the daily rotation of the shared direction. The near-zero collapse
 after Feb-20 means both observers locked onto the same direction and stopped
-moving, an unusually rigid state. The 80 degree spike at Mar-06 means they
-rotated almost a full right angle overnight, the strongest structural shift in
-98 days.*
+moving, an unusually rigid state. The large spike at Mar-06 means they rotated
+close to a right angle overnight.*
 
 *Bottom: OONI global anomaly rate. The climb beginning Feb-21 and the simultaneous
 peak on Mar-06 are visible. Green dashed markers show dates where the geometric
@@ -197,47 +161,144 @@ signal and the OONI rate moved together.*
 
 ---
 
+## Event Classification
+
+The formal paper defines six geometric event classifications requiring no causal
+attribution:
+
+<pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
+PRECURSOR   Thermodynamic fragmentation before geometric deformation.
+            The thermodynamic observer fires. The geometric observer is blind.
+            Earliest detectable signal in the pipeline.
+
+REGIME_S    Elastic population surge absorbed without structural fracture.
+            Large relay influx that the network absorbs through soft axes.
+            Theoretical class. Signature identified forensically within
+            REGIME_E events during Feb 05-13 surge.
+
+REGIME_D    Localized geometric deformation. Geometric observer fires.
+            Thermodynamic observer quiet. Contained to one or two windows.
+
+REGIME_E    Stiff-axis fracture at the population level.
+            Global EJT z-score below -2.0. FPR (False Positive Rate) = 0.0% on 24 stable windows.
+            February 20, 2026 is the only externally confirmed REGIME_E event.
+
+REGIME_K    Administrative maintenance. Forensic checklist required to
+            distinguish from hostile guard-layer activity.
+            Theoretical class. Signature confirmed forensically Apr 07-08.
+
+NORMAL      No gates fire. Population movements absorbed elastically.
+</pre>
+
+February 20th is REGIME_E. The geometry did not just shift. The full relay
+population mean moved into the load-bearing structural axes simultaneously.
+That is what a 4.38 standard deviation global EJT event looks like.
+
+March 6th is REGIME_D: a localized guard cluster reorientation visible only to
+the geometric observer, with no thermodynamic fragmentation. The two events look
+similar at the CCA level. The event taxonomy distinguishes them.
+
+---
+
+## Gate Activation Log
+
+67 observation windows. One externally confirmed event. The table below is the
+detection record. Full classification plots and channel values are in the
+[paper](https://arxiv.org/abs/2605.20391).
+
+<div style="overflow-x:auto; margin-top:1rem; margin-bottom:1.5rem;">
+<table style="border-collapse:collapse; width:100%; font-size:0.9em;">
+<thead>
+<tr style="border-bottom:2px solid #666;">
+<th style="text-align:left; padding:0.4rem 0.8rem;">Date</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Classification</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Key signal</th>
+<th style="text-align:left; padding:0.4rem 0.8rem;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Jan 23-26</td>
+<td style="padding:0.4rem 0.8rem;">PRECURSOR</td>
+<td style="padding:0.4rem 0.8rem;">Thermodynamic fragmentation. CV (Coefficient of Variation) reached dataset maximum of 19.3. Geometric observer blind.</td>
+<td style="padding:0.4rem 0.8rem;">Investigated</td>
+</tr>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Jan 27</td>
+<td style="padding:0.4rem 0.8rem;">REGIME_D</td>
+<td style="padding:0.4rem 0.8rem;">Internal reorganization. Geometric observer fired. Thermodynamic observer quiet.</td>
+<td style="padding:0.4rem 0.8rem;">Investigated</td>
+</tr>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Feb 05-13</td>
+<td style="padding:0.4rem 0.8rem;">REGIME_E</td>
+<td style="padding:0.4rem 0.8rem;">Coordinated residential relay surge. 7,600 single-operator relays. 72.9% rejected by Tor directory authorities. Distinguished from Feb 20 by δmg = 5.17 (population flood) vs Feb 20 δmg = 2.88 (connectivity degradation).</td>
+<td style="padding:0.4rem 0.8rem;">Investigated</td>
+</tr>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Feb 20</td>
+<td style="padding:0.4rem 0.8rem;">REGIME_E</td>
+<td style="padding:0.4rem 0.8rem;">Global EJT z = −4.38. θ = 67.13°. Δρ = −0.0017. Cloudflare BGP withdrawal confirmed by RIPE RIS. Relay departure hypothesis falsified: 0/116 departed relay IPs matched Cloudflare prefixes.</td>
+<td style="padding:0.4rem 0.8rem;"><strong>CONFIRMED</strong></td>
+</tr>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Mar 06</td>
+<td style="padding:0.4rem 0.8rem;">REGIME_D</td>
+<td style="padding:0.4rem 0.8rem;">Localized guard cluster reorientation. Geometric observer fired. Thermodynamic observer quiet. δmg = 2.55, no population flood.</td>
+<td style="padding:0.4rem 0.8rem;">Investigated</td>
+</tr>
+<tr style="border-bottom:1px solid #444;">
+<td style="padding:0.4rem 0.8rem;">Apr 03</td>
+<td style="padding:0.4rem 0.8rem;">MODE_F</td>
+<td style="padding:0.4rem 0.8rem;">CCA rotation elevated (θ = 109.7°) but global EJT sub-threshold. Geometric reorientation without confirmed stiff-axis fracture.</td>
+<td style="padding:0.4rem 0.8rem;">Uninvestigated</td>
+</tr>
+<tr>
+<td style="padding:0.4rem 0.8rem;">Apr 07-08</td>
+<td style="padding:0.4rem 0.8rem;">REGIME_E / REGIME_K</td>
+<td style="padding:0.4rem 0.8rem;">Forensic checklist confirmed administrative fleet restart. Returning relays had mean restart age of 28 days vs 603 days for non-returning cohort, a 21:1 ratio consistent with coordinated maintenance, not hostile activity.</td>
+<td style="padding:0.4rem 0.8rem;">Investigated</td>
+</tr>
+</tbody>
+</table>
+</div>
+
 ## The Honest Limitation
 
-Both observers were frozen across the entire 98-day period. Trained on early data,
-never updated. As the network evolved over 98 days, their internal representations
-drifted out of distribution. They were seeing the network through a lens calibrated
-to November 2025.
+Both observers were frozen across the observation period. Trained on early data,
+never updated. As the network evolved, their representations drifted out of
+distribution.
 
 The original scoring threshold was set above the dataset maximum, so the condition
 was always true and everything returned the same label. The fix was threshold
 calibration: anchor to the natural scale of the data, verify against ground truth,
-confirm no false positives. The calibrated threshold is DELTA_RHO_THRESHOLD =
-0.0016, derived from the 98-day natural scale (±0.003, std=0.00127).
+confirm no false positives. The calibrated threshold DELTA_RHO_THRESHOLD = 0.0016
+is derived from the formal observation dataset natural scale (±0.003, std=0.00127).
 
-<u>The Δρ classification confirms the signal is real</u>. The 58 unstable windows across
-98 days are distributed randomly across the timeline and do not cluster around
-the known events. The three primary_signal detections are precisely at the events.
-<u>The signal is not an artifact of the frozen observers</u>. It is distinct from background.
+<u>The classification confirms the signal is real.</u> The unstable windows across the
+observation period are distributed randomly across the timeline and do not cluster
+around the confirmed events. <u>The signal is not an artifact of the frozen observers.</u>
+It is distinct from background.
 
-The frozen architecture is a current limitation and also a future direction. An
-adaptive encoder that updates continuously as the network evolves would maintain
-a live baseline rather than a static one. That would make the detector sensitive
-to slower structural changes that the current frozen architecture misses, and
-would remove the drift problem entirely. That is a next step, not a solved problem.
+The frozen architecture is a current limitation and a future direction. An adaptive
+encoder that updates continuously as the network evolves would maintain a live
+baseline rather than a static one. That is a next step, not a solved problem.
 
 ---
 
 ## Five Dates
 
-Each validated detection marks a structural transition. The network entered a
-different geometric state. December 20th was one transition. February 20th was
-another. March 6th was the peak of what February 20th started. The dates below
-are the transitions and their external context.
+Each confirmed detection marks a structural transition. The dates below are the
+transitions and their external context. February 20th is the only externally
+confirmed event. All others are geometric observations without external attribution.
 
 <pre style="overflow-x:auto; margin-top:1rem; margin-bottom:1rem;">
 December 19-20, 2025
-Largest internal relay-side geometric event in 98 days.
+From the earlier exploratory analysis. Predates the formal 67-window study.
 Δρ = +0.0022 (dominant direction strengthened sharply).
-θ = 60.78° (four times the stable background of 14°).
-primary_signal. The relay population structurally reorganized.
+θ = 60.78° (four times the stable background of 14.6°).
 OONI anomaly rate dropped, no client-side spike.
-Cause: unknown.
+Cause: unknown. No external attribution.
 
 February 17, 2026
 FBI breach of its Digital Collection System Network.
@@ -248,31 +309,28 @@ Same entry vector as Salt Typhoon 2024. Attribution unconfirmed.
 (AP, CNN, Politico, Reuters, WSJ)
 
 February 20, 2026
-Cloudflare BGP outage, ~1,100 BYOIP prefixes withdrawn, 6 hours.
-E3 geometric trigger (combined Δρ and θ detection signal):
-Δρ = −0.0017 (competing direction overtook the dominant one).
-θ = 66.97° (nearly five times the stable background).
-primary_signal. Infrastructure stress signature.
-The following day, θ collapsed to 1.4°, the lowest in 98 days.
-Both observers locked onto the same rigid direction and stopped moving.
-OONI began climbing. Relay-side only. Cause: unknown.
+Cloudflare BGP outage. ~1,100 BYOIP prefixes withdrawn. Six hours.
+See: https://blog.cloudflare.com/cloudflare-outage-february-20-2026/
+REGIME_E: Global EJT z = −4.38. θ = 67.13°. Δρ = −0.0017.
+Relay departure hypothesis formally falsified: 0/116 departed relay IPs
+matched any Cloudflare prefix (verified against RIPE RIS BGP data).
+Connectivity degradation without topology change: confirmed.
+The only externally confirmed event in the formal study.
 
 March 1, 2026
 Iranian drone strikes. AWS ME-CENTRAL-1.
 Two availability zones destroyed.
-Tor relays on UAE AWS degraded. Baseline in Tor geometry.
-The geometry did not move. Not every external event deforms the network.
+Tor relays on UAE AWS degraded. No geometric signature.
+The detector did not fire. Not every external event deforms the network.
 (Tom's Hardware, CNBC)
 
 March 6, 2026
-E3 rank #1 in 98 days.
-Δρ = +0.0025 (strongest dominant direction in the dataset).
-θ = 80.42° (close to a right angle, nearly six times the stable background).
-primary_signal. Score above noise maximum at W=14.
+REGIME_D: Localized guard cluster reorientation.
+θ = 80.42° (close to a right angle, nearly six times the stable background of 14.6°).
+Geometric observer fired. Thermodynamic observer quiet.
 OONI 18.2% globally, highest in 270,285 records across 181 countries.
 Ex-Russia: 7.48%. Ramp +1.78 points confirmed.
-Both peaked simultaneously.
-February 20 + 14 = March 6. Exactly.
+Both peaked simultaneously. Cause: unknown. No external attribution.
 </pre>
 
 ---
@@ -283,9 +341,10 @@ The framework did not predict the drone strike.
 
 The framework did not detect the FBI breach.
 
-February 20 has not been attributed to any single cause. The Cloudflare BGP outage
-is documented and coincident. The FBI breach is documented context. Which caused
-the geometric shift, or whether both contributed, is unknown.
+February 20 is confirmed as a structural anomaly coinciding with a documented
+Cloudflare infrastructure event. The relay departure hypothesis has been formally
+falsified. The cause of the geometric shift is connectivity degradation. Whether
+the FBI breach contributed is unknown and not claimed.
 
 The Salt Typhoon connection to the February 17 breach has not been confirmed.
 
@@ -299,82 +358,70 @@ This is a geometric finding. Security implications, if any, are for others to as
 
 ## What This Post Is Claiming
 
-The February 20th event validated the core thesis of the Drift as Deformation
-framework: structural change in the Tor relay network manifests as geometric
-deformation of latent space, not as motion. The detector found the signal. The
-calibrated threshold held across 98 days of background. The stiff axis now has
-an empirical reference frame.
+The February 20th event is the first externally confirmed validation of the Drift
+as Deformation framework. The detector identified a structural anomaly coinciding
+with a documented infrastructure failure. The relay departure hypothesis was
+formally falsified by forensic cross-reference against RIPE RIS BGP routing data.
+Connectivity degradation without topology change is a real and previously invisible
+failure mode. The geometric pipeline detected it. Standard relay-count monitoring
+would not have.
 
-Three detections. Two distinct mechanisms confirmed. A research program is now
-anchored to real data.
+The stiff subspace is invariant. The Monte Carlo separation is 16.8σ. The primary
+detection gates (CV gate and global EJT gate) achieve 0.0% false positive rate on
+24 confirmed stable windows.
 
-The next experiments build on this foundation. Multi-scale causal ordering tests
-to understand how signals propagate across window hierarchies. Synthetic
-perturbation experiments to isolate encoder contribution to the signal. Extension
-of the observation window beyond 98 days. The framework is open:
-[tor-meta-framework on GitHub](https://github.com/vib5252/tor-meta-framework).
+The framework is open: [tor-meta-framework on GitHub](https://github.com/vib5252/tor-meta-framework).
+The formal paper: [arXiv:2605.20391](https://arxiv.org/abs/2605.20391).
 
 ---
 
 ## The Open Question
 
-December 19-20 is unexplained. Pure relay-side, no external footprint, still
-waiting.
+What changed on February 20th?
 
-February 20 sits at the intersection of two documented external events: a Cloudflare
-BGP withdrawal that briefly disrupted routing for ~1,100 prefixes globally, and
-three days earlier, a breach of the FBI's surveillance warrant system using the
-same ISP vendor backdoor technique that Salt Typhoon used in 2024 to access federal
-target selection lists.
+The [Cloudflare](https://blog.cloudflare.com/cloudflare-outage-february-20-2026/) BGP withdrawal is confirmed. 
+The geometric signal it produced is formally documented. The relay departure hypothesis has been falsified.
+Connectivity degradation without topology change is a real and previously invisible failure mode.
+That part is answered.
 
-The Cloudflare outage explains infrastructure stress. It is consistent with the
-negative Δρ signature. It does not explain why θ collapsed to 1.4° the following
-day, the most rigid state the detector recorded in 98 days, or why OONI began a
-14-day climb from that point forward.
+What remains open is what followed. The θ collapsed to 1.4° the day after the
+event, the most rigid state the detector recorded across the full observation period.
+OONI began a 14-day climb from that point forward. Those two signals have no
+confirmed explanation.
+
+Three days before February 20th, the FBI detected a breach of its surveillance
+warrant system using the same ISP vendor backdoor technique that Salt Typhoon used
+in 2024 to access federal target selection lists. That context is documented. It is
+not claimed as a cause.
 
 When a surveillance target list moves, to peer intelligence services, to the
 subjects themselves, to networks that have learned they are burned, the people on
 it who use Tor do not stop. They change how they use it. New entry guards. New
 circuits. Changed timing. That behavioral shift at scale does not change user
 volume. It changes relay co-activation geometry. That is exactly what this
-detector measures.
+detector measures. Whether that is what happened here is unknown.
 
-Whether that is what happened on February 20th is unknown.
+March 7th did not settle. All three window scales showed θ above background the
+day after the strongest signal in the dataset. The geometry was still moving.
+The second post covers what happened next.
 
-The framework has no opinion about why. It was watching shape, not cause.
-
-**What changed on February 20th?**
-
----
-
-## What Comes Next
-
-After a primary_signal event, you would expect θ to return toward the stable
-background of around 14 degrees. The axis shifted, the trigger fired, and
-normally the network settles. The geometry finds a new resting position.
-
-March 7th did not settle. All three window scales showed θ above background.
-The geometry was still moving the day after the strongest signal in 98 days.
-That means either the network was still reorganizing, or the February 20th
-transition opened a regime that had not yet resolved, or both. The second post
-covers what happened next.
-
-The Δρ classification has been run across the full 98-day dataset. All three
-validated events detected as primary_signal, Monte Carlo null distribution
-established. NetBlocks country-level data needs to be correlated with December
-19-20 and February 20. Observer retraining on the full 98-day range is pending.
+The confirmed findings are formally documented in the paper:
+[Latent Geometry as a Structural Monitor](https://arxiv.org/abs/2605.20391)
+(arXiv:2605.20391). The framework is open:
+[tor-meta-framework on GitHub](https://github.com/vib5252/tor-meta-framework).
 
 ---
 
-*Updated March 23, 2026. Δρ classification validated across full 98-day dataset.
-3/3 events confirmed as primary_signal. Two distinct geometric mechanisms identified.
-Monte Carlo null distribution established.*
+*Updated May 19, 2026. Formal study published on arXiv (arXiv:2605.20391).
+67 observation windows validated. February 20 is the only externally confirmed
+event. Relay departure hypothesis formally falsified. Monte Carlo separation: 16.8σ.*
 
 ---
 
 *This post is a sequel to [The Geometry Told Us]({{< relref "posts/geometry-told-us.md" >}}),
 which established that two independent observers agree on one dominant shared
-direction in Tor relay behavior. ρ₁ = 0.826. The stiff axis. This post asks whether
+direction in Tor relay behavior. The formal study confirmed ρ₁ = 0.9992, a 16.8σ
+separation above the Monte Carlo null. The stiff axis. This post asks whether
 that axis moves. And when it does, what was happening in the world.*
 
 *The analysis pipeline is published at [tor-meta-framework](https://github.com/vib5252/tor-meta-framework).

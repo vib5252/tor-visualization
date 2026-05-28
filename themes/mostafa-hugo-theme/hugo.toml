@@ -22,6 +22,11 @@ name = 'Code'
 url = 'https://github.com/vib5252/tor-meta-framework'
 weight = 40
 
+[[menus.main]]
+name = 'Publications'
+pageRef = '/publications'
+weight = 50
+
 [module]
 [module.hugoVersion]
 extended = false
