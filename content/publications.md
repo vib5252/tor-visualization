@@ -5,8 +5,6 @@ excludefromindex: true
 weight: 10
 ---
 
-## Papers
-
 ---
 
 ### Latent Geometry as a Structural Monitor: Eigenspace Alignment for Anomaly Detection in Anonymity Networks
