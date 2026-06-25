@@ -11,7 +11,7 @@ infrastructure failure, a geopolitical shock, without reading a single packet?
 No content. No identities. No traffic volume. Just the shape of how anonymous
 relays behave with each other.
 
-That is the central claim of [Drift as Deformation](https://github.com/vib5252/tor-meta-framework),
+That is the central claim of [Drift as Deformation](https://zenodo.org/records/18463659),
 a geometric framework for detecting structural change in anonymity networks. The
 thesis is simple: when the Tor relay population undergoes a meaningful shift, it
 does not just move. It deforms. The latent geometry changes shape. Two independent
