@@ -1,19 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OONI on TOR Visualization</title>
-    <link>https://vib5252.github.io/tor-visualization/tags/ooni/</link>
-    <description>Recent content in OONI on TOR Visualization</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vib5252.github.io/tor-visualization/tags/ooni/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>What Changed on February 20th?</title>
-      <link>https://vib5252.github.io/tor-visualization/posts/february-20th/</link>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://vib5252.github.io/tor-visualization/posts/february-20th/</guid>
-      <description>&lt;p&gt;What if you could detect the echo of a real-world event: a cyberattack, an&#xA;infrastructure failure, a geopolitical shock, without reading a single packet?&#xA;No content. No identities. No traffic volume. Just the shape of how anonymous&#xA;relays behave with each other.&lt;/p&gt;&#xA;&lt;p&gt;That is the central claim of &lt;a href=&#34;https://zenodo.org/records/18463659&#34;&gt;Drift as Deformation&lt;/a&gt;,&#xA;a geometric framework for detecting structural change in anonymity networks. The&#xA;thesis is simple: when the Tor relay population undergoes a meaningful shift, it&#xA;does not just move. It deforms. The latent geometry changes shape. Two independent&#xA;observers, trained on the same relay population but built with different&#xA;architectures, will lose agreement on their shared direction. That loss of agreement&#xA;is the signal.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OONI on TOR Visualization</title><link>https://vib5252.github.io/tor-visualization/tags/ooni/</link><description>Recent content in OONI on TOR Visualization</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://vib5252.github.io/tor-visualization/tags/ooni/index.xml" rel="self" type="application/rss+xml"/><item><title>What Changed on February 20th?</title><link>https://vib5252.github.io/tor-visualization/posts/february-20th/</link><pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate><guid>https://vib5252.github.io/tor-visualization/posts/february-20th/</guid><description>&lt;p>What if you could detect the echo of a real-world event: a cyberattack, an
+infrastructure failure, a geopolitical shock, without reading a single packet?
+No content. No identities. No traffic volume. Just the shape of how anonymous
+relays behave with each other.&lt;/p>
+&lt;p>That is the central claim of &lt;a href="https://zenodo.org/records/18463659">Drift as Deformation&lt;/a>,
+a geometric framework for detecting structural change in anonymity networks. The
+thesis is simple: when the Tor relay population undergoes a meaningful shift, it
+does not just move. It deforms. The latent geometry changes shape. Two independent
+observers, trained on the same relay population but built with different
+architectures, will lose agreement on their shared direction. That loss of agreement
+is the signal.&lt;/p></description></item></channel></rss>
